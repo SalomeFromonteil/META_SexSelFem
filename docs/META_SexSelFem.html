@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74fd2dd"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 74fd2dd </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongd3b918b"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> d3b918b </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74fd2dd" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongd3b918b" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74fd2dd. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version d3b918b. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -560,6 +560,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+d3b918b
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+wflow_publish(files = "analysis/META_SexSelFem.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+86ac540
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -5740,7 +5774,8 @@ Scatter_r_versus_betaSS &lt;- ggplot(data = Data_stand,
   theme_paper(axis.title.x = element_markdown()) +
   annotate(&quot;text&quot;, x = 0.8, y = -0.3, label = paste0(&quot;R^2 == &quot;, round(summary(LM_beta_f_r)$r.squared, 2)), parse = TRUE, size = 7)
 Scatter_r_versus_betaSS</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /> <strong>Figure S7A.</strong> Relationship between effect size <em>r</em> (correlation coefficient) and the actual Bateman gradient (<span class="math inline">\(\beta\)</span><sub>ss</sub>). Graph shows a subset of data for which standardized Bateman gradients were available (<em>N</em> = 68). Dashed line shows the linear regression fit with shaded area indicating the 95% confidence intervals.</p>
+<p><img src="figure/META_SexSelFem.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S7A.</strong> Relationship between effect size <em>r</em> (correlation coefficient) and the actual Bateman gradient (<span class="math inline">\(\beta\)</span><sub>ss</sub>). Graph shows a subset of data for which standardized Bateman gradients were available (<em>N</em> = 68). Dashed line shows the linear regression fit with shaded area indicating the 95% confidence intervals.</p>
 <div id="phylogeny" class="section level2">
 <h2>Phylogeny</h2>
 <p>We reconstructed the phylogeny using divergence times extracted from the TimeTree database (<a href="http://www.timetree.org/" class="uri">http://www.timetree.org/</a>, <span class="citation">(Kumar et al. 2017)</span>) and by using the <code>ggtree</code> package <span class="citation">(Yu et al. 2017, 2018; Yu 2020)</span>.</p>
@@ -5823,7 +5858,8 @@ Figure_Donut_ALL &lt;- plot_grid(DChart_N_ES, DChart_N_Species,
 ggdraw(Phylo) + draw_plot(Figure_Donut_ALL, x = - 0.33, y = -0.34, scale = 0.3) +
   annotate(&quot;text&quot;, x = 0.085, y = 0.08, label = &quot;Sample\nsize&quot;, size = 5, angle=0, lineheight = 1, hjust = 0.5) +
   annotate(&quot;text&quot;, x = 0.245, y = 0.08, label = &quot;Species\nnumber&quot;, size = 5, angle=0, lineheight = 1, hjust = 0.5)</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Phylogeny-1.png" width="768" style="display: block; margin: auto;" /> <strong>Figure S6.</strong> Phylogenetic tree of all sampled species. Doughnut charts show the relative fraction of the sampled effect sizes (i.e., number of Bateman gradients) and the number of species.</p>
+<p><img src="figure/META_SexSelFem.Rmd/Phylogeny-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S6.</strong> Phylogenetic tree of all sampled species. Doughnut charts show the relative fraction of the sampled effect sizes (i.e., number of Bateman gradients) and the number of species.</p>
 </div>
 <div id="forest-plot" class="section level2">
 <h2>Forest plot</h2>
@@ -5861,9 +5897,14 @@ ForestPlot &lt;- ggplot() +
               axis.title.y = element_text(size = 18)) +
   theme(axis.title.x = element_markdown())
 ForestPlot</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Forest_Plot-1.png" width="576" style="display: block; margin: auto;" /> <strong>Figure S2.</strong> Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order. <br></br> ******<br />
-# Bayesian Meta-Analysis<br />
-We ran General Linear Mixed-Effects Models (GLMMs) with the <code>MCMCglmm::MCMCglmm</code> function <span class="citation">(Hadfield 2010)</span> to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (<em>V</em> = 1, <em>nu</em> = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).</p>
+<p><img src="figure/META_SexSelFem.Rmd/Forest_Plot-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S2.</strong> Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order. <br></br></p>
+<hr />
+</div>
+</div>
+<div id="bayesian-meta-analysis" class="section level1">
+<h1>Bayesian Meta-Analysis</h1>
+<p>We ran General Linear Mixed-Effects Models (GLMMs) with the <code>MCMCglmm::MCMCglmm</code> function <span class="citation">(Hadfield 2010)</span> to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (<em>V</em> = 1, <em>nu</em> = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).</p>
 <pre class="r"><code>pr  &lt;- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002)))
 
@@ -5874,8 +5915,7 @@ pr2 &lt;- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002
 BURNIN =   400 #000
 NITT   = 4400 #000
 THIN   =      400</code></pre>
-<p>GLMMs were run with the effect size (r) defined as the response variable weighted by the inverse of its sampling size and included study identifier and observation identifier as a random term.</p>
-</div>
+<p>GLMMs were run with the effect size (<em>r</em>) defined as the response variable weighted by the inverse of its sampling size and included study identifier and observation identifier as a random term.</p>
 <div id="global-effect-size-traditionnal-and-phylogenetic-approach" class="section level2">
 <h2>Global effect size: traditionnal and phylogenetic approach</h2>
 <p>First, we quantified global effect sizes both without (i.e., ‘non-phylogenetic’ GLMMs) and with adding the phylogenetic correlation matrix as an additional random term (‘phylogenetic’ GLMMs).</p>
@@ -5981,11 +6021,12 @@ grid.newpage()
 pushViewport(viewport(layout = grid.layout(nrow = 1, ncol = 1, widths = unit(1, &quot;npc&quot;)))) 
 print(Plot_AllApproaches1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_AllApproaches2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Overall-1.png" width="768" style="display: block; margin: auto;" /> <strong>Figure 1A.</strong> Meta-analytic evidence for sexual selection in females and its relation to the mating system. Global effect size of the Bateman gradient obtained from Generalized Linear Mixed Models (GLMMs) with or without accounting for phylogenetic non-independence (phylogenetic or non-phylogenetic, respectively).</p>
+<p><img src="figure/META_SexSelFem.Rmd/Overall-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Figure 1A.</strong> Meta-analytic evidence for sexual selection in females and its relation to the mating system. Global effect size of the Bateman gradient obtained from Generalized Linear Mixed Models (GLMMs) with or without accounting for phylogenetic non-independence (phylogenetic or non-phylogenetic, respectively).</p>
 </div>
 <div id="moderator-variables" class="section level2">
 <h2>Moderator variables</h2>
-<p>Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category) or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in r.<br />
+<p>Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category) or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in <em>r</em>.<br />
 These models account for phylogenetic non-independence and include the phylogeny as a random effect.</p>
 <div id="mating-success-method" class="section level3">
 <h3>Mating success method</h3>
@@ -6410,7 +6451,8 @@ grid.newpage()
 pushViewport(viewport(layout = grid.layout(nrow = 1, ncol = 1, widths = unit(1, &quot;npc&quot;)))) 
 print(Plot_Density2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_Jitter2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Plots-1.png" width="768" style="display: block; margin: auto;" /> <strong>Figure S3.</strong> Methodological predictors of female Bateman gradients. Raincloud charts showing effects of mating success method (cMS: copulatory mating success, gMS: genetic mating success), mating success range (with or without zero mating success (MS) category) and study type (field versus laboratory studies) on female Bateman gradients (for statistical analysis see Table 2 and S2).</p>
+<p><img src="figure/META_SexSelFem.Rmd/Plots-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S3.</strong> Methodological predictors of female Bateman gradients. Raincloud charts showing effects of mating success method (<em>cMS</em>: copulatory mating success, <em>gMS</em>: genetic mating success), mating success range (with or without zero mating success (MS) category) and study type (field versus laboratory studies) on female Bateman gradients (for statistical analysis see Table 2 and S2).</p>
 </div>
 <div id="mating-system" class="section level3">
 <h3>Mating system</h3>
@@ -6548,7 +6590,8 @@ grid.newpage()
 pushViewport(viewport(layout = grid.layout(nrow = 1, ncol = 1, widths = unit(1, &quot;npc&quot;)))) 
 print(Plot_MatingSystem1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_MatingSystem2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/MatingSystem-1.png" width="768" style="display: block; margin: auto;" /> <strong>Figure 1B.</strong> Meta-analytic evidence for sexual selection in females and its relation to the mating system. Contrast in sexual selection in females between monandrous and polyandrous species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.</p>
+<p><img src="figure/META_SexSelFem.Rmd/MatingSystem-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><strong>Figure 1B.</strong> Meta-analytic evidence for sexual selection in females and its relation to the mating system. Contrast in sexual selection in females between monandrous and polyandrous species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.</p>
 <div id="polyandry" class="section level4">
 <h4>Polyandry</h4>
 <p>We also ran GLMMs with the proportion of multiply mated females (i. e., a continuous variable) as a fixed effect.<br />
@@ -6625,7 +6668,7 @@ Model_Year      &lt;- MCMCglmm(r_f~Year,
 </div>
 <div id="heterogeneity" class="section level2">
 <h2>Heterogeneity</h2>
-<p>We created functions to extract the relevant information from the models and to estimate heterogeneity <em>I²</em>, which we defined as the proportion of variance in effect size that can be attributed to the different levels of random effects <span class="citation">(Higgins and Thompson 2002)</span>. In particular, we decomposed total heterogeneity into the proportional phylogenetic variance (<em>I²_{Phylogeny}</em>), between-study variance (<em>I²_{Study}</em>), and study-specific variance (observation-level random effect; <em>I²_{Observation}</em>) <span class="citation">(Nakagawa and Santos 2012)</span>. For models including predictor variables, we computed the proportion of variance explained by those fixed factors (‘marginal <em>R²</em>’) <span class="citation">(Nakagawa and Schielzeth 2013)</span>.</p>
+<p>We created functions to extract the relevant information from the models and to estimate heterogeneity <em>I²</em>, which we defined as the proportion of variance in effect size that can be attributed to the different levels of random effects <span class="citation">(Higgins and Thompson 2002)</span>. In particular, we decomposed total heterogeneity into the proportional phylogenetic variance (<em>I²<sub>Phylogeny</sub></em>), between-study variance (<em>I²<sub>Study</sub></em>), and study-specific variance (observation-level random effect; <em>I²<sub>Observation</sub></em>) <span class="citation">(Nakagawa and Santos 2012)</span>. For models including predictor variables, we computed the proportion of variance explained by those fixed factors (‘marginal <em>R²</em>’) <span class="citation">(Nakagawa and Schielzeth 2013)</span>.</p>
 <pre class="r"><code># Null models ####
 NullModel_summary1 &lt;- function(which_data) {
   k &lt;- length(which_data$r_f)  # sample size
@@ -6742,7 +6785,7 @@ Table2 &lt;- Table2 %&gt;%
 </div>
 <div id="models-summary" class="section level2">
 <h2>Models summary</h2>
-<p><strong>Table 1. Global tests of sexual selection in females.</strong> Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (k), number of species (N), effect size (r), and heterogeneity I2 arising from phylogenetic affinities, between-study variation, and between-observation variation. Model estimates are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals in brackets.</p>
+<p><strong>Table 1. Global tests of sexual selection in females.</strong> Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (<em>k</em>), number of species (<em>N</em>), effect size (<em>r</em>), and heterogeneity I² arising from phylogenetic affinities, between-study variation, and between-observation variation. Model estimates are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals in brackets.</p>
 <pre class="r"><code>for (i in c(4, 8, 11, 14)){
   Table1[, i] &lt;- paste0(&quot;(&quot;, Table1[, i], &quot;, &quot;)}
 for (i in c(5, 9, 12, 15)){
@@ -7340,7 +7383,7 @@ Polyandrous species
 </tr>
 </tbody>
 </table>
-<p><br></br> <br></br> <strong>Table 2. Predictors of inter-specific variation in female Bateman gradients.</strong> Methodological moderators include mating success method (copulatory versus genetic mating success), mating success range (including versus excluding zero mating success category), study type (field versus lab) and year of publication (continuous variable). Effect of mating system contrasts polyandrous and monandrous species. Effect of polyandry estimates the relationship between the female Bateman gradient and the proportion of polyandrous females in the population. Model estimates (i.e., estimated difference between groups) are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals obtained from phylogenetically controlled General Linear-Mixed Effects Models. The variance explained by the moderator variable is given as the marginal R2 with 95% HPD intervals in brackets.</p>
+<p><br></br> <strong>Table 2. Predictors of inter-specific variation in female Bateman gradients.</strong> Methodological moderators include mating success method (copulatory versus genetic mating success), mating success range (including versus excluding zero mating success category), study type (field versus lab) and year of publication (continuous variable). Effect of mating system contrasts polyandrous and monandrous species. Effect of polyandry estimates the relationship between the female Bateman gradient and the proportion of polyandrous females in the population. Model estimates (i.e., estimated difference between groups) are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals obtained from phylogenetically controlled General Linear-Mixed Effects Models. The variance explained by the moderator variable is given as the marginal R² with 95% HPD intervals in brackets.</p>
 <pre class="r"><code>for (i in c(2, 6)){
   Table2[, i] &lt;- paste0(&quot;(&quot;, Table2[, i], &quot;, &quot;)}
 for (i in c(3, 7)){
@@ -7542,12 +7585,16 @@ Polyandry
 </td>
 </tr>
 </tbody>
-</table>
-<br></br> ******<br />
-# Restricted Maximum Likelihood Meta-Analysis<br />
-For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the <code>metafor</code> package <span class="citation">(Viechtbauer 2010)</span>.</li>
+</table></li>
 </ol></li>
 </ol>
+<p><br></br></p>
+<hr />
+</div>
+</div>
+<div id="restricted-maximum-likelihood-meta-analysis" class="section level1">
+<h1>Restricted Maximum Likelihood Meta-Analysis</h1>
+<p>For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the <code>metafor</code> package <span class="citation">(Viechtbauer 2010)</span>.</p>
 <pre class="r"><code>Data &lt;- read.table(&quot;./data/Fromonteil_et_al_DATA.txt&quot;, fileEncoding = &quot;LATIN1&quot;) # the file encoding supports special characters
 Tree &lt;- read.tree(&quot;./data/Fromonteil_et_al_TREE.txt&quot;)
 MetaData_All_Species_Data &lt;- unique(Data$Species_Phylo)
@@ -7673,10 +7720,9 @@ Model_REML_Year &lt;- rma.mv(r_f ~ Year,
                           data = Data, 
                           random = c(~ 1 | Study_ID, ~ 1 | Index, ~ 1 | Species_Phylo), 
                           R = list(Species_Phylo = forcedC_ALL), method = &quot;REML&quot;)</code></pre>
-</div>
 <div id="models-summary-1" class="section level2">
 <h2>Models summary</h2>
-<p><strong>Table S1.</strong> Global tests of sexual selection in females using the restricted maximum likelihood (REML) approach. Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (<em>k</em>), number of species (<em>N</em>) and estimates of r together with 95% confidence intervals (in brackets).</p>
+<p><strong>Table S1.</strong> Global tests of sexual selection in females using the restricted maximum likelihood (REML) approach. Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (<em>k</em>), number of species (<em>N</em>) and estimates of <em>r</em> together with 95% confidence intervals (in brackets).</p>
 <pre class="r"><code>REMLNullModel_summary1 &lt;- function(which_data) {
   k &lt;- length(which_data$r_f)  # sample size
   N_sp &lt;- length((aggregate(r_f ~ Species_Phylo, data = which_data, FUN = sum))$Species_Phylo)  # number of species
@@ -8345,9 +8391,13 @@ Figure_FunnelPlots &lt;- plot_grid(FunnelPlot, FunnelPlot_Resid,
                                 ncol = 1,
                                 nrow = 2)
 Figure_FunnelPlots</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Funnel_plot-1.png" width="576" style="display: block; margin: auto;" /> <strong>Figure S4.</strong> Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.</p>
-<p><br></br> ******<br />
-# References</p>
+<p><img src="figure/META_SexSelFem.Rmd/Funnel_plot-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><strong>Figure S4.</strong> Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.</p>
+<p><br></br></p>
+<hr />
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-hadfield2010mcmcglmm" class="csl-entry">
 Hadfield, Jarrod D. 2010. <span>“MCMC Methods for Multi-Response Generalized Linear Mixed Models: The MCMCglmm r Package.”</span> <em>Journal of Statistical Software</em> 33: 1–22.
