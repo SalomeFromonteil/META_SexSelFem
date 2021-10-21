@@ -34,41 +34,8 @@ library(htmlTable)
 library(knitr)
 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) # Suppress warnings in the HTML output
-knitr::opts_chunk$set(dev = c("png", "pdf")) # saves png and pdf but prints png
+knitr::opts_chunk$set(dev = c("png", "pdf")) # saves figures as png and pdf but prints png
 ```
-
-# Data
-To answer the question whether females benefit from multiple mating, we screened published papers to find female Bateman gradients (see Figure ). We found 111 effect sizes, that we extracted from 78 studies and across 72 species, as you can see below:
-
-
-__Source Data__ Table of effect sizes included in the meta-analysis. See the text following the table for an explanation of each column.
-```{r data}
-Data <- read.table("./data/Fromonteil_et_al_DATA.txt")
-Tree <- read.tree("./data/Fromonteil_et_al_TREE.txt")
-
-Data %>%
-  dplyr::select(-c(4, 7)) %>% 
-  mutate_if(is.numeric, round, digits = 3) %>%
-kable("html") %>%
-  kable_paper(full_width = T) %>%
-  scroll_box(width = "100%", height = "500px") %>%
-  kable_styling(fixed_thead = T)
-```
-<br></br>
-__Index:__ Individual number given to each effect size (k = 111).
-__Study_ID:__ Identification number given to each study included in the meta-analysis.
-__Study:__ Authors and year of the published study.
-__Species_Phylo:__ Species (n = 72).
-__Polyandry:__ Level of polyandry of the species, bound between 0 (exclusively monogamous) and 1 (exclusively polyandrous).
-__MatingSystem:__ Mating system of female individuals. Either monandrous or polyandrous.
-__StudyType:__ Field study or laboratory study.
-__MS_estimate:__ Mating success can be estimated either by using the number of genetic mating partners (_gMS_) or copulatory mating success (_cMS_).
-__Zero_f:__ Whether this effect size was calculated on a population which includes (1) or excludes (0) individuals with zero mating success.
-__r_f:__ Pearson correlation coefficients converted from female Bateman gradients.
-__r_VAR_f:__ Variance of the effect size (r).
-
-## Phylogeny
-We reconstructed the phylogeny using divergence times extracted from the TimeTree database (http://www.timetree.org/, [@kumar2017timetree]) and by using the `ggtree` package [@yu2017ggtree; @yu2018ggtree; @yu2020ggtree].
 
 ```{r Aesthetics}
 # Plot aesthetics ####
@@ -125,7 +92,67 @@ draw_key_spaced <- function(data, params, size) {  # resizes legend keys
 GeomDensity$draw_key <- draw_key_spaced
 ```
 
-```{r, error = F, fig.height = 10, fig.width = 8}
+# Data
+To address the question whether sexual selection in females is widespread, we screened published papers to find female Bateman gradients (see Figure S5 and Materials and Methods). The dataset includes 111 effect sizes, extracted from 78 studies and across 72 species. <br></br>
+
+__Source Data__ Table of effect sizes included in the meta-analysis.
+```{r data}
+Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "LATIN1") # the file encoding supports special characters
+Tree <- read.tree("./data/Fromonteil_et_al_TREE.txt")
+
+Data %>%
+  dplyr::select(-c(4, 7, 14)) %>% 
+  mutate_if(is.numeric, round, digits = 3) %>%
+kable("html") %>%
+  kable_paper(full_width = T) %>%
+  scroll_box(width = "100%", height = "500px") %>%
+  kable_styling(fixed_thead = T)
+```
+<br></br>
+__Index:__ Individual number given to each effect size (k = 111). <br></br>
+__Study_ID:__ Identification number given to each study included in the meta-analysis.
+__Study:__ Authors and year of the published study. <br></br>
+__Species_Phylo:__ Species (n = 72). <br></br>
+__Polyandry:__ Level of polyandry of the species, bound between 0 (exclusively monogamous) and 1 (exclusively polyandrous). <br></br>
+__MatingSystem:__ Mating system of female individuals. Either monandrous or polyandrous. <br></br>
+__StudyType:__ Field study or laboratory study. <br></br>
+__MS_estimate:__ Mating success can be estimated either by using the number of genetic mating partners (_gMS_) or copulatory mating success (_cMS_). <br></br>
+__Zero_f:__ Whether this effect size was calculated on a population which includes (1) or excludes (0) individuals with zero mating success. <br></br>
+__beta_ss:__ Female Bateman gradients, as reported in the published studies. Only some Bateman gradients are standardized. <br></br>
+__r_f:__ Pearson correlation coefficients converted from female Bateman gradients.
+__r_VAR_f:__ Variance of the effect size (r). <br></br>
+__N_f:__ Sample size of the study. <br></br>
+<br></br>
+
+As only some of the extracted Bateman gradients were computed on relativised data, we converted all obtained slopes into Pearson correlation coefficients (*r*). By running linear regression models between the actual Bateman Gradient and the correlation coefficients, we can check whether *r* is a reliable estimate for the benefit of mating. 
+```{r}
+# Relationship between r and betaSS ####
+Data_stand <- subset(Data, beta_ss_stand == "1")
+
+LM_beta_f_r <- lm(Data_stand$beta_ss ~ Data_stand$r_f)
+summary(LM_beta_f_r)
+anova(LM_beta_f_r)
+
+
+Scatter_r_versus_betaSS <- ggplot(data = Data_stand,
+                                  mapping = aes(x = r_f, y = beta_ss)) +
+  geom_hline(yintercept = 0, linetype = "longdash", color = "black", size = 0.5) +
+  geom_vline(xintercept = 0, linetype = "longdash", color = "black", size = 0.5) +
+  labs(title = "", x = "*r*", y = expression(italic(beta[ss]))) +
+  geom_point(shape = 21, size = 5, fill = "grey", alpha = .6) +
+  scale_y_continuous(limits = c(-0.6, 1.4), breaks = c(-0.6, 0, 0.6, 1.2)) + 
+  scale_x_continuous(limits = c(-0.3, 1.0), breaks = c(0, 0.5, 1.0)) + 
+  geom_smooth(method = lm, se = TRUE, linetype = "longdash", color = "#008080", fill = "#B2D8D8", size = 0.8) +
+  theme_paper(axis.title.x = element_markdown()) +
+  annotate("text", x = 0.8, y = -0.3, label = paste0("R^2 == ", round(summary(LM_beta_f_r)$r.squared, 2)), parse = TRUE, size = 7)
+Scatter_r_versus_betaSS
+```
+__Figure S7.A__ Relationship between effect size *r* (correlation coefficient) and the actual Bateman gradient ($\beta B$_{ss}). Graph shows a subset of data for which standardized Bateman gradients were available (N = 68). Dashed line shows the linear regression fit with shaded area indicating the 95% confidence intervals.
+
+## Phylogeny
+We reconstructed the phylogeny using divergence times extracted from the TimeTree database (http://www.timetree.org/, [@kumar2017timetree]) and by using the `ggtree` package [@yu2017ggtree; @yu2018ggtree; @yu2020ggtree].
+
+```{r Phylogeny, error = F, fig.height = 10, fig.width = 8}
 MetaData_Species <- unique(Data$Species_Phylo)
 theTree <- drop.tip(Tree, Tree$tip.label[-na.omit(match(MetaData_Species, Tree$tip.label))])
 theTree$tip.label <- gsub("_", " ", theTree$tip.label)
@@ -145,7 +172,7 @@ Phylo <- ggtree(theTree, size = 0.6) +
   annotate("rect", xmin = 368, xmax = 570, ymin = 8.5, ymax = 0, fill = Palette(9)[9], alpha = .8) +
    geom_tiplab(size = 3, colour = "black", hjust = 0.0) +
    theme_tree()
-Phylo <- rotate(Phylo, 73) %>% rotate(77) %>% rotate(79) %>% rotate(91)  %>% rotate(95) 
+Phylo <- rotate(Phylo, 73) %>% rotate(77) %>% rotate(79) %>% rotate(91) %>% rotate(95) 
 
 # Number of effect sizes/class ####
 Data_r_f <- as.data.frame(aggregate(r_f ~ Class + Species_Phylo + Index, data = Data, FUN = mean, na.rm = TRUE))
@@ -206,13 +233,15 @@ ggdraw(Phylo) + draw_plot(Figure_Donut_ALL, x = - 0.33, y = -0.34, scale = 0.3) 
   annotate("text", x = 0.085, y = 0.08, label = "Sample\nsize", size = 5, angle=0, lineheight = 1, hjust = 0.5) +
   annotate("text", x = 0.245, y = 0.08, label = "Species\nnumber", size = 5, angle=0, lineheight = 1, hjust = 0.5)
 ```
-__Figure S3. Phylogenetic tree of all sampled species.__ Doughnut charts show the relative fraction of the sampled effect sizes (i.e., number of Bateman gradients) and the number of species.
+__Figure S6.__ Phylogenetic tree of all sampled species. Doughnut charts show the relative fraction of the sampled effect sizes (i.e., number of Bateman gradients) and the number of species. 
 
 ## Forest plot
 ```{r Forest_Plot, fig.height = 12, fig.width = 6}
-# Forest plot ####
-Data$l95CI_r_f <- Data$r_f - ((Data$r_VAR_f^0.5)*1.96)
-Data$u95CI_r_f <- Data$r_f + ((Data$r_VAR_f^0.5)*1.96)
+Data$r_SD <- sqrt(Data$r_VAR_f) # standard deviation
+Data$r_SE <- Data$r_SD / sqrt(Data$N_f) # standard error
+
+Data$l95CI_r_f <- Data$r_f - ((Data$r_SE)*1.96) # 95% confidence interval - lower
+Data$u95CI_r_f <- Data$r_f + ((Data$r_SE)*1.96) # 95% confidence interval - upper 
 ForestData <- Data[order(Data$Phylo_ID), ] 
 ForestData$Phylo_ID_red <- seq.int(nrow(ForestData))
 
@@ -222,7 +251,7 @@ ForestPlot <- ggplot() +
              shape = 18, size = 2, colour = "black") +
   geom_errorbarh(data = ForestData, 
                  mapping = aes(y = Phylo_ID_red, xmin = l95CI_r_f, xmax = u95CI_r_f),
-                 size = 0.5, colour = "black", height = 0.0) +
+                 size = 0.7, colour = "black", height = 0.0) +
   annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 111.5, ymax = 109.5, fill = Palette(9)[1], alpha = .8) +
   annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 109.5, ymax = 102.5, fill = Palette(9)[2], alpha = .8) + 
   annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 102.5, ymax = 79.5, fill = Palette(9)[3], alpha = .8) +
@@ -243,11 +272,11 @@ ForestPlot <- ggplot() +
   theme(axis.title.x = element_markdown())
 ForestPlot
 ```
-__Figure S4. Forest plot of all sampled effect sizes.__ Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order.
-
-
+__Figure S2.__ Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order.
+<br></br>
+______________
 # Bayesian Meta-Analysis
-We ran General Linear Mixed-Effects Models (GLMMs) with the `MCMCglmm::MCMCglmm` function [@hadfield2010mcmcglmm] to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (V = 1, nu = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).
+We ran General Linear Mixed-Effects Models (GLMMs) with the `MCMCglmm::MCMCglmm` function [@hadfield2010mcmcglmm] to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (_V_ = 1, _nu_ = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).
 ```{r Priors}
 pr  <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002)))
@@ -256,11 +285,11 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   4000 #00
-NITT   = 44000 #00
+BURNIN =   400 #000
+NITT   = 4400 #000
 THIN   =      400
 ```
-GLMMs were run with r defined as the response variable weighted by the inverse of its sampling size and included study identifier and observation identifier as a random term.
+GLMMs were run with the effect size (r) defined as the response variable weighted by the inverse of its sampling size and included study identifier and observation identifier as a random term.
 
 ## Global effect size: traditionnal and phylogenetic approach
 First, we quantified global effect sizes both without (i.e., ‘non-phylogenetic’ GLMMs) and with adding the phylogenetic correlation matrix as an additional random term (‘phylogenetic’ GLMMs).
@@ -274,7 +303,6 @@ Model_ALL_traditional <- MCMCglmm(r_f~1,
                                   data = Data,
                                   prior = pr, pr = TRUE, verbose = FALSE,
                                   burnin = BURNIN, nitt = NITT, thin = THIN)
-
 Model_ALL_phylo       <- MCMCglmm(r_f~1,
                                   random = ~animal + Study_ID + Index, 
                                   mev = Data$r_VAR_f,
@@ -284,7 +312,7 @@ Model_ALL_phylo       <- MCMCglmm(r_f~1,
                                   burnin = BURNIN, nitt = NITT, thin = THIN)
 
 # Raincloud plot ####
-  # init
+  # density
 Data_trad  <- as.data.frame(Model_ALL_traditional$Sol[,"(Intercept)"])
 Data_trad$Approach <- as.factor(rep("Non-phylogenetic", nrow(Data_trad)))
 colnames(Data_trad) <- c("ES", "Approach")
@@ -295,16 +323,7 @@ colnames(Data_phylo) <- c("ES", "Approach")
 
 Data_BothApproaches_ALL <- as.data.frame(rbind(Data_trad, Data_phylo))
 
-CI <- HPDinterval(mcmc(Model_ALL_phylo$Sol[,"(Intercept)"]))
-aggdata_BothApproches <- data.frame("Approach" = c("A", "B", "C", "D", "E"),
-                                    "Mean" = c(mean(Data_phylo$ES), 2, 3, 4, 5), 
-                                    "l025" = c(CI[1], 2, 3, 4, 5),  
-                                    "u975" = c(CI[2], 2, 3, 4, 5))
-aggdata_BothApproches$Approach <- as.factor(aggdata_BothApproches$Approach)
-Data$Jitter2 <- rep("A", nrow(Data))
-rm(CI)
 
-    # plot
 Plot_AllApproaches1 <-  ggplot() +
   geom_density(data = subset(Data_BothApproaches_ALL, Approach == "Non-phylogenetic"), 
                mapping = aes(x = ES, y = ..density.., fill = Approach),
@@ -321,7 +340,17 @@ Plot_AllApproaches1 <-  ggplot() +
   theme_density(axis.title.x = element_markdown()) +
   theme(legend.spacing = unit(5.0, "in"))
 
-  
+
+    # jitter
+CI <- HPDinterval(mcmc(Model_ALL_phylo$Sol[,"(Intercept)"]))
+aggdata_BothApproches <- data.frame("Approach" = c("A", "B", "C", "D", "E"),
+                                    "Mean" = c(mean(Data_phylo$ES), 2, 3, 4, 5), 
+                                    "l025" = c(CI[1], 2, 3, 4, 5),  
+                                    "u975" = c(CI[2], 2, 3, 4, 5))
+aggdata_BothApproches$Approach <- as.factor(aggdata_BothApproches$Approach)
+Data$Jitter2 <- rep("A", nrow(Data))
+rm(CI)
+
 Plot_AllApproaches2 <- ggplot() + 
   geom_pointrange(data = aggdata_BothApproches, 
                   mapping = aes(x = Mean, 
@@ -369,12 +398,13 @@ pushViewport(viewport(layout = grid.layout(nrow = 1, ncol = 1, widths = unit(1, 
 print(Plot_AllApproaches1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_AllApproaches2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 ```
-__Figure 1.A Meta-analytic evidence for sexual selection in females and its relation to the mating system.__ Global effect size of the Bateman gradient obtained from Generalized Linear Mixed Models (GLMMs) with or without accounting for phylogenetic non-independence (phylogenetic or non-phylogenetic, respectively).
+__Figure 1A.__ Meta-analytic evidence for sexual selection in females and its relation to the mating system. Global effect size of the Bateman gradient obtained from Generalized Linear Mixed Models (GLMMs) with or without accounting for phylogenetic non-independence (phylogenetic or non-phylogenetic, respectively). 
 
 ## Moderator variables
-Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category)or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in r.
+Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category) or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in r. <br></br>
 These models account for phylogenetic non-independence and include the phylogeny as a random effect. 
 
+### Mating success method
 ```{r MS_method}
 MetaData_cMS              <- subset(Data, MS_estimate == "cMS")
 MetaData_gMS              <- subset(Data, MS_estimate == "gMS")
@@ -414,7 +444,7 @@ Model_gMS                 <- MCMCglmm(r_f~1,
 
 
 # Raincloud plot ####
-  # init
+  # density
 Data_MSest_cMS     <- as.data.frame(Model_cMS$Sol[, "(Intercept)"])
 Data_MSest_cMS$MatSys <- as.factor(rep("cMS", nrow(Data_MSest_cMS)))
 colnames(Data_MSest_cMS) <- c("ES", "MSest")
@@ -426,6 +456,20 @@ colnames(Data_MSest_gMS) <- c("ES", "MSest")
 Data_MSest_ALL <- as.data.frame(rbind(Data_MSest_cMS, Data_MSest_gMS))
 
 
+Plot_MSestimate1 <-  ggplot() +
+  geom_density(data = Data_MSest_ALL, 
+               aes(x = ES, y = ..density.., fill = MSest),
+               alpha = 0.7) +
+  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
+  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
+  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
+  labs(title = "", x = "", y = "Density") +
+  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
+  scale_y_continuous(limits = c(-3.8, 7), breaks = c(0, 2, 4, 6)) +
+  theme_density(axis.title.x = element_markdown(),
+                axis.title.y = element_text(size = 22))
+
+  # jitter
 CI_1 <- HPDinterval(mcmc(Model_cMS$Sol[,"(Intercept)"]))
 CI_2 <- HPDinterval(mcmc(Model_gMS$Sol[,"(Intercept)"]))
 aggdata_MSest <- data.frame("Jitter" = c("B", "A", "C", "D", "E", "F"),
@@ -444,21 +488,6 @@ aggdata_MSest$MSest <- as.factor(aggdata_MSest$MSest)
 Data$Jitter2 <- as.factor(Data$MS_estimate)
 levels(Data$Jitter2) <- c("B", "A")
 rm(CI_1, CI_2)
-
-
-  # plot
-Plot_MSestimate1 <-  ggplot() +
-  geom_density(data = Data_MSest_ALL, 
-               aes(x = ES, y = ..density.., fill = MSest),
-               alpha = 0.7) +
-  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
-  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
-  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
-  labs(title = "", x = "", y = "Density") +
-  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
-  scale_y_continuous(limits = c(-3.8, 7), breaks = c(0, 2, 4, 6)) +
-  theme_density(axis.title.x = element_markdown(),
-                axis.title.y = element_text(size = 22))
 
 
 Plot_MSestimate2 <- ggplot() + 
@@ -508,6 +537,7 @@ Plot_MSestimate2 <- ggplot() +
                axis.title.y = element_text(size = 22))
 ```
 
+### Zero mating success - Mating success range
 ```{r Zero_MS}
 MetaData_with_0MS                 <- subset(Data, Zero_f == "1")
 MetaData_without_0MS              <- subset(Data, Zero_f == "0")
@@ -548,7 +578,7 @@ Model_without_0MS                <- MCMCglmm(r_f~1,
 
 
 # Raincloud plot ####
-  # init
+  # density
 Data_ZeroMS_with <- as.data.frame(Model_with_0MS$Sol[, "(Intercept)"])
 Data_ZeroMS_with$ZeroMS <- as.factor(rep("With Zero mating success", nrow(Data_ZeroMS_with)))
 colnames(Data_ZeroMS_with) <- c("ES", "ZeroMS")
@@ -560,6 +590,24 @@ colnames(Data_ZeroMS_without) <- c("ES", "ZeroMS")
 Data_ZeroMS_ALL <- as.data.frame(rbind(Data_ZeroMS_with, Data_ZeroMS_without))
 
 
+Plot_ZeroMS1 <-  ggplot() +
+  geom_density(data = subset(Data_ZeroMS_ALL, Data_ZeroMS_ALL$ZeroMS == "Without Zero mating success"), 
+               aes(x = ES, y = ..density.., fill = "With zero MS"),
+               alpha = 0.7) +
+  geom_density(data = subset(Data_ZeroMS_ALL, Data_ZeroMS_ALL$ZeroMS == "With Zero mating success"), 
+               aes(x = ES, y = ..density.., fill = "Without zero MS"),
+               alpha = 0.7) +
+  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
+  scale_fill_manual(labels = c("Without zero MS", "With zero MS"), values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
+  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
+  labs(title = "", x = "", y = "Density") +
+  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
+  scale_y_continuous(limits = c(-2.8, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
+  theme_density(axis.title.x = element_markdown(),
+                axis.title.y = element_text(size = 22))
+
+
+  # jitter
 CI_1 <- HPDinterval(mcmc(Model_with_0MS$Sol[,"(Intercept)"]))
 CI_2 <- HPDinterval(mcmc(Model_without_0MS$Sol[,"(Intercept)"]))
 aggdata_ZeroMS <- data.frame("Jitter" = c("A", "B", "C", "D", "E", "F"),
@@ -578,24 +626,6 @@ aggdata_ZeroMS$ZeroMS <- as.factor(aggdata_ZeroMS$ZeroMS)
 Data$Jitter2 <- as.factor(Data$Zero_f)
 levels(Data$Jitter2) <- c("A", "B")
 rm(CI_1, CI_2)
-
-
-  # plots
-Plot_ZeroMS1 <-  ggplot() +
-  geom_density(data = subset(Data_ZeroMS_ALL, Data_ZeroMS_ALL$ZeroMS == "Without Zero mating success"), 
-               aes(x = ES, y = ..density.., fill = "With zero MS"),
-               alpha = 0.7) +
-  geom_density(data = subset(Data_ZeroMS_ALL, Data_ZeroMS_ALL$ZeroMS == "With Zero mating success"), 
-               aes(x = ES, y = ..density.., fill = "Without zero MS"),
-               alpha = 0.7) +
-  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
-  scale_fill_manual(labels = c("Without zero MS", "With zero MS"), values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
-  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
-  labs(title = "", x = "", y = "Density") +
-  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
-  scale_y_continuous(limits = c(-2.8, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
-  theme_density(axis.title.x = element_markdown(),
-                axis.title.y = element_text(size = 22))
 
 
 Plot_ZeroMS2 <- ggplot() + 
@@ -646,6 +676,7 @@ Plot_ZeroMS2 <- ggplot() +
 
 ```
 
+### Study type
 ```{r StudyType}
 MetaData_Field              <- subset(Data, StudyType == "Field")
 MetaData_Lab                <- subset(Data, StudyType == "Lab")
@@ -686,7 +717,7 @@ Model_Lab                  <- MCMCglmm(r_f~1,
 
 
 # Raincloud plot ####
-  # init
+  # density
 Data_StudyType_field     <- as.data.frame(Model_Field$Sol[, "(Intercept)"])
 Data_StudyType_field$StudyType <- as.factor(rep("Field", nrow(Data_StudyType_field)))
 colnames(Data_StudyType_field) <- c("ES", "StudyType")
@@ -698,6 +729,21 @@ colnames(Data_StudyType_lab) <- c("ES", "StudyType")
 Data_StudyType_ALL <- as.data.frame(rbind(Data_StudyType_field, Data_StudyType_lab))
 
 
+Plot_StudyType1 <-  ggplot() +
+  geom_density(data = Data_StudyType_ALL, 
+               aes(x = ES, y = ..density.., fill = StudyType),
+               alpha = 0.7) +
+  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
+  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
+  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
+  labs(title = "", x = "Female Bateman gradient (*r*)", y = "Density") +
+  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
+  scale_y_continuous(limits = c(-2.8, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
+  theme_density(axis.title.x = element_markdown(),
+                axis.title.y = element_text(size = 22))
+
+
+  # jitter
 CI_1 <- HPDinterval(mcmc(Model_Field$Sol[,"(Intercept)"]))
 CI_2 <- HPDinterval(mcmc(Model_Lab$Sol[,"(Intercept)"]))
 aggdata_StudyType <- data.frame("Jitter" = c("B", "A", "C", "D", "E", "F"),
@@ -716,21 +762,6 @@ aggdata_StudyType$StudyType <- as.factor(aggdata_StudyType$StudyType)
 Data$Jitter2 <- as.factor(Data$StudyType)
 levels(Data$Jitter2) <- c("B", "A")
 rm(CI_1, CI_2)
-
-
-# plot
-Plot_StudyType1 <-  ggplot() +
-  geom_density(data = Data_StudyType_ALL, 
-               aes(x = ES, y = ..density.., fill = StudyType),
-               alpha = 0.7) +
-  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
-  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
-  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
-  labs(title = "", x = "Female Bateman gradient (*r*)", y = "Density") +
-  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
-  scale_y_continuous(limits = c(-2.8, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
-  theme_density(axis.title.x = element_markdown(),
-                axis.title.y = element_text(size = 22))
 
 
 Plot_StudyType2 <- ggplot() + 
@@ -804,11 +835,10 @@ print(Plot_Density2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_Jitter2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 
 ```
-__Figure S3. Methodological predictors of female Bateman gradients.__ Raincloud charts showing effects of mating success method (cMS: copulatory mating success, gMS: genetic mating success), mating success range (with or without zero mating success (MS) category) and study type (field versus laboratory studies) on female Bateman gradients (for statistical analysis see Table 2 and S2).
+__Figure S3.__ Methodological predictors of female Bateman gradients. Raincloud charts showing effects of mating success method (cMS: copulatory mating success, gMS: genetic mating success), mating success range (with or without zero mating success (MS) category) and study type (field versus laboratory studies) on female Bateman gradients (for statistical analysis see Table 2 and S2).
 
 ### Mating system
 We classified the mating system of each sampled species based on estimates of polyandry, which we defined as the proportion of reproducing females that have more than one mating partner. We then used these estimates to define the mating system as either monandrous or polyandrous, depending on whether its value was lower or higher than 0.5, respectively.
-We ran GLMMs with the mating system as a fixed effect as a categorical variable (i.e., monadrous or polyandrous) and, for completeness, also as a continuous variable (i.e., the proportion of multiply mated females).
 
 ```{r MatingSystem, fig.width = 8, fig.height = 4.2}
 MetaData_polygamous              <- subset(Data, MatingSystem == "polyandrous")
@@ -850,7 +880,7 @@ Model_polygamous                 <- MCMCglmm(r_f~1,
 
 
 # Raincloud plot ####
-  # init
+  # density
 Data_MatSys_Monogamy     <- as.data.frame(Model_monogamous$Sol[, "(Intercept)"])
 Data_MatSys_Monogamy$MatSys <- as.factor(rep("monandrous", nrow(Data_MatSys_Monogamy)))
 colnames(Data_MatSys_Monogamy) <- c("ES", "MatSys")
@@ -862,6 +892,20 @@ colnames(Data_MatSys_Polygamy) <- c("ES", "MatSys")
 Data_MatingSystem_ALL <- as.data.frame(rbind(Data_MatSys_Monogamy, Data_MatSys_Polygamy))
 
 
+Plot_MatingSystem1 <-  ggplot() +
+  geom_density(data = Data_MatingSystem_ALL, 
+               aes(x = ES, y = ..density.., fill = MatSys),
+               alpha = 0.7) +
+  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
+  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
+  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
+  labs(title = "", x = "Female Bateman gradient (*r*)", y = "Density") +
+  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
+  scale_y_continuous(limits = c(-2.5, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
+  theme_density(axis.title.x = element_markdown())
+
+
+  # jitter
 CI_1 <- HPDinterval(mcmc(Model_monogamous$Sol[,"(Intercept)"]))
 CI_2 <- HPDinterval(mcmc(Model_polygamous$Sol[,"(Intercept)"]))
 aggdata_MatSys <- data.frame("Jitter" = c("A", "B", "C", "D", "E", "F"),
@@ -880,20 +924,6 @@ aggdata_MatSys$MatSys <- as.factor(aggdata_MatSys$MatSys)
 Data$Jitter2 <- as.factor(Data$MatingSystem)
 levels(Data$Jitter2) <- c("B", "A")
 rm(CI_1, CI_2)
-
-
-    # plot
-Plot_MatingSystem1 <-  ggplot() +
-  geom_density(data = Data_MatingSystem_ALL, 
-               aes(x = ES, y = ..density.., fill = MatSys),
-               alpha = 0.7) +
-  scale_colour_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) +
-  scale_fill_manual(values = c(TealPalette(20)[9], TealPalette(20)[17])) + 
-  geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
-  labs(title = "", x = "Female Bateman gradient (*r*)", y = "Density") +
-  scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
-  scale_y_continuous(limits = c(-2.5, 5), breaks = c(0, 1, 2, 3, 4, 5)) +
-  theme_density(axis.title.x = element_markdown())
 
 
 Plot_MatingSystem2 <- ggplot() + 
@@ -945,9 +975,11 @@ pushViewport(viewport(layout = grid.layout(nrow = 1, ncol = 1, widths = unit(1, 
 print(Plot_MatingSystem1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_MatingSystem2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 ```
-__Figure 1B. Meta-analytic evidence for sexual selection in females and its relation to the mating system.__ Contrast in sexual selection in females between monandrous and polyandrous species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.
+__Figure 1B.__ Meta-analytic evidence for sexual selection in females and its relation to the mating system. Contrast in sexual selection in females between monandrous and polyandrous species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.
 
-
+#### Polyandry
+We also ran GLMMs with the proportion of multiply mated females (i. e., a continuous variable) as a fixed effect. <br></br>
+The studentized Breusch-Pagan test informs on whether this variable is significantly heteroscedastic.
 ```{r Polyandry}
 # predictor model ####
 Model_Polyandry                  <- MCMCglmm(r_f ~ Polyandry,
@@ -957,13 +989,14 @@ Model_Polyandry                  <- MCMCglmm(r_f ~ Polyandry,
                                              data = Data,
                                              prior = pr2, pr = TRUE, verbose = FALSE,
                                              burnin = BURNIN, nitt = NITT, thin = THIN)
+
 ## The Breusch-Pagan Test ####
 LM_Polyandry_r_f      <- lm(r_f ~ Polyandry, data = Data)
 
-intercept <- summary(Model_Polyandry)$solutions[1,1]
-slope     <- summary(Model_Polyandry)$solutions[2,1]
-slope_l95 <- summary(Model_Polyandry)$solutions[2,2]
-slope_u95 <- summary(Model_Polyandry)$solutions[2,3]
+intercept <- summary(Model_Polyandry)$solutions[1, 1]
+slope     <- summary(Model_Polyandry)$solutions[2, 1]
+slope_l95 <- summary(Model_Polyandry)$solutions[2, 2]
+slope_u95 <- summary(Model_Polyandry)$solutions[2, 3]
 pointsize_r_f <- log(1/Data$r_VAR_f)
 
 Data$Polyandry_residuals <- LM_Polyandry_r_f$residuals
@@ -990,6 +1023,7 @@ Plot_r_f_Polyandry
 
 
 ### Publication year
+We tested for the effect of the publication year of the studies on the effect size to investigate the presence or absence of the bandwagon effect.
 ```{r Year}
 # predictor model 
 Model_Year      <- MCMCglmm(r_f~Year,
@@ -1004,7 +1038,7 @@ Model_Year      <- MCMCglmm(r_f~Year,
 
 
 ## Heterogeneity
-We estimated heterogeneity I2 from the intercept-only model as the proportion of variance in effect size that can be attributed to the different levels of random effects (57). In particular, we decomposed total heterogeneity into the proportional phylogenetic variance (I2Phylogeny), between-study variance (I2Study), and study-specific variance (observation-level random effect; I2Observation) (58). For models including predictor variables, we computed the proportion of variance explained by those fixed factors (‘marginal R2’) (60).
+We created functions to extract the relevant information from the models and to estimate heterogeneity *I²*, which we defined as the proportion of variance in effect size that can be attributed to the different levels of random effects [@higgins2002heterogeneity]. In particular, we decomposed total heterogeneity into the proportional phylogenetic variance (*I²_{Phylogeny}*), between-study variance (*I²_{Study}*), and study-specific variance (observation-level random effect; *I²_{Observation}*) [@nakagawa2012metaanalysis]. For models including predictor variables, we computed the proportion of variance explained by those fixed factors (‘marginal *R²*’) [@nakagawa2013glmm].
 ```{r Heterogeneity}
 # Null models ####
 NullModel_summary1 <- function(which_data) {
@@ -1062,8 +1096,8 @@ List_Nullmodels <- list(Model_ALL_phylo,
                         Model_with_0MS, Model_without_0MS,
                         Model_Lab, Model_Field,
                         Model_monogamous, Model_polygamous)
-Model_sum1 <- adply(List_data, 1, NullModel_summary1) # result of function as a dataframe: each row is f(x) for a different x from the list
-Model_sum2 <- adply(List_Nullmodels, 1, NullModel_summary2)
+Model_sum1 <- adply(.data = List_data, .margins = 1, .fun = NullModel_summary1) # result of function as a dataframe: each row is f(x) for a different x from the list
+Model_sum2 <- adply(.data = List_Nullmodels, .margins = 1, .fun = NullModel_summary2)
 
 
 Table1 <- cbind(Model_sum1[,-1], Model_sum2[, -1]) %>%
@@ -1080,7 +1114,7 @@ colnames(MCMCglmm_Model_ALL_traditional) <- c("Mode", "Lower HPD", "Higher HPD",
 MCMCglmm_Model_ALL_traditional_sum <- cbind(k <- length(Data$r_f),
                                             N_sp <- length((aggregate(r_f ~ animal, data = Data, FUN = sum))$animal),
                                             MCMCglmm_Model_ALL_traditional,
-                                            t(rep(c("-", "", ""), times = 3)))
+                                            t(rep(c("--", "", ""), times = 3)))
 colnames(MCMCglmm_Model_ALL_traditional_sum) <- c("k", "N_sp", "Mode", "Lower HPD", "Higher HPD", "pmcmc", "Mode2", "Lower HPD2", "Higher HPD2", "Mode3", "Lower HPD3", "Higher HPD3", "Mode4", "Lower HPD4", "Higher HPD4")
 MCMCglmm_Model_ALL_traditional_sum[, 3:5] <- round(MCMCglmm_Model_ALL_traditional_sum[, 3:5], digits = 2)
 MCMCglmm_Model_ALL_traditional_sum[, 6] <- round(MCMCglmm_Model_ALL_traditional_sum[, 6], digits = 3)
@@ -1114,7 +1148,7 @@ List_Predmodels <- list(Model_MS_estimate,
                         Model_Year,
                         Model_MatingSystem,
                         Model_Polyandry)
-Table2 <- adply(List_Predmodels, 1, PredictorModel_summary) %>%
+Table2 <- adply(.data = List_Predmodels, .margins = 1, .fun = PredictorModel_summary) %>%
   select(2:8) %>%
   mutate_at(c(1:3, 5:7), round, digits = 2)
 Table2 <- Table2 %>%
@@ -1123,7 +1157,7 @@ Table2 <- Table2 %>%
 
 
 ## Models summary
-__Table 1. Global tests of sexual selection in females.__ Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (k), number of species (N), effect size (r), and heterogeneity I2 arising from phylogenetic affinities, between-study variation, and between-observation variation. Model estimates are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals.
+__Table 1. Global tests of sexual selection in females.__ Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (k), number of species (N), effect size (r), and heterogeneity I2 arising from phylogenetic affinities, between-study variation, and between-observation variation. Model estimates are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals in brackets. 
 ```{r Null_models_summary}
 for (i in c(4, 8, 11, 14)){
   Table1[, i] <- paste0("(", Table1[, i], ", ")}
@@ -1153,11 +1187,12 @@ Table1[1, 6] <- "<0.001"
 
 Table1 %>%
 kable(align = c(rep("c", 3), "r", "l", "r", rep(c("c", "r", "l"), 3))) %>% 
-  kable_paper(full_width = T) %>%
+  kable_paper(full_width = TRUE) %>%
   add_header_above(c("Model" = 1, "k" = 1, "N~Species~" = 1, "Effect size" = 4, "Heterogeneity" = 9)) %>%
-  row_spec(0, italic = T, font_size = 14)
+  row_spec(0, italic = TRUE, font_size = 14)
 ```
-
+<br></br>
+<br></br>
 __Table 2. Predictors of inter-specific variation in female Bateman gradients.__ Methodological moderators include mating success method (copulatory versus genetic mating success), mating success range (including versus excluding zero mating success category), study type (field versus lab) and year of publication (continuous variable). Effect of mating system contrasts polyandrous and monandrous species. Effect of polyandry estimates the relationship between the female Bateman gradient and the proportion of polyandrous females in the population. Model estimates (i.e., estimated difference between groups) are shown as posterior modes with 95% Highest Posterior Density (HPD) intervals obtained from phylogenetically controlled General Linear-Mixed Effects Models. The variance explained by the moderator variable is given as the marginal R2 with 95% HPD intervals in brackets.
 ```{r Predictor_models_summary}
 for (i in c(2, 6)){
@@ -1178,21 +1213,22 @@ Table2 %>%
 kable(align = c("c", "r", "l", "r", "c", "r", "l"),
       col.names = c("Estimate", "", "", "P~MCMC~", 
                       "R²", "", "")) %>% 
-  kable_paper(full_width = T)
+  kable_paper(full_width = FALSE)
 
 ```
-
+<br></br>
+______________
 # Restricted Maximum Likelihood Meta-Analysis
 For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the `metafor` package [@viechtbauer2010metafor].
 ```{r REML}
-Data <- read.table("./data/Fromonteil_et_al_DATA.txt")
+Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "LATIN1") # the file encoding supports special characters
 Tree <- read.tree("./data/Fromonteil_et_al_TREE.txt")
 MetaData_All_Species_Data <- unique(Data$Species_Phylo)
 Tree <- drop.tip(Tree, Tree$tip.label[-na.omit(match(MetaData_All_Species_Data, Tree$tip.label))])
 
 # Run Models #### 
     # All
-forcedC_ALL <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
+forcedC_ALL <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE))) # formatting for the phylogenetic tree
 
 Model_REML_ALL <- rma.mv(r_f ~ 1, 
                          V = r_VAR_f, 
@@ -1318,8 +1354,7 @@ Model_REML_Year <- rma.mv(r_f ~ Year,
 ```
 
 ## Models summary
-
-__Table S1. Global tests of sexual selection in females using the restricted maximum likelihood (REML) approach.__ Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (k), number of species (N) and estimates of r together with 95% confidence intervals (in brackets).
+__Table S1.__ Global tests of sexual selection in females using the restricted maximum likelihood (REML) approach. Results of intercept-only phylogenetically controlled General Linear-Mixed Effects Models are shown for the entire dataset (global model) and subsets with respect to mating success method (copulatory versus genetic), mating success range (including versus excluding zero mating success category), study type (laboratory versus field studies) and mating system (monandrous versus polygamous species). Table shows number of effect sizes (*k*), number of species (*N*) and estimates of r together with 95% confidence intervals (in brackets). 
 ```{r REML_Null_summary}
 REMLNullModel_summary1 <- function(which_data) {
   k <- length(which_data$r_f)  # sample size
@@ -1350,8 +1385,8 @@ List_Nullmodels <- list(Model_REML_ALL,
                         Model_REML_with_0MS, Model_REML_without_0MS,
                         Model_REML_Lab, Model_REML_Field,
                         Model_REML_monogamous, Model_REML_polygamous)
-Model_sum1 <- adply(List_data, 1, REMLNullModel_summary1)
-Model_sum2 <- adply(List_Nullmodels, 1, REMLNullModel_summary2)
+Model_sum1 <- adply(.data = List_data, .margins = 1, .fun = REMLNullModel_summary1)
+Model_sum2 <- adply(.data = List_Nullmodels, .margins = 1, .fun = REMLNullModel_summary2)
 
 
 TableS1 <- cbind(Model_sum1[,-1], Model_sum2[, -1]) %>%
@@ -1381,8 +1416,9 @@ kable(align = c(rep("c", 3), "r", "l", "c", "c")) %>%
   add_header_above(c("Model" = 1, "k" = 1, "N~Species~" = 1, "Global effect size" = 3, " " = 2)) %>%
   row_spec(0, italic = T, font_size = 14)
 ```
-
-__Table S2. Predictors of inter-specific variation in female Bateman gradients using restricted maximum likelihood (REML) approach.__ Methodological moderators include mating success method (copulatory versus genetic mating success), mating success range (including versus excluding mating success category), study type (field versus lab) and year of publication (continuous variable). Effect of mating system contrasts polyandrous and monandrous species. Effect of polyandry (continuous variable) estimates the relationship between the female Bateman gradient and the proportion of polyandrous females in the population. Phylogenetically controlled multilevel metaanalytic single predictor models are shown with Omnibus tests (Wald-type chi-square test) and McFadden’s R2.
+<br></br>
+<br></br>
+__Table S2.__ Predictors of inter-specific variation in female Bateman gradients using restricted maximum likelihood (REML) approach. Methodological moderators include mating success method (copulatory versus genetic mating success), mating success range (including versus excluding mating success category), study type (field versus lab) and year of publication (continuous variable). Effect of mating system contrasts polyandrous and monandrous species. Effect of polyandry (continuous variable) estimates the relationship between the female Bateman gradient and the proportion of polyandrous females in the population. Phylogenetically controlled multilevel meta-analytic single predictor models are shown with Omnibus tests (Wald-type chi-square test) and McFadden’s *R²*.
 ```{r REML_pred_summary}
 REMLPredictorModel_summary <- function(which_model) {
   # REML summary
@@ -1425,24 +1461,40 @@ kable(align = c("r", "l", "c", "c")) %>%
   kable_paper(full_width = F)
 
 ```
+<br></br>
 
-
+______________
 # Publication bias
-We used Kendell’s rank correlation test to quantify funnel plot asymmetry, which can be indicative of publication bias.  
-__Figure S6. Funnel plots.__ Data are shown for raw values (A) and for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.
+Lastly, we build funnel plots to visually assess asymmetry.
+```{r Funnel_plot, fig.width = 6, fig.height = 8}
+# Funnel plot for raw Bateman gradients
+  # Define model
+forcedC <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
 
-```{r, fig.width = 6, fig.height = 10}
-effect_size_mode <- posterior.mode(Model_ALL_phylo$Sol[, "(Intercept)"])
+Model_REML_ALL_by_Moderator <- rma.mv(r_f ~ factor(MatingSystem) + factor(MS_estimate) + factor(Zero_f) + factor(StudyType) + Year, 
+                                      V = r_VAR_f, 
+                                      data = Data, 
+                                      random = c(~ 1 | Study_ID, ~ 1 | Index, ~ 1 | Species_Phylo), 
+                                      R = list(Species_Phylo = forcedC), method = "REML")
+
+Data$Residuals_Phylo <- resid(Model_REML_ALL)
+Data$Residuals_Phylo_Moderator <- resid(Model_REML_ALL_by_Moderator)
+
+
+  # extract relevant information
+Data$r_SD <- sqrt(Data$r_VAR_f) # standard deviation
+Data$r_SE <- Data$r_SD / sqrt(Data$N_f) # standard error
+effect_size_mode <- posterior.mode(Model_ALL_phylo$Sol[, "(Intercept)"]) # mode
 effect_size_ll95 <- summary(Model_ALL_phylo)$solutions[, 2] # lower 95% highest posterior density
 effect_size_ul95 <- summary(Model_ALL_phylo)$solutions[, 3] # upper 95% highest posterior density
 
-# Additional lines on funnel plot
-se.seq <- seq(0, max((Data$r_VAR_f)^0.5), 0.001) # range from 0 to the max SE in the data
+  # Additional lines on funnel plot
+se.seq <- seq(0, max(Data$r_SE), 0.001) # range from 0 to the max SE in the data
 
-  # 95% confidence interval
+    # 95% confidence interval
 ll95 <- effect_size_mode - (1.96*se.seq)
 ul95 <- effect_size_mode + (1.96*se.seq)
-  # 99% confidence interval
+    # 99% confidence interval
 ll99 <- effect_size_mode - (3.29*se.seq)
 ul99 <- effect_size_mode + (3.29*se.seq)
 
@@ -1452,6 +1504,7 @@ dfCI <- data.frame(ll95, ul95,
                    se.seq, effect_size_mode, 
                    effect_size_ll95, effect_size_ul95)
 
+# plot
 FunnelPlot <- ggplot() +
   geom_line(data = dfCI,
             mapping = aes(x = se.seq, y = ll95), 
@@ -1466,121 +1519,75 @@ FunnelPlot <- ggplot() +
             mapping = aes(x = se.seq, y = ul99), 
             linetype = "solid", colour = "#008080", size = 1) +
   geom_segment(data = dfCI,
-            mapping = aes(x = min(se.seq), y = effect_size_mode, xend = max(se.seq), yend = effect_size_mode),
-            linetype = "dashed", size = 0.7) +
+               mapping = aes(x = min(se.seq), y = effect_size_mode, xend = max(se.seq), yend = effect_size_mode),
+               linetype = "dashed", size = 0.7) +
   geom_point(data = Data,
-             mapping = aes(x = (r_VAR_f)^0.5, y = r_f),
-             shape = 21, size = 4, fill = "black", alpha = 0.4, colour = "black") +
-    labs(title = "", x = "Standard error", y = "Bateman gradient (*r*)") +
-  scale_y_continuous(breaks = seq(-1.5, 2, 0.5), 
+             mapping = aes(x = r_SE, y = r_f),
+             shape = 21, size = 4, fill = "grey", alpha = .6) +
+  labs(title = "", x = "Standard error", y = "Bateman gradient (*r*)") +
+  scale_y_continuous(breaks = seq(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1, 0.5), 
                      labels = scales::number_format(accuracy = 0.1),
-                     limits = c(-1.5, 2))+
+                     limits = c(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1)) +
   scale_x_reverse() +
   coord_flip() +
   theme_paper(axis.title.x = element_markdown())
 
 
-
-library(corpcor)
-forcedC <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
-sort(Tree$tip.label) == sort(unique(Data$Species_Phylo)) # check if tip names correspond to data names
-is.ultrametric(Tree) # check if BL are aligned contemporaneously
-isSymmetric(vcv(Tree, corr=TRUE)) # check symmetry of phylogenetic correlation matrix
-rawC <- vcv(Tree, corr=TRUE)
-is.positive.definite(rawC) # if FALSE will have to force symmetry
-is.positive.definite(forcedC)
-comparedC <- rawC == forcedC
-rawC[cbind(which(comparedC!=TRUE, arr.ind = T))] - forcedC[cbind(which(comparedC!=TRUE, arr.ind = T))] < 1e-5
-
-
-### DEFINE MODELS
-forcedC <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
-
-Model_REML_ALL_by_Moderator <- rma.mv(r_f ~ factor(MatingSystem) + factor(MS_estimate) + factor(Zero_f) + factor(StudyType) + Year, 
-                                      V = r_VAR_f, 
-                                      data = Data, 
-                                      random = c(~ 1 | Study_ID, ~ 1 | Index, ~ 1 | Species_Phylo), 
-                                      R = list(Species_Phylo = forcedC), method = "REML")
-
-
-
-
-
-Data$Residuals_Phylo <- resid(Model_REML_ALL)
-Data$Residuals_Phylo_Moderator <- resid(Model_REML_ALL_by_Moderator)
+# Funnel plot for residual Bateman Gradients
+### Customized Egger's regression ###
+Data$Precision <- 1/(Data$r_SE)
+Data$SND_NullModel <- Data$Residuals_Phylo/(Data$r_SE)
+Data$SND_ModeratorModel <- Data$Residuals_Phylo_Moderator/(Data$r_SE)
 
 estimate_RES <- mean(Data$Residuals_Phylo_Moderator)
 se <- sd(Data$Residuals_Phylo_Moderator)/sqrt(length(Data$Residuals_Phylo_Moderator))
 
-### Customized Eggger's regression
-Data$Precision <- 1/(Data$r_VAR_f^0.5)
-Data$SND_NullModel <- Data$Residuals_Phylo/(Data$r_VAR_f^0.5)
-Data$SND_ModeratorModel <- Data$Residuals_Phylo_Moderator/(Data$r_VAR_f^0.5)
-
-
-#the 95% CI region, using the range of SE that you generated in the previous step, and the stored value of your meta-analytic estimate.
+# Additional lines on res funnel plot
+  # 95% confidence interval
 Res_ll95 = 0 - (1.96*se.seq)
 Res_ul95 = 0 + (1.96*se.seq)
 
-#You can do this for a 99% CI region too
+  # 99% confidence interval
 Res_ll99 = 0 - (3.29*se.seq)
 Res_ul99 = 0 + (3.29*se.seq)
 
-#And finally, do the same thing except now calculating the confidence interval
-#for your meta-analytic estimate based on the stored value of its standard error
+# confidence interval for the meta-analytic estimate based on the stored value of its standard error
 Res_meanll95 = 0 - (1.96*se)
 Res_meanul95 = 0 + (1.96*se)
 
-#Now, smash all of those calculated values into one data frame (called 'dfCI').
-#You might get a warning about '...row names were found from a short variable...'
-#You can ignore it.
-Res_dfCI = data.frame(Res_ll95, Res_ul95, Res_ll99, Res_ul99, se.seq, estimate_RES, Res_meanll95,Res_meanul95)
+Res_dfCI <- data.frame(Res_ll95, Res_ul95, 
+                      Res_ll99, Res_ul99, 
+                      se.seq, estimate_RES, 
+                      Res_meanll95, Res_meanul95)
 
 
-
-FunnelPlot_Resid = ggplot(aes(x = r_VAR_f^0.5, y = Residuals_Phylo_Moderator), data = Data) +
-  #Add your data-points to the scatterplot
-  #Give the x- and y- axes informative labels
+# plot
+FunnelPlot_Resid <- ggplot() +
+  geom_line(data = Res_dfCI,
+            mapping = aes(x = se.seq, y = Res_ll95), 
+            linetype = "solid", colour = "#B2D8D8", size = 1) +
+  geom_line(data = Res_dfCI,
+            mapping = aes(x = se.seq, y = Res_ul95), 
+            linetype = "solid", colour = "#B2D8D8", size = 1) +
+  geom_line(data = Res_dfCI,
+            mapping = aes(x = se.seq, y = Res_ll99), 
+            linetype = "solid", colour = "#008080", size = 1) +
+  geom_line(data = Res_dfCI,
+            mapping = aes(x = se.seq, y = Res_ul99), 
+            linetype = "solid", colour = "#008080", size = 1) +
+  geom_segment(data = Res_dfCI,
+            mapping = aes(x = min(se.seq), y = 0, xend = max(se.seq), yend = 0),
+            linetype = "dashed", size = 0.7) +
+  geom_point(data = Data,
+             mapping = aes(x = r_SE, y = Residuals_Phylo_Moderator),
+             shape = 21, size = 4, fill = "grey", alpha = .6) +
   labs(title = "", x = "Standard error", y = "Residual Bateman gradient (*r*)") +
-  #Now using the 'dfCI' data-frame we created, plot dotted lines corresponding
-  #to the lower and upper limits of your 95% CI region,
-  #And dashed lines corresponding to your 99% CI region
-  geom_line(aes(x = se.seq, y = Res_ll95), linetype = 'solid', colour = "#B2D8D8", size = 1, data = dfCI) +
-  geom_line(aes(x = se.seq, y = Res_ul95), linetype = 'solid', colour = "#B2D8D8", size = 1, data = dfCI) +
-  geom_line(aes(x = se.seq, y = Res_ll99), linetype = 'solid', colour = "#008080", size = 1, data = dfCI) +
-  geom_line(aes(x = se.seq, y = Res_ul99), linetype = 'solid', colour = "#008080", size = 1, data = dfCI) +
-  geom_segment(aes(x = min(se.seq), y = 0, xend = max(se.seq), yend = 0), linetype='dashed', data=dfCI, size = 0.7) +
-  geom_point(shape = 21, size = 4, fill = "grey", alpha = .6) +
-  #geom_segment(aes(x = min(se.seq), y = meanll95, xend = max(se.seq), yend = meanll95), linetype='dotted', data=dfCI) +
-  #geom_segment(aes(x = min(se.seq), y = meanul95, xend = max(se.seq), yend = meanul95), linetype='dotted', data=dfCI) +
-  #Reverse the x-axis ordering (se) so that the tip of the funnel will appear
-  #at the top of the figure once we swap the x- and y-axes...
-  scale_x_reverse()+
-  #Specify the range and interval for the tick-marks of the y-axis (Zr);
-  #Choose values that work for you based on your data
-  scale_y_continuous(breaks=seq(-1.5,2,0.5), 
+  scale_y_continuous(breaks = seq(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1, 0.5), 
                      labels = scales::number_format(accuracy = 0.1),
-                     limits = c(-1.5, 2))+
-  #And now we flip the axes so that SE is on y- and Zr is on x-
-  coord_flip()+
-  #Finally, apply my APA-format theme (see code at end of post).
-  #You could, alternatively, specify theme_bw() instead.
-  theme(panel.border = element_blank(), 
-        panel.background = element_blank(),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(), 
-        legend.position = "none",
-        axis.line.x = element_line(colour = "black", size = 1),
-        axis.line.y = element_line(colour = "black", size = 1),
-        axis.text.x = element_text(face="plain", colour="black", size=16, angle=0),
-        axis.text.y = element_text(face="plain", colour="black", size=16, angle=0),
-        axis.title.x = element_text(size=16,face="plain", margin = margin(r=0,10,0,0)),
-        axis.title.y = element_text(size=16,face="plain", margin = margin(r=10,0,0,0)),
-        axis.ticks = element_line(size = 1, colour = "black"),
-        axis.ticks.length = unit(.3, "cm")) +
-  theme(axis.title.x = element_markdown())
-
-
+                     limits = c(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1)) +
+  scale_x_reverse() +
+  coord_flip() +
+  theme_paper(axis.title.x = element_markdown())
 
 
 Figure_FunnelPlots <- plot_grid(FunnelPlot, FunnelPlot_Resid,
@@ -1593,7 +1600,8 @@ Figure_FunnelPlots <- plot_grid(FunnelPlot, FunnelPlot_Resid,
                                 nrow = 2)
 Figure_FunnelPlots
 ```
+__Figure S4.__ Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.
 
-
-
+<br></br>
+______________
 # References
