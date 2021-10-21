@@ -270,8 +270,7 @@ Bateman gradients) and the number of species.
 ## Forest plot
 
 ```{r Forest_Plot, fig.height = 12, fig.width = 6}
-Data$r_SD <- sqrt(Data$r_VAR_f) # standard deviation
-Data$r_SE <- Data$r_SD / sqrt(Data$N_f) # standard error
+Data$r_SE <- sqrt(Data$r_VAR_f) # standard error
 
 Data$l95CI_r_f <- Data$r_f - ((Data$r_SE)*1.96) # 95% confidence interval - lower
 Data$u95CI_r_f <- Data$r_f + ((Data$r_SE)*1.96) # 95% confidence interval - upper 
@@ -329,8 +328,8 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   400000
-NITT   =  4400000
+BURNIN =   400 #000
+NITT   =  4400 #000
 THIN   =      400
 ```
 
@@ -1622,7 +1621,7 @@ kable(align = c("r", "l", "c", "c")) %>%
 
 Lastly, we build funnel plots to visually assess asymmetry.
 
-```{r Funnel_plot, fig.width = 6, fig.height = 8}
+```{r Funnel_plot, fig.width = 6, fig.height = 10}
 # Funnel plot for raw Bateman gradients
   # Define model
 forcedC <- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
@@ -1638,8 +1637,7 @@ Data$Residuals_Phylo_Moderator <- resid(Model_REML_ALL_by_Moderator)
 
 
   # extract relevant information
-Data$r_SD <- sqrt(Data$r_VAR_f) # standard deviation
-Data$r_SE <- Data$r_SD / sqrt(Data$N_f) # standard error
+Data$r_SE <- sqrt(Data$r_VAR_f) # standard error
 effect_size_mode <- posterior.mode(Model_ALL_phylo$Sol[, "(Intercept)"]) # mode
 effect_size_ll95 <- summary(Model_ALL_phylo)$solutions[, 2] # lower 95% highest posterior density
 effect_size_ul95 <- summary(Model_ALL_phylo)$solutions[, 3] # upper 95% highest posterior density
@@ -1681,9 +1679,9 @@ FunnelPlot <- ggplot() +
              mapping = aes(x = r_SE, y = r_f),
              shape = 21, size = 4, fill = "grey", alpha = .6) +
   labs(title = "", x = "Standard error", y = "Bateman gradient (*r*)") +
-  scale_y_continuous(breaks = seq(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1, 0.5), 
+  scale_y_continuous(breaks = c(-1.5, 2, 0.5), 
                      labels = scales::number_format(accuracy = 0.1),
-                     limits = c(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1)) +
+                     limits = c(-1.5, 2)) +
   scale_x_reverse() +
   coord_flip() +
   theme_paper(axis.title.x = element_markdown())
@@ -1707,14 +1705,10 @@ Res_ul95 = 0 + (1.96*se.seq)
 Res_ll99 = 0 - (3.29*se.seq)
 Res_ul99 = 0 + (3.29*se.seq)
 
-# confidence interval for the meta-analytic estimate based on the stored value of its standard error
-Res_meanll95 = 0 - (1.96*se)
-Res_meanul95 = 0 + (1.96*se)
 
 Res_dfCI <- data.frame(Res_ll95, Res_ul95, 
                       Res_ll99, Res_ul99, 
-                      se.seq, estimate_RES, 
-                      Res_meanll95, Res_meanul95)
+                      se.seq, estimate_RES)
 
 
 # plot
@@ -1738,9 +1732,9 @@ FunnelPlot_Resid <- ggplot() +
              mapping = aes(x = r_SE, y = Residuals_Phylo_Moderator),
              shape = 21, size = 4, fill = "grey", alpha = .6) +
   labs(title = "", x = "Standard error", y = "Residual Bateman gradient (*r*)") +
-  scale_y_continuous(breaks = seq(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1, 0.5), 
+  scale_y_continuous(breaks = c(-1.5, 2, 0.5), 
                      labels = scales::number_format(accuracy = 0.1),
-                     limits = c(min(Data$Residuals_Phylo_Moderator) - 0.1, max(Data$r_f) + 0.1)) +
+                     limits = c(-1.5, 2)) +
   scale_x_reverse() +
   coord_flip() +
   theme_paper(axis.title.x = element_markdown())
