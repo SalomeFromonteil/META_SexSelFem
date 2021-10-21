@@ -271,8 +271,8 @@ ForestPlot
 ```
 __Figure S2.__ Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order.
 <br></br>
-______________ \
-# Bayesian Meta-Analysis
+******  
+# Bayesian Meta-Analysis  
 We ran General Linear Mixed-Effects Models (GLMMs) with the `MCMCglmm::MCMCglmm` function [@hadfield2010mcmcglmm] to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (_V_ = 1, _nu_ = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).
 ```{r Priors}
 pr  <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
@@ -534,7 +534,7 @@ Plot_MSestimate2 <- ggplot() +
                axis.title.y = element_text(size = 22))
 ```
 
-### Zero mating success - Mating success range
+### Mating success range
 ```{r Zero_MS}
 MetaData_with_0MS                 <- subset(Data, Zero_f == "1")
 MetaData_without_0MS              <- subset(Data, Zero_f == "0")
@@ -1214,8 +1214,8 @@ kable(align = c("c", "r", "l", "r", "c", "r", "l"),
 
 ```
 <br></br>
-______________ \
-# Restricted Maximum Likelihood Meta-Analysis
+******  
+# Restricted Maximum Likelihood Meta-Analysis  
 For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the `metafor` package [@viechtbauer2010metafor].
 ```{r REML}
 Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "LATIN1") # the file encoding supports special characters
@@ -1460,8 +1460,8 @@ kable(align = c("r", "l", "c", "c")) %>%
 ```
 <br></br>
 
-______________ \
-# Publication bias
+******  
+# Publication bias  
 Lastly, we build funnel plots to visually assess asymmetry.
 ```{r Funnel_plot, fig.width = 6, fig.height = 8}
 # Funnel plot for raw Bateman gradients
@@ -1600,5 +1600,5 @@ Figure_FunnelPlots
 __Figure S4.__ Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.
 
 <br></br>
-______________ \
-# References
+******  
+# References  
