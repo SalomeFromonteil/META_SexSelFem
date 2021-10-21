@@ -109,29 +109,26 @@ kable("html") %>%
   kable_styling(fixed_thead = T)
 ```
 <br></br>
-__Index:__ Individual number given to each effect size (k = 111). <br></br>
-__Study_ID:__ Identification number given to each study included in the meta-analysis.
-__Study:__ Authors and year of the published study. <br></br>
-__Species_Phylo:__ Species (n = 72). <br></br>
-__Polyandry:__ Level of polyandry of the species, bound between 0 (exclusively monogamous) and 1 (exclusively polyandrous). <br></br>
-__MatingSystem:__ Mating system of female individuals. Either monandrous or polyandrous. <br></br>
-__StudyType:__ Field study or laboratory study. <br></br>
-__MS_estimate:__ Mating success can be estimated either by using the number of genetic mating partners (_gMS_) or copulatory mating success (_cMS_). <br></br>
-__Zero_f:__ Whether this effect size was calculated on a population which includes (1) or excludes (0) individuals with zero mating success. <br></br>
-__beta_ss:__ Female Bateman gradients, as reported in the published studies. Only some Bateman gradients are standardized. <br></br>
+__Index:__ Individual number given to each effect size (k = 111). \
+__Study_ID:__ Identification number given to each study included in the meta-analysis. \
+__Study:__ Authors and year of the published study. \
+__Species_Phylo:__ Species (n = 72). \
+__Polyandry:__ Level of polyandry of the species, bound between 0 (exclusively monogamous) and 1 (exclusively polyandrous). \
+__MatingSystem:__ Mating system of female individuals. Either monandrous or polyandrous. \
+__StudyType:__ Field study or laboratory study. \
+__MS_estimate:__ Mating success can be estimated either by using the number of genetic mating partners (_gMS_) or copulatory mating success (_cMS_). \
+__Zero_f:__ Whether this effect size was calculated on a population which includes (1) or excludes (0) individuals with zero mating success. \
+__beta_ss:__ Female Bateman gradients, as reported in the published studies. Only some Bateman gradients are standardized. \
 __r_f:__ Pearson correlation coefficients converted from female Bateman gradients.
-__r_VAR_f:__ Variance of the effect size (r). <br></br>
-__N_f:__ Sample size of the study. <br></br>
-<br></br>
-
+__r_VAR_f:__ Variance of the effect size (r). \
+__N_f:__ Sample size of the study. \
+<br>
 As only some of the extracted Bateman gradients were computed on relativised data, we converted all obtained slopes into Pearson correlation coefficients (*r*). By running linear regression models between the actual Bateman Gradient and the correlation coefficients, we can check whether *r* is a reliable estimate for the benefit of mating. 
 ```{r}
 # Relationship between r and betaSS ####
 Data_stand <- subset(Data, beta_ss_stand == "1")
 
 LM_beta_f_r <- lm(Data_stand$beta_ss ~ Data_stand$r_f)
-summary(LM_beta_f_r)
-anova(LM_beta_f_r)
 
 
 Scatter_r_versus_betaSS <- ggplot(data = Data_stand,
@@ -147,7 +144,7 @@ Scatter_r_versus_betaSS <- ggplot(data = Data_stand,
   annotate("text", x = 0.8, y = -0.3, label = paste0("R^2 == ", round(summary(LM_beta_f_r)$r.squared, 2)), parse = TRUE, size = 7)
 Scatter_r_versus_betaSS
 ```
-__Figure S7.A__ Relationship between effect size *r* (correlation coefficient) and the actual Bateman gradient ($\beta B$_{ss}). Graph shows a subset of data for which standardized Bateman gradients were available (N = 68). Dashed line shows the linear regression fit with shaded area indicating the 95% confidence intervals.
+__Figure S7A.__ Relationship between effect size *r* (correlation coefficient) and the actual Bateman gradient ($\beta$~ss~). Graph shows a subset of data for which standardized Bateman gradients were available (*N* = 68). Dashed line shows the linear regression fit with shaded area indicating the 95% confidence intervals.
 
 ## Phylogeny
 We reconstructed the phylogeny using divergence times extracted from the TimeTree database (http://www.timetree.org/, [@kumar2017timetree]) and by using the `ggtree` package [@yu2017ggtree; @yu2018ggtree; @yu2020ggtree].
@@ -274,7 +271,7 @@ ForestPlot
 ```
 __Figure S2.__ Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order.
 <br></br>
-______________
+______________ \
 # Bayesian Meta-Analysis
 We ran General Linear Mixed-Effects Models (GLMMs) with the `MCMCglmm::MCMCglmm` function [@hadfield2010mcmcglmm] to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (_V_ = 1, _nu_ = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).
 ```{r Priors}
@@ -401,7 +398,7 @@ print(Plot_AllApproaches2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1)
 __Figure 1A.__ Meta-analytic evidence for sexual selection in females and its relation to the mating system. Global effect size of the Bateman gradient obtained from Generalized Linear Mixed Models (GLMMs) with or without accounting for phylogenetic non-independence (phylogenetic or non-phylogenetic, respectively). 
 
 ## Moderator variables
-Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category) or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in r. <br></br>
+Secondly, we ran individual GLMMs in which we defined mating success method (copulatory versus genetic), mating success range (with versus without zero-mating success category) or study type (field versus laboratory studies) as a fixed factor to explain inter-study variation in r. \
 These models account for phylogenetic non-independence and include the phylogeny as a random effect. 
 
 ### Mating success method
@@ -978,7 +975,7 @@ print(Plot_MatingSystem2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 __Figure 1B.__ Meta-analytic evidence for sexual selection in females and its relation to the mating system. Contrast in sexual selection in females between monandrous and polyandrous species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.
 
 #### Polyandry
-We also ran GLMMs with the proportion of multiply mated females (i. e., a continuous variable) as a fixed effect. <br></br>
+We also ran GLMMs with the proportion of multiply mated females (i. e., a continuous variable) as a fixed effect. \
 The studentized Breusch-Pagan test informs on whether this variable is significantly heteroscedastic.
 ```{r Polyandry}
 # predictor model ####
@@ -1217,7 +1214,7 @@ kable(align = c("c", "r", "l", "r", "c", "r", "l"),
 
 ```
 <br></br>
-______________
+______________ \
 # Restricted Maximum Likelihood Meta-Analysis
 For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the `metafor` package [@viechtbauer2010metafor].
 ```{r REML}
@@ -1463,7 +1460,7 @@ kable(align = c("r", "l", "c", "c")) %>%
 ```
 <br></br>
 
-______________
+______________ \
 # Publication bias
 Lastly, we build funnel plots to visually assess asymmetry.
 ```{r Funnel_plot, fig.width = 6, fig.height = 8}
@@ -1603,5 +1600,5 @@ Figure_FunnelPlots
 __Figure S4.__ Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.
 
 <br></br>
-______________
+______________ \
 # References
