@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongd3b918b"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> d3b918b </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5baa2b9"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 5baa2b9 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongd3b918b" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrong5baa2b9" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version d3b918b. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version 5baa2b9. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -521,7 +521,7 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/site_libs/
+    Ignored:    analysis/figure/
 
 </code></pre>
 <p>
@@ -560,6 +560,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+5baa2b9
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+wflow_publish(files = "analysis/META_SexSelFem.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+2ff4369
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -5743,7 +5777,7 @@ NA
 </tbody>
 </table>
 </div>
-<p><br></br> <strong>Index:</strong> Individual number given to each effect size (k = 111).<br />
+<p><br></br> <strong>Index:</strong> Individual number given to each effect size (<em>k</em> = 111).<br />
 <strong>Study_ID:</strong> Identification number given to each study included in the meta-analysis.<br />
 <strong>Study:</strong> Authors and year of the published study.<br />
 <strong>Species_Phylo:</strong> Species (n = 72).<br />
@@ -5753,7 +5787,8 @@ NA
 <strong>MS_estimate:</strong> Mating success can be estimated either by using the number of genetic mating partners (<em>gMS</em>) or copulatory mating success (<em>cMS</em>).<br />
 <strong>Zero_f:</strong> Whether this effect size was calculated on a population which includes (1) or excludes (0) individuals with zero mating success.<br />
 <strong>beta_ss:</strong> Female Bateman gradients, as reported in the published studies. Only some Bateman gradients are standardized.<br />
-<strong>r_f:</strong> Pearson correlation coefficients converted from female Bateman gradients. <strong>r_VAR_f:</strong> Variance of the effect size (r).<br />
+<strong>r_f:</strong> Pearson correlation coefficients converted from female Bateman gradients.<br />
+<strong>r_VAR_f:</strong> Variance of the effect size (<em>r</em>).<br />
 <strong>N_f:</strong> Sample size of the study.<br />
 <br> As only some of the extracted Bateman gradients were computed on relativised data, we converted all obtained slopes into Pearson correlation coefficients (<em>r</em>). By running linear regression models between the actual Bateman Gradient and the correlation coefficients, we can check whether <em>r</em> is a reliable estimate for the benefit of mating.</p>
 <pre class="r"><code># Relationship between r and betaSS ####
@@ -5912,8 +5947,8 @@ pr2 &lt;- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   400 #000
-NITT   = 4400 #000
+BURNIN =   400000
+NITT   =  4400000
 THIN   =      400</code></pre>
 <p>GLMMs were run with the effect size (<em>r</em>) defined as the response variable weighted by the inverse of its sampling size and included study identifier and observation identifier as a random term.</p>
 <div id="global-effect-size-traditionnal-and-phylogenetic-approach" class="section level2">
@@ -6898,13 +6933,13 @@ Global model (non-phylogenetic)
 72
 </td>
 <td style="text-align:center;">
-0.37
+0.39
 </td>
 <td style="text-align:right;">
-(0.37,
+(0.33,
 </td>
 <td style="text-align:left;">
-0.47)
+0.48)
 </td>
 <td style="text-align:right;">
 &lt;0.001
@@ -6942,43 +6977,43 @@ Global model (phylogenetic)
 72
 </td>
 <td style="text-align:center;">
-0.28
+0.39
 </td>
 <td style="text-align:right;">
-(0.24,
+(0.11,
 </td>
 <td style="text-align:left;">
-0.41)
+0.64)
 </td>
 <td style="text-align:right;">
-0.1
+0.014
 </td>
 <td style="text-align:center;">
-0.57
+0.7
 </td>
 <td style="text-align:right;">
-(0.13,
+(0.01,
 </td>
 <td style="text-align:left;">
-0.78)
+0.85)
 </td>
 <td style="text-align:center;">
-0.29
+0.23
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.6)
+0.73)
 </td>
 <td style="text-align:center;">
-0.06
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.35)
+0.23)
 </td>
 </tr>
 <tr>
@@ -6992,43 +7027,43 @@ Copulatory mating success
 21
 </td>
 <td style="text-align:center;">
-0.20
+0.21
 </td>
 <td style="text-align:right;">
-(0.06,
+(0.05,
 </td>
 <td style="text-align:left;">
-0.27)
+0.37)
 </td>
 <td style="text-align:right;">
-0.1
+0.023
 </td>
 <td style="text-align:center;">
-0.7
-</td>
-<td style="text-align:right;">
-(0.02,
-</td>
-<td style="text-align:left;">
-0.77)
-</td>
-<td style="text-align:center;">
-0.06
+0.02
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.3)
+0.75)
 </td>
 <td style="text-align:center;">
-0.48
+0.01
 </td>
 <td style="text-align:right;">
-(0.02,
+(0,
 </td>
 <td style="text-align:left;">
-0.61)
+0.45)
+</td>
+<td style="text-align:center;">
+0.02
+</td>
+<td style="text-align:right;">
+(0,
+</td>
+<td style="text-align:left;">
+0.73)
 </td>
 </tr>
 <tr>
@@ -7042,43 +7077,43 @@ Genetic mating success
 52
 </td>
 <td style="text-align:center;">
-0.45
+0.46
 </td>
 <td style="text-align:right;">
-(0.2,
+(0.24,
 </td>
 <td style="text-align:left;">
-0.58)
+0.72)
 </td>
 <td style="text-align:right;">
-0.1
+0.003
 </td>
 <td style="text-align:center;">
-0.17
-</td>
-<td style="text-align:right;">
-(0.01,
-</td>
-<td style="text-align:left;">
-0.83)
-</td>
-<td style="text-align:center;">
-0.75
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.83)
+0.75)
 </td>
 <td style="text-align:center;">
-0.1
+0.67
 </td>
 <td style="text-align:right;">
-(0.04,
+(0.1,
 </td>
 <td style="text-align:left;">
-0.3)
+0.9)
+</td>
+<td style="text-align:center;">
+0.01
+</td>
+<td style="text-align:right;">
+(0,
+</td>
+<td style="text-align:left;">
+0.23)
 </td>
 </tr>
 <tr>
@@ -7092,43 +7127,43 @@ Including zero mating success
 37
 </td>
 <td style="text-align:center;">
-0.52
+0.47
 </td>
 <td style="text-align:right;">
-(0.11,
+(0.14,
 </td>
 <td style="text-align:left;">
-0.58)
+0.74)
 </td>
 <td style="text-align:right;">
-0.1
+0.01
 </td>
 <td style="text-align:center;">
-0.54
+0.82
 </td>
 <td style="text-align:right;">
-(0.52,
+(0.05,
 </td>
 <td style="text-align:left;">
-0.91)
+0.92)
 </td>
 <td style="text-align:center;">
 0.01
 </td>
 <td style="text-align:right;">
-(0.01,
+(0,
 </td>
 <td style="text-align:left;">
-0.36)
+0.65)
 </td>
 <td style="text-align:center;">
 0.01
 </td>
 <td style="text-align:right;">
-(0.01,
+(0,
 </td>
 <td style="text-align:left;">
-0.14)
+0.33)
 </td>
 </tr>
 <tr>
@@ -7142,43 +7177,43 @@ Excluding zero mating success
 41
 </td>
 <td style="text-align:center;">
-0.34
+0.29
 </td>
 <td style="text-align:right;">
-(0.05,
+(0.07,
 </td>
 <td style="text-align:left;">
-0.41)
+0.44)
 </td>
 <td style="text-align:right;">
-0.1
-</td>
-<td style="text-align:center;">
-0.07
-</td>
-<td style="text-align:right;">
-(0.05,
-</td>
-<td style="text-align:left;">
-0.48)
-</td>
-<td style="text-align:center;">
-0.62
-</td>
-<td style="text-align:right;">
-(0.02,
-</td>
-<td style="text-align:left;">
-0.84)
+0.02
 </td>
 <td style="text-align:center;">
 0.01
 </td>
 <td style="text-align:right;">
-(0.01,
+(0,
 </td>
 <td style="text-align:left;">
-0.58)
+0.62)
+</td>
+<td style="text-align:center;">
+0.76
+</td>
+<td style="text-align:right;">
+(0.12,
+</td>
+<td style="text-align:left;">
+0.94)
+</td>
+<td style="text-align:center;">
+0.01
+</td>
+<td style="text-align:right;">
+(0,
+</td>
+<td style="text-align:left;">
+0.37)
 </td>
 </tr>
 <tr>
@@ -7192,43 +7227,43 @@ Laboratory studies
 28
 </td>
 <td style="text-align:center;">
-0.36
+0.44
 </td>
 <td style="text-align:right;">
-(0.16,
+(0.12,
 </td>
 <td style="text-align:left;">
-0.5)
+0.65)
 </td>
 <td style="text-align:right;">
-0.1
+0.011
 </td>
 <td style="text-align:center;">
-0.68
+0.77
 </td>
 <td style="text-align:right;">
-(0.25,
+(0.11,
 </td>
 <td style="text-align:left;">
-0.88)
+0.92)
 </td>
 <td style="text-align:center;">
-0.03
-</td>
-<td style="text-align:right;">
-(0.01,
-</td>
-<td style="text-align:left;">
-0.33)
-</td>
-<td style="text-align:center;">
-0.03
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
 0.51)
+</td>
+<td style="text-align:center;">
+0.01
+</td>
+<td style="text-align:right;">
+(0,
+</td>
+<td style="text-align:left;">
+0.42)
 </td>
 </tr>
 <tr>
@@ -7242,43 +7277,43 @@ Field studies
 45
 </td>
 <td style="text-align:center;">
-0.47
+0.40
 </td>
 <td style="text-align:right;">
-(0.24,
+(0.07,
 </td>
 <td style="text-align:left;">
 0.61)
 </td>
 <td style="text-align:right;">
-0.1
+0.029
 </td>
 <td style="text-align:center;">
 0.01
 </td>
 <td style="text-align:right;">
-(0.01,
+(0,
 </td>
 <td style="text-align:left;">
-0.84)
+0.82)
 </td>
 <td style="text-align:center;">
-0.82
+0.83
 </td>
 <td style="text-align:right;">
-(0.11,
+(0.09,
 </td>
 <td style="text-align:left;">
-0.9)
+0.94)
 </td>
 <td style="text-align:center;">
-0.02
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.08)
+0.19)
 </td>
 </tr>
 <tr>
@@ -7292,43 +7327,43 @@ monandrous species
 16
 </td>
 <td style="text-align:center;">
-0.22
+0.21
 </td>
 <td style="text-align:right;">
-(0.09,
+(-0.01,
 </td>
 <td style="text-align:left;">
-0.31)
+0.46)
 </td>
 <td style="text-align:right;">
-0.1
+0.067
 </td>
 <td style="text-align:center;">
-0.1
+0.02
+</td>
+<td style="text-align:right;">
+(0,
+</td>
+<td style="text-align:left;">
+0.68)
+</td>
+<td style="text-align:center;">
+0.8
 </td>
 <td style="text-align:right;">
 (0.01,
 </td>
 <td style="text-align:left;">
-0.57)
+0.9)
 </td>
 <td style="text-align:center;">
-0.29
+0.01
 </td>
 <td style="text-align:right;">
-(0.07,
+(0,
 </td>
 <td style="text-align:left;">
-0.87)
-</td>
-<td style="text-align:center;">
-0.06
-</td>
-<td style="text-align:right;">
-(0.01,
-</td>
-<td style="text-align:left;">
-0.59)
+0.47)
 </td>
 </tr>
 <tr>
@@ -7342,43 +7377,43 @@ Polyandrous species
 56
 </td>
 <td style="text-align:center;">
-0.42
+0.41
 </td>
 <td style="text-align:right;">
-(0.2,
+(0.13,
 </td>
 <td style="text-align:left;">
-0.66)
+0.68)
 </td>
 <td style="text-align:right;">
-0.1
+0.007
 </td>
 <td style="text-align:center;">
-0.69
+0.84
 </td>
 <td style="text-align:right;">
-(0.21,
+(0.36,
 </td>
 <td style="text-align:left;">
 0.94)
 </td>
 <td style="text-align:center;">
-0.04
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.58)
+0.33)
 </td>
 <td style="text-align:center;">
-0.03
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-0.21)
+0.28)
 </td>
 </tr>
 </tbody>
@@ -7403,7 +7438,7 @@ kable(align = c(&quot;c&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quo
       col.names = c(&quot;Estimate&quot;, &quot;&quot;, &quot;&quot;, &quot;P~MCMC~&quot;, 
                       &quot;R²&quot;, &quot;&quot;, &quot;&quot;)) %&gt;% 
   kable_paper(full_width = FALSE)</code></pre>
-<table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -7433,25 +7468,25 @@ R²
 Mating success method
 </td>
 <td style="text-align:center;">
-0.21
+0.32
 </td>
 <td style="text-align:right;">
-(0.11,
+(0.13,
 </td>
 <td style="text-align:left;">
-0.45)
+0.48)
 </td>
 <td style="text-align:right;">
-0.1
+0.001
 </td>
 <td style="text-align:center;">
-0.08
+0.19
 </td>
 <td style="text-align:right;">
-(0.07,
+(0.09,
 </td>
 <td style="text-align:left;">
-0.16)
+0.24)
 </td>
 </tr>
 <tr>
@@ -7459,25 +7494,25 @@ Mating success method
 Mating success range
 </td>
 <td style="text-align:center;">
-0.20
+0.18
 </td>
 <td style="text-align:right;">
-(0.08,
+(0.05,
 </td>
 <td style="text-align:left;">
-0.31)
+0.3)
 </td>
 <td style="text-align:right;">
-0.1
+0.005
 </td>
 <td style="text-align:center;">
-0.06
+0.04
 </td>
 <td style="text-align:right;">
-(0.04,
+(0.02,
 </td>
 <td style="text-align:left;">
-0.11)
+0.09)
 </td>
 </tr>
 <tr>
@@ -7485,16 +7520,16 @@ Mating success range
 Study type
 </td>
 <td style="text-align:center;">
-0.05
+0.06
 </td>
 <td style="text-align:right;">
-(-0.09,
+(-0.13,
 </td>
 <td style="text-align:left;">
-0.08)
+0.24)
 </td>
 <td style="text-align:right;">
-1.0
+0.556
 </td>
 <td style="text-align:center;">
 0.00
@@ -7503,15 +7538,15 @@ Study type
 (0,
 </td>
 <td style="text-align:left;">
-<ol start="0" style="list-style-type: decimal">
-<li></td>
+0.01)
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Year of publication
 </td>
 <td style="text-align:center;">
-0.00
+-0.01
 </td>
 <td style="text-align:right;">
 (-0.02,
@@ -7520,42 +7555,42 @@ Year of publication
 0.01)
 </td>
 <td style="text-align:right;">
-0.6
+0.364
 </td>
 <td style="text-align:center;">
-0.00
+0.01
 </td>
 <td style="text-align:right;">
 (0,
 </td>
 <td style="text-align:left;">
-<ol start="0" style="list-style-type: decimal">
-<li></td>
+0.01)
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Mating system
 </td>
 <td style="text-align:center;">
-0.25
+0.29
 </td>
 <td style="text-align:right;">
-(0.19,
+(0.16,
 </td>
 <td style="text-align:left;">
-0.38)
+0.47)
 </td>
 <td style="text-align:right;">
-0.1
+0.000
 </td>
 <td style="text-align:center;">
-0.06
+0.14
 </td>
 <td style="text-align:right;">
-(0.06,
+(0.07,
 </td>
 <td style="text-align:left;">
-0.16)
+0.21)
 </td>
 </tr>
 <tr>
@@ -7563,31 +7598,29 @@ Mating system
 Polyandry
 </td>
 <td style="text-align:center;">
-0.78
+0.65
 </td>
 <td style="text-align:right;">
-(0.41,
+(0.37,
 </td>
 <td style="text-align:left;">
-1.04)
+0.95)
 </td>
 <td style="text-align:right;">
-0.1
+0.000
 </td>
 <td style="text-align:center;">
-0.22
+0.18
 </td>
 <td style="text-align:right;">
-(0.17,
+(0.1,
 </td>
 <td style="text-align:left;">
-0.26)
+0.27)
 </td>
 </tr>
 </tbody>
-</table></li>
-</ol></li>
-</ol>
+</table>
 <p><br></br></p>
 <hr />
 </div>
