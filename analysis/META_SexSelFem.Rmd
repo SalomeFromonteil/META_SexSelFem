@@ -1558,7 +1558,7 @@ kable(align = c(rep("c", 3), "r", "l", "c", "c")) %>%
   row_spec(0, italic = T, font_size = 14)
 ```
 
-<br></br> <br></br> **Table S2.** Predictors of inter-specific variation
+<br></br> **Table S2.** Predictors of inter-specific variation
 in female Bateman gradients using restricted maximum likelihood (REML)
 approach. Methodological moderators include mating success method
 (copulatory versus genetic mating success), mating success range
