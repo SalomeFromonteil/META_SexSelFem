@@ -118,7 +118,7 @@ kable("html") %>%
   kable_styling(fixed_thead = T)
 ```
 
-<br></br> **Index:** Individual number given to each effect size (k =
+<br></br> **Index:** Individual number given to each effect size (*k* =
 111).\
 **Study_ID:** Identification number given to each study included in the
 meta-analysis.\
@@ -138,7 +138,8 @@ success.\
 **beta_ss:** Female Bateman gradients, as reported in the published
 studies. Only some Bateman gradients are standardized.\
 **r_f:** Pearson correlation coefficients converted from female Bateman
-gradients. **r_VAR_f:** Variance of the effect size (r).\
+gradients. \
+**r_VAR_f:** Variance of the effect size (*r*).\
 **N_f:** Sample size of the study.\
 <br> As only some of the extracted Bateman gradients were computed on
 relativised data, we converted all obtained slopes into Pearson
@@ -328,8 +329,8 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   400 #000
-NITT   = 4400 #000
+BURNIN =   400000
+NITT   =  4400000
 THIN   =      400
 ```
 
