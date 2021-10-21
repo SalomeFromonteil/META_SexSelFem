@@ -503,16 +503,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong125daab"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 125daab </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74fd2dd"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 74fd2dd </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong125daab" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrong74fd2dd" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 125daab. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version 74fd2dd. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -521,7 +521,7 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/figure/
+    Ignored:    analysis/site_libs/
 
 </code></pre>
 <p>
@@ -560,6 +560,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+74fd2dd
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+wflow_publish(files = "analysis/META_SexSelFem.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+1870f3c
+</td>
+<td>
+salfromo
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -5827,8 +5861,9 @@ ForestPlot &lt;- ggplot() +
               axis.title.y = element_text(size = 18)) +
   theme(axis.title.x = element_markdown())
 ForestPlot</code></pre>
-<p><img src="figure/META_SexSelFem.Rmd/Forest_Plot-1.png" width="576" style="display: block; margin: auto;" /> <strong>Figure S2.</strong> Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order. <br></br> ______________<br />
-# Bayesian Meta-Analysis We ran General Linear Mixed-Effects Models (GLMMs) with the <code>MCMCglmm::MCMCglmm</code> function <span class="citation">(Hadfield 2010)</span> to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (<em>V</em> = 1, <em>nu</em> = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).</p>
+<p><img src="figure/META_SexSelFem.Rmd/Forest_Plot-1.png" width="576" style="display: block; margin: auto;" /> <strong>Figure S2.</strong> Forest plot of all sampled effect sizes. Effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits are shown in phylogenetic order. <br></br> ******<br />
+# Bayesian Meta-Analysis<br />
+We ran General Linear Mixed-Effects Models (GLMMs) with the <code>MCMCglmm::MCMCglmm</code> function <span class="citation">(Hadfield 2010)</span> to provide a global test for sexual selection in females and to explore determinants of the inter-study variation. We used uninformative priors (<em>V</em> = 1, <em>nu</em> = 0.002) and an effective sample size of 10,000 (number of iterations = 4,400,000, burn-in = 400,000, thinning interval = 400).</p>
 <pre class="r"><code>pr  &lt;- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002)))
 
@@ -6084,8 +6119,8 @@ Plot_MSestimate2 &lt;- ggplot() +
   theme_jitter(axis.title.x = element_markdown(),
                axis.title.y = element_text(size = 22))</code></pre>
 </div>
-<div id="zero-mating-success---mating-success-range" class="section level3">
-<h3>Zero mating success - Mating success range</h3>
+<div id="mating-success-range" class="section level3">
+<h3>Mating success range</h3>
 <pre class="r"><code>MetaData_with_0MS                 &lt;- subset(Data, Zero_f == &quot;1&quot;)
 MetaData_without_0MS              &lt;- subset(Data, Zero_f == &quot;0&quot;)
 
@@ -7508,8 +7543,9 @@ Polyandry
 </tr>
 </tbody>
 </table>
-<br></br> ______________<br />
-# Restricted Maximum Likelihood Meta-Analysis For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the <code>metafor</code> package <span class="citation">(Viechtbauer 2010)</span>.</li>
+<br></br> ******<br />
+# Restricted Maximum Likelihood Meta-Analysis<br />
+For completeness, we also ran all GLMMs using the Restricted Maximum Likelihood (REML) approach using the <code>metafor</code> package <span class="citation">(Viechtbauer 2010)</span>.</li>
 </ol></li>
 </ol>
 <pre class="r"><code>Data &lt;- read.table(&quot;./data/Fromonteil_et_al_DATA.txt&quot;, fileEncoding = &quot;LATIN1&quot;) # the file encoding supports special characters
@@ -8171,8 +8207,12 @@ Polyandry
 </tbody>
 </table>
 <p><br></br></p>
-<p>______________<br />
-# Publication bias Lastly, we build funnel plots to visually assess asymmetry.</p>
+<hr />
+</div>
+</div>
+<div id="publication-bias" class="section level1">
+<h1>Publication bias</h1>
+<p>Lastly, we build funnel plots to visually assess asymmetry.</p>
 <pre class="r"><code># Funnel plot for raw Bateman gradients
   # Define model
 forcedC &lt;- as.matrix(forceSymmetric(vcv(Tree, corr = TRUE)))
@@ -8306,7 +8346,7 @@ Figure_FunnelPlots &lt;- plot_grid(FunnelPlot, FunnelPlot_Resid,
                                 nrow = 2)
 Figure_FunnelPlots</code></pre>
 <p><img src="figure/META_SexSelFem.Rmd/Funnel_plot-1.png" width="576" style="display: block; margin: auto;" /> <strong>Figure S4.</strong> Funnel plots. Data are shown for (A) raw values and (B) for meta-analytic residuals obtained from multivariate linear mixed-effects models accounting for all tested moderator variables. Dashed lines indicate the estimated global effect size. Dark and light blue solid lines denote the expected 95% and 99% confidence limits purely due to sampling heterogeneity. Asymmetries along the global effect size may reflect publication biases.</p>
-<p><br></br> ______________<br />
+<p><br></br> ******<br />
 # References</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-hadfield2010mcmcglmm" class="csl-entry">
@@ -8391,7 +8431,6 @@ loaded via a namespace (and not attached):
 [73] tidyr_1.1.4        assertthat_0.2.1   xfun_0.26          tidytree_0.3.5    
 [77] later_1.3.0        viridisLite_0.4.0  tibble_3.1.5       aplot_0.1.1       
 [81] ellipsis_0.3.2    </code></pre>
-</div>
 </div>
 </div>
 
