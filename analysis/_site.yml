@@ -1,7 +1,7 @@
-name: "META_SexSelFem"
+name: META_SexSelFem
 output_dir: ../docs
 navbar:
-  title: "META_SexSelFem"
+  title: META_SexSelFem
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/Salomé Fromonteil/META_SexSelFem
 output:
   workflowr::wflow_html:
     toc: yes
