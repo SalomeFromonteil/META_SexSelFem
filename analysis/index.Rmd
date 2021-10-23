@@ -959,7 +959,7 @@ Model_polygamous                 <- MCMCglmm(r_f~1,
 # Raincloud plot ####
   # density
 Data_MatSys_Monogamy     <- as.data.frame(Model_monogamous$Sol[, "(Intercept)"])
-Data_MatSys_Monogamy$MatSys <- as.factor(rep("monandrous", nrow(Data_MatSys_Monogamy)))
+Data_MatSys_Monogamy$MatSys <- as.factor(rep("Monandrous", nrow(Data_MatSys_Monogamy)))
 colnames(Data_MatSys_Monogamy) <- c("ES", "MatSys")
 
 Data_MatSys_Polygamy     <- as.data.frame(Model_polygamous$Sol[, "(Intercept)"])
