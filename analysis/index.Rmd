@@ -9,7 +9,10 @@ output:
     theme: paper
     toc: true
     toc_float: true
-bibliography: [../data/References.bib]
+    depth: 4
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r library, warning = FALSE, message = FALSE}
@@ -135,7 +138,7 @@ success.\
 **beta_ss:** Female Bateman gradients, as reported in the published
 studies. Only some Bateman gradients are standardized.\
 **r_f:** Pearson correlation coefficients converted from female Bateman
-gradients. \
+gradients.\
 **r_VAR_f:** Variance of the effect size (*r*).\
 **N_f:** Sample size of the study.\
 <br> As only some of the extracted Bateman gradients were computed on
@@ -1558,15 +1561,15 @@ kable(align = c(rep("c", 3), "r", "l", "c", "c")) %>%
   row_spec(0, italic = T, font_size = 14)
 ```
 
-<br></br> **Table S2.** Predictors of inter-specific variation
-in female Bateman gradients using restricted maximum likelihood (REML)
-approach. Methodological moderators include mating success method
-(copulatory versus genetic mating success), mating success range
-(including versus excluding mating success category), study type (field
-versus lab) and year of publication (continuous variable). Effect of
-mating system contrasts polyandrous and monandrous species. Effect of
-polyandry (continuous variable) estimates the relationship between the
-female Bateman gradient and the proportion of polyandrous females in the
+<br></br> **Table S2.** Predictors of inter-specific variation in female
+Bateman gradients using restricted maximum likelihood (REML) approach.
+Methodological moderators include mating success method (copulatory
+versus genetic mating success), mating success range (including versus
+excluding mating success category), study type (field versus lab) and
+year of publication (continuous variable). Effect of mating system
+contrasts polyandrous and monandrous species. Effect of polyandry
+(continuous variable) estimates the relationship between the female
+Bateman gradient and the proportion of polyandrous females in the
 population. Phylogenetically controlled multilevel meta-analytic single
 predictor models are shown with Omnibus tests (Wald-type chi-square
 test) and McFadden's *R²*.
