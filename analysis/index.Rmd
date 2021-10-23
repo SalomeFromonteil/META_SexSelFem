@@ -17,6 +17,7 @@ editor_options:
 ---
 
 ```{r library, warning = FALSE, message = FALSE}
+# load packages
 library(Matrix)
 library(metafor)
 library(ape)
@@ -328,8 +329,8 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   400000
-NITT   =  4400000
+BURNIN =   400 #000
+NITT   =  4400 #000
 THIN   =      400
 ```
 
