@@ -5,7 +5,6 @@ subtitle: "Supplementary material reporting R code"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    suppress_report: TRUE
     code_folding: hide
     theme: paper
     toc: true
