@@ -3,12 +3,8 @@ output_dir: ../docs
 navbar:
   title: META_SexSelFem
   left:
-  - text: Home
-    href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  - text: Analysis
+    href: META_SexSelFem.html
   right:
   - icon: fa-github
     text: Source code

@@ -325,8 +325,8 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   40 #0 000
-NITT   =  440 #0000
+BURNIN =   400000
+NITT   =  4400000
 THIN   =      200
 ```
 
