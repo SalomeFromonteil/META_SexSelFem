@@ -2,7 +2,6 @@
 title: "Sexual selection in females across the animal tree of life"
 author: "Salomé Fromonteil^1^,  Lennart Winkler^2^, Lucas Marie-Orleach^3,4^, Tim Janicke^1,2^* <br></br> ^1^Centre d'Écologie Fonctionnelle et Évolutive, UMR 5175, CNRS, Université de Montpellier <br> ^2^Applied Zoology, Technical University Dresden <br> ^3^Natural History Museum, University of Oslo <br> ^4^ECOBIO (Écosystèmes, biodiversité, évolution), UMR 6553, CNRS, Université de Rennes 1 <br> *Corresponding author: tim.janicke@cefe.cnrs.fr"
 subtitle: "Supplementary material reporting R code"
-bibliography: [../data/References.bib]
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -11,9 +10,7 @@ output:
     theme: paper
     toc: true
     toc_float: true
-editor_options: 
-  markdown: 
-    wrap: 72
+bibliography: [../data/References.bib]
 ---
 
 ```{r library, warning = FALSE, message = FALSE}
@@ -329,9 +326,9 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   400 #000
-NITT   =  4400 #000
-THIN   =      400
+BURNIN =   40 #0 000
+NITT   =  440 #0000
+THIN   =      200
 ```
 
 GLMMs were run with the effect size (*r*) defined as the response
