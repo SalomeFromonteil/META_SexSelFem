@@ -1,6 +1,6 @@
 ---
-title: "Sexual selection in females across the animal tree of life"
-author: "Salomé Fromonteil^1^,  Lennart Winkler^2^, Lucas Marie-Orleach^3,4^, Tim Janicke^1,2^* <br></br> ^1^Centre d'Écologie Fonctionnelle et Évolutive, UMR 5175, CNRS, Université de Montpellier <br> ^2^Applied Zoology, Technical University Dresden <br> ^3^Natural History Museum, University of Oslo <br> ^4^ECOBIO (Écosystèmes, biodiversité, évolution), UMR 6553, CNRS, Université de Rennes 1 <br> *Corresponding author: tim.janicke@cefe.cnrs.fr"
+title: "Sexual selection in females and the evolution of polyandry"
+author: "Salomé Fromonteil^1^,  Lennart Winkler^2^, Lucas Marie-Orleach^3,4^, Tim Janicke^1,2^* <br></br> ^1^Centre d'Écologie Fonctionnelle et Évolutive, UMR 5175, CNRS, Université de Montpellier, École Pratique des Hautes Études, Montpellier, France. <br> ^2^Applied Zoology, TU Dresden, Zellescher Weg 20b, 01062 Dresden, Germany. <br> ^3^Natural History Museum, University of Oslo, NO-0318, Oslo, Norway. <br> ^4^CNRS, Université de Rennes 1, ECOBIO (Écosystèmes, biodiversité, évolution) - UMR 6553, F-35000, Rennes, France.<br> *Corresponding author: tim.janicke@cefe.cnrs.fr"
 subtitle: "Supplementary material reporting R code"
 site: workflowr::wflow_site
 output:
@@ -9,7 +9,7 @@ output:
     theme: paper
     toc: true
     toc_float: true
-    depth: 4
+bibliography: [../data/References.bib]
 editor_options: 
   markdown: 
     wrap: 72
@@ -106,7 +106,7 @@ species. <br></br>
 **Source Data** Table of effect sizes included in the meta-analysis.
 
 ```{r data}
-Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "LATIN1") # the file encoding supports special characters
+Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "UTF-8") # the file encoding supports special characters
 Tree <- read.tree("./data/Fromonteil_et_al_TREE.txt")
 
 Data %>%
@@ -118,16 +118,15 @@ kable("html") %>%
   kable_styling(fixed_thead = T)
 ```
 
-<br></br> **Index:** Individual number given to each effect size (*k* =
-111).\
+</br> **Index:** Individual number given to each effect size (*k* =
+120).\
 **Study_ID:** Identification number given to each study included in the
 meta-analysis.\
 **Study:** Authors and year of the published study.\
-**Species_Phylo:** Species (n = 72).\
+**Species_Phylo:** Species (n = 77).\
 **Polyandry:** Level of polyandry of the species, bound between 0
 (exclusively monogamous) and 1 (exclusively polyandrous).\
-**MatingSystem:** Mating system of female individuals. Either monandrous
-or polyandrous.\
+**MatingSystem:** Mating system of female individuals. Either with a low or a high polyandry.\
 **StudyType:** Field study or laboratory study.\
 **MS_estimate:** Mating success can be estimated either by using the
 number of genetic mating partners (*gMS*) or copulatory mating success
@@ -171,7 +170,7 @@ Scatter_r_versus_betaSS
 **Figure S7A.** Relationship between effect size *r* (correlation
 coefficient) and the actual Bateman gradient ($\beta$~ss~). Graph shows
 a subset of data for which standardized Bateman gradients were available
-(*N* = 68). Dashed line shows the linear regression fit with shaded area
+(*N* = 74). Dashed line shows the linear regression fit with shaded area
 indicating the 95% confidence intervals.
 
 ## Phylogeny
@@ -188,20 +187,21 @@ theTree$tip.label <- gsub("_", " ", theTree$tip.label)
 
 # Phylogenetic tree ####
 Phylo <- ggtree(theTree, size = 0.6) +
-  ylim(-2,76) +
+  ylim(-2, 79) +
   xlim(-20, 650) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 72.5, ymax = 70.5, fill = Palette(9)[1], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 70.5, ymax = 65.5, fill = Palette(9)[2], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 65.5, ymax = 48.5, fill = Palette(9)[3], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 48.5, ymax = 46.5, fill = Palette(9)[4], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 46.5, ymax = 33.5, fill = Palette(9)[5], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 33.5, ymax = 26.5, fill = Palette(9)[6], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 26.5, ymax = 13.5, fill = Palette(9)[7], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 13.5, ymax = 8.5, fill = Palette(9)[8], alpha = .8) +
-  annotate("rect", xmin = 368, xmax = 570, ymin = 8.5, ymax = 0, fill = Palette(9)[9], alpha = .8) +
-   geom_tiplab(size = 3, colour = "black", hjust = 0.0) +
-   theme_tree()
-Phylo <- rotate(Phylo, 73) %>% rotate(77) %>% rotate(79) %>% rotate(91) %>% rotate(95) 
+  annotate("rect", xmin = 368, xmax = 570, ymin = 77.5, ymax = 75.5, fill = "#8C510A", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 75.5, ymax = 70.5, fill = "#BF812D", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 70.5, ymax = 50.5, fill = "#DFC27D", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 50.5, ymax = 48.5, fill = "#F6E8C3", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 48.5, ymax = 33.5, fill = "#F5F5F5", alpha = .8) + 
+  annotate("rect", xmin = 368, xmax = 570, ymin = 33.5, ymax = 26.5, fill = "#C7EAE5", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 26.5, ymax = 13.5, fill = "#80CDC1", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin = 13.5, ymax =  8.5, fill = "#35978F", alpha = .8) +
+  annotate("rect", xmin = 368, xmax = 570, ymin =  8.5, ymax =  0.0, fill = "#01665E", alpha = .8) +
+  geom_tiplab(size = 3, color = "black", hjust = 0.0) +
+  theme_tree()
+Phylo <- rotate(Phylo, 78) %>% rotate(82) %>% rotate(84) %>% rotate(96)  %>% rotate(100) 
+
 
 # Number of effect sizes/class ####
 Data_r_f <- as.data.frame(aggregate(r_f ~ Class + Species_Phylo + Index, data = Data, FUN = mean, na.rm = TRUE))
@@ -259,11 +259,11 @@ Figure_Donut_ALL <- plot_grid(DChart_N_ES, DChart_N_Species,
 
 # Combine 
 ggdraw(Phylo) + draw_plot(Figure_Donut_ALL, x = - 0.33, y = -0.34, scale = 0.3) +
-  annotate("text", x = 0.085, y = 0.08, label = "Sample\nsize", size = 5, angle=0, lineheight = 1, hjust = 0.5) +
-  annotate("text", x = 0.245, y = 0.08, label = "Species\nnumber", size = 5, angle=0, lineheight = 1, hjust = 0.5)
+  annotate("text", x = 0.085, y = 0.08, label = "Sample\nsize", size = 5, angle = 0, lineheight = 1, hjust = 0.5) +
+  annotate("text", x = 0.245, y = 0.08, label = "Species\nnumber", size = 5, angle = 0, lineheight = 1, hjust = 0.5)
 ```
 
-**Figure S6.** Phylogenetic tree of all sampled species. Doughnut charts
+**Figure S4.** Phylogenetic tree of all sampled species. Doughnut charts
 show the relative fraction of the sampled effect sizes (i.e., number of
 Bateman gradients) and the number of species.
 
@@ -280,19 +280,19 @@ ForestData$Phylo_ID_red <- seq.int(nrow(ForestData))
 ForestPlot <- ggplot() + 
   geom_point(data = ForestData,
              mapping = aes(x = r_f, y = Phylo_ID_red),
-             shape = 18, size = 2, colour = "black") +
+             shape = 23, size = 2, colour = "black") +
   geom_errorbarh(data = ForestData, 
                  mapping = aes(y = Phylo_ID_red, xmin = l95CI_r_f, xmax = u95CI_r_f),
-                 size = 0.7, colour = "black", height = 0.0) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 111.5, ymax = 109.5, fill = Palette(9)[1], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 109.5, ymax = 102.5, fill = Palette(9)[2], alpha = .8) + 
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 102.5, ymax = 79.5, fill = Palette(9)[3], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 79.5, ymax = 77.5, fill = Palette(9)[4], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 77.5, ymax = 52.5, fill = Palette(9)[5], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 52.5, ymax = 41.5, fill = Palette(9)[6], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 41.5, ymax = 25.5, fill = Palette(9)[7], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 25.5, ymax = 19.5, fill = Palette(9)[8], alpha = .8) +
-  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 19.5, ymax = 0, fill = Palette(9)[9], alpha = .8) +
+                 size = 0.5, colour = "black", height = 0.0) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 120.5, ymax = 118.5, fill = "#8C510A", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 118.5, ymax = 111.5, fill = "#BF812D", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin = 111.5, ymax =  82.5, fill = "#DFC27D", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  82.5, ymax =  80.5, fill = "#F6E8C3", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  80.5, ymax =  52.5, fill = "#F5F5F5", alpha = .8) + 
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  52.5, ymax =  41.5, fill = "#C7EAE5", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  41.5, ymax =  25.5, fill = "#80CDC1", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  25.5, ymax =  19.5, fill = "#35978F", alpha = .8) +
+  annotate("rect", xmin = 1.2, xmax = 2.2, ymin =  19.5, ymax =   0.0, fill = "#01665E", alpha = .8) +
   geom_text(data = ForestData,
             mapping = aes(label = Study, x = 2.2, y = Phylo_ID_red), 
             colour = "black", size = 2, angle = 0, check_overlap = FALSE, hjust = "right") + 
@@ -304,10 +304,7 @@ ForestPlot <- ggplot() +
   theme(axis.title.x = element_markdown())
 ForestPlot
 ```
-
-**Figure S2.** Forest plot of all sampled effect sizes. Effect sizes
-(Pearson correlation coefficient of Bateman gradients) with 95%
-confidence limits are shown in phylogenetic order. <br></br>
+**Figure 2.** Forest plot. Graphs shows all sampled effect sizes (Pearson correlation coefficient of Bateman gradients) with 95% confidence limits in phylogenetic order. <br></br>
 
 ------------------------------------------------------------------------
 
@@ -328,9 +325,9 @@ pr2 <- list(R = list(V = 1, nu = 0.002), G = list(G1 = list(V = 1, nu = 0.002),
                                          G2 = list(V = 1, nu = 0.002),
                                          G3 = list(V = 1, nu = 0.002)))
 
-BURNIN =   40 #0 000
-NITT   =  440 #0000
-THIN   =      200
+BURNIN =   400000
+NITT   =  4400000
+THIN   =      400
 ```
 
 GLMMs were run with the effect size (*r*) defined as the response
@@ -904,12 +901,12 @@ print(Plot_Jitter2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 
 ```
 
-**Figure S3.** Methodological predictors of female Bateman gradients.
+**Figure S2.** Methodological predictors of female Bateman gradients.
 Raincloud charts showing effects of mating success method (*cMS*:
 copulatory mating success, *gMS*: genetic mating success), mating
 success range (with or without zero mating success (MS) category) and
 study type (field versus laboratory studies) on female Bateman gradients
-(for statistical analysis see Table 2 and S2).
+(for statistical analysis see Table 2 and S3).
 
 ### Mating system
 
@@ -921,8 +918,8 @@ polyandrous, depending on whether its value was lower or higher than
 0.5, respectively.
 
 ```{r MatingSystem, fig.width = 8, fig.height = 4.2}
-MetaData_polygamous              <- subset(Data, MatingSystem == "polyandrous")
-MetaData_monogamous              <- subset(Data, MatingSystem == "monogamous")
+MetaData_polygamous              <- subset(Data, MatingSystem == "high polyandry")
+MetaData_monogamous              <- subset(Data, MatingSystem == "low polyandry")
 
 # prune tree ####
 MetaData_polygamous_Species_Data <- unique(MetaData_polygamous$animal)
@@ -962,11 +959,11 @@ Model_polygamous                 <- MCMCglmm(r_f~1,
 # Raincloud plot ####
   # density
 Data_MatSys_Monogamy     <- as.data.frame(Model_monogamous$Sol[, "(Intercept)"])
-Data_MatSys_Monogamy$MatSys <- as.factor(rep("Monandrous", nrow(Data_MatSys_Monogamy)))
+Data_MatSys_Monogamy$MatSys <- as.factor(rep("Low polyandry", nrow(Data_MatSys_Monogamy)))
 colnames(Data_MatSys_Monogamy) <- c("ES", "MatSys")
 
 Data_MatSys_Polygamy     <- as.data.frame(Model_polygamous$Sol[, "(Intercept)"])
-Data_MatSys_Polygamy$MatSys <- as.factor(rep("Polyandrous", nrow(Data_MatSys_Polygamy)))
+Data_MatSys_Polygamy$MatSys <- as.factor(rep("High polyandry", nrow(Data_MatSys_Polygamy)))
 colnames(Data_MatSys_Polygamy) <- c("ES", "MatSys")
 
 Data_MatingSystem_ALL <- as.data.frame(rbind(Data_MatSys_Monogamy, Data_MatSys_Polygamy))
@@ -989,7 +986,7 @@ Plot_MatingSystem1 <-  ggplot() +
 CI_1 <- HPDinterval(mcmc(Model_monogamous$Sol[,"(Intercept)"]))
 CI_2 <- HPDinterval(mcmc(Model_polygamous$Sol[,"(Intercept)"]))
 aggdata_MatSys <- data.frame("Jitter" = c("A", "B", "C", "D", "E", "F"),
-                             "MatSys" = c("Polyandrous", "monandrous", "C", "D", "E", "F"), 
+                             "MatSys" = c("High polyandry", "Low polyandry", "C", "D", "E", "F"), 
                              "Mean" = c(mean(mcmc(Model_polygamous$Sol[, "(Intercept)"])), 
                                         mean(mcmc(Model_monogamous$Sol[, "(Intercept)"])), 
                                         5, 5, 5, 5), 
@@ -1019,7 +1016,7 @@ Plot_MatingSystem2 <- ggplot() +
                   stroke = 1.75,
                   fill = "white",
                   position = position_dodge(width = .8)) +
-  scale_colour_manual(values = c("black", "black", "black", "black", TealPalette(20)[11], TealPalette(20)[17])) +
+  scale_colour_manual(values = c("black", "black", "black", "black", TealPalette(20)[17], TealPalette(20)[11])) +
   new_scale_colour() +
   geom_jitter(data = Data, 
               mapping = aes(x = r_f,
@@ -1043,7 +1040,7 @@ Plot_MatingSystem2 <- ggplot() +
                   fill = alpha("white", .75),
                   position = position_dodge(width = .8)) +
   geom_vline(xintercept = 0, linetype = "longdash", colour = "black", size = 0.7) +
-  scale_colour_manual(values = c("black", "black", "black", "black", TealPalette(20)[11], TealPalette(20)[17])) +
+  scale_colour_manual(values = c("black", "black", "black", "black", TealPalette(20)[17], TealPalette(20)[11])) +
   scale_x_continuous(limits = c(-0.4, 1.1), breaks = c(-0.4, 0, 0.4, 0.8)) +
   scale_y_discrete(labels = c("0", "1", "2", "3", "4", "5")) +
   labs(title = "", x = "Female Bateman gradient (*r*)", y = "Density") +
@@ -1056,12 +1053,8 @@ print(Plot_MatingSystem1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 print(Plot_MatingSystem2, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
 ```
 
-**Figure 1B.** Meta-analytic evidence for sexual selection in females
-and its relation to the mating system. Contrast in sexual selection in
-females between monandrous and polyandrous species. Raincloud charts
-show posterior distributions, global effect size with 95% Highest
-Posterior Density intervals (diamonds and error bars) and raw effect
-sizes (filled circles) of female Bateman gradient.
+**Figure 1B.** Meta-analytic evidence for sexual selection in females and its relation to the mating system. Contrast in sexual selection in females between low-polyandry and high-polyandry species. Raincloud charts show posterior distributions, global effect size with 95% Highest Posterior Density intervals (diamonds and error bars) and raw effect sizes (filled circles) of female Bateman gradient.
+
 
 #### Polyandry
 
@@ -1265,7 +1258,7 @@ Models are shown for the entire dataset (global model) and subsets with
 respect to mating success method (copulatory versus genetic), mating
 success range (including versus excluding zero mating success category),
 study type (laboratory versus field studies) and mating system
-(monandrous versus polygamous species). Table shows number of effect
+(low-polyandry versus high-polyandry species). Table shows number of effect
 sizes (*k*), number of species (*N*), effect size (*r*), and
 heterogeneity I² arising from phylogenetic affinities, between-study
 variation, and between-observation variation. Model estimates are shown
@@ -1295,8 +1288,8 @@ rownames(Table1) <- c("Global model (non-phylogenetic)",
                       "Excluding zero mating success",
                       "Laboratory studies",
                       "Field studies",
-                      "monandrous species",
-                      "Polyandrous species")
+                      "Low-polyandry species",
+                      "High-polyandry species")
 Table1[1, 6] <- "<0.001"
 
 Table1 %>%
@@ -1310,8 +1303,7 @@ kable(align = c(rep("c", 3), "r", "l", "r", rep(c("c", "r", "l"), 3))) %>%
 Bateman gradients.** Methodological moderators include mating success
 method (copulatory versus genetic mating success), mating success range
 (including versus excluding zero mating success category), study type
-(field versus lab) and year of publication (continuous variable). Effect
-of mating system contrasts polyandrous and monandrous species. Effect of
+(field versus lab) and year of publication (continuous variable). Effect of mating system contrasts low-polyandry and high-polyandry species. Effect of
 polyandry estimates the relationship between the female Bateman gradient
 and the proportion of polyandrous females in the population. Model
 estimates (i.e., estimated difference between groups) are shown as
@@ -1354,7 +1346,7 @@ Likelihood (REML) approach using the `metafor` package
 [@viechtbauer2010metafor].
 
 ```{r REML}
-Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "LATIN1") # the file encoding supports special characters
+Data <- read.table("./data/Fromonteil_et_al_DATA.txt", fileEncoding = "UTF-8") # the file encoding supports special characters
 Tree <- read.tree("./data/Fromonteil_et_al_TREE.txt")
 MetaData_All_Species_Data <- unique(Data$Species_Phylo)
 Tree <- drop.tip(Tree, Tree$tip.label[-na.omit(match(MetaData_All_Species_Data, Tree$tip.label))])
@@ -1449,8 +1441,8 @@ Model_REML_Lab <- rma.mv(r_f ~ 1,
 forcedC_polygamous <- as.matrix(forceSymmetric(vcv(Tree_polygamous, corr = TRUE)))
 forcedC_monogamous <- as.matrix(forceSymmetric(vcv(Tree_monogamous, corr = TRUE)))
 
-MetaData_polygamous              <- subset(Data, MatingSystem == "polyandrous")
-MetaData_monogamous              <- subset(Data, MatingSystem == "monogamous")
+MetaData_polygamous              <- subset(Data, MatingSystem == "high polyandry")
+MetaData_monogamous              <- subset(Data, MatingSystem == "low polyandry")
 
 Model_REML_MatingSystem <- rma.mv(r_f ~ factor(MatingSystem), 
                                            V = r_VAR_f, 
@@ -1494,8 +1486,7 @@ phylogenetically controlled General Linear-Mixed Effects Models are
 shown for the entire dataset (global model) and subsets with respect to
 mating success method (copulatory versus genetic), mating success range
 (including versus excluding zero mating success category), study type
-(laboratory versus field studies) and mating system (monandrous versus
-polygamous species). Table shows number of effect sizes (*k*), number of
+(laboratory versus field studies) and mating system (low-polyandry versus high-polyandry species). Table shows number of effect sizes (*k*), number of
 species (*N*) and estimates of *r* together with 95% confidence
 intervals (in brackets).
 
@@ -1550,8 +1541,8 @@ rownames(TableS1) <- c("Global model",
                        "Excluding zero mating success",
                        "Laboratory studies",
                        "Field studies",
-                       "monandrous species",
-                       "Polyandrous species")
+                       "Low-polyandry species",
+                       "High-polyandry species")
 #TableS1[1, 6] <- "<0.001"
 
 TableS1 %>%
@@ -1561,13 +1552,12 @@ kable(align = c(rep("c", 3), "r", "l", "c", "c")) %>%
   row_spec(0, italic = T, font_size = 14)
 ```
 
-<br></br> **Table S2.** Predictors of inter-specific variation in female
+<br></br> **Table S3.** Predictors of inter-specific variation in female
 Bateman gradients using restricted maximum likelihood (REML) approach.
 Methodological moderators include mating success method (copulatory
 versus genetic mating success), mating success range (including versus
 excluding mating success category), study type (field versus lab) and
-year of publication (continuous variable). Effect of mating system
-contrasts polyandrous and monandrous species. Effect of polyandry
+year of publication (continuous variable). Effect of mating system contrasts low-polyandry and high-polyandry species. Effect of polyandry
 (continuous variable) estimates the relationship between the female
 Bateman gradient and the proportion of polyandrous females in the
 population. Phylogenetically controlled multilevel meta-analytic single
@@ -1755,7 +1745,7 @@ Figure_FunnelPlots <- plot_grid(FunnelPlot, FunnelPlot_Resid,
 Figure_FunnelPlots
 ```
 
-**Figure S4.** Funnel plots. Data are shown for (A) raw values and (B)
+**Figure S3.** Funnel plots. Data are shown for (A) raw values and (B)
 for meta-analytic residuals obtained from multivariate linear
 mixed-effects models accounting for all tested moderator variables.
 Dashed lines indicate the estimated global effect size. Dark and light

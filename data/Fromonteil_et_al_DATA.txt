@@ -1,112 +1,121 @@
 "Index"	"Study_ID"	"Study"	"Year"	"Species_Phylo"	"Class"	"Phylo_ID"	"Polyandry"	"MatingSystem"	"StudyType"	"MS_estimate"	"Zero_f"	"beta_ss"	"beta_ss_stand"	"r_f"	"r_VAR_f"	"N_f"
-"1"	1	2	"Gerlach et al. 2012"	2012	"Junco_hyemalis"	"Aves"	35	0.439	"monogamous"	"Field"	"gMS"	0	0.246	0	0.303293040688427	0.00189537519569469	436
-"2"	2	3	"Gopurenko et al 2007"	2007	"Ambystoma_texanum"	"Amphibia"	54	0.857142857142857	"polyandrous"	"Field"	"gMS"	1	18.342137974	0	0.817332234148515	0.00306118793481267	37
-"3"	4	4	"Gopurenko et al. 2006"	2006	"Ambystoma_tigrinum"	"Amphibia"	52	0.466666666666667	"monogamous"	"Field"	"gMS"	0	0.0782843804	1	0.0652902151991017	0.0708208962261692	15
-"4"	5	9	"Jones et al. 2002"	2002	"Taricha_granulosa"	"Amphibia"	58	0.547619047619048	"polyandrous"	"Field"	"gMS"	0	22.2	0	0.268509250695224	0.029689778392536	30
-"5"	6	10	"Jones et al. 2004"	2004	"Taricha_granulosa"	"Amphibia"	59	0.547619047619048	"polyandrous"	"Lab"	"gMS"	1	21.7	0	0.455591889481971	0.125590972403951	6
-"6"	7	10	"Jones et al. 2004"	2004	"Taricha_granulosa"	"Amphibia"	60	0.547619047619048	"polyandrous"	"Lab"	"gMS"	1	-18.7	0	-0.206066017028133	0.183375343378618	6
-"7"	8	11	"Jones et al. 2000"	2000	"Syngnathus_typhle"	"Actinopterygii"	93	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	24.1	0	0.833724622168254	0.00152403269734194	62
-"8"	9	11	"Jones et al. 2000"	2000	"Syngnathus_typhle"	"Actinopterygii"	94	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	14.5	0	0.588198744680699	0.0388859169246715	12
-"9"	10	14	"Krakauer 2008"	2008	"Meleagris_gallopavo"	"Aves"	50	0.45	"monogamous"	"Field"	"gMS"	0	2.299	0	0.336297808159935	0.0280927972312807	29
-"10"	11	16	"Jones et al. 2012"	2012	"Spermophilus_columbianus"	"Mammalia"	1	0.343434343434343	"monogamous"	"Field"	"gMS"	0	0.28	0	0.224595218974792	0.00920059666046876	99
-"11"	12	17	"Levitan 2008"	2008	"Strongylocentrotus_franciscanus"	"Echinoidea"	100	0.99	"polyandrous"	"Field"	"gMS"	1	0.0066	0	0.0249918758053033	0.00564266216047994	178
-"12"	13	17	"Levitan 2008"	2008	"Strongylocentrotus_purpuratus"	"Echinoidea"	99	0.99	"polyandrous"	"Field"	"gMS"	1	-0.04	0	-0.114707866935281	0.0198746396065351	50
-"13"	14	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	8	0.353	"monogamous"	"Field"	"gMS"	1	0.2	0	0.175204220674735	0.0854135671264262	12
-"14"	15	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	9	0.353	"monogamous"	"Field"	"gMS"	1	-0.25	0	-0.179840020211069	0.133765881032126	8
-"15"	16	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	10	0.353	"monogamous"	"Field"	"gMS"	1	1e-04	0	0.01	0.199960002	6
-"16"	17	20	"Mobley & Jones 2013"	2013	"Syngnathus_floridae"	"Actinopterygii"	87	0.633333333333333	"polyandrous"	"Field"	"gMS"	1	0.93	1	0.896528908376985	0.000785888467403322	50
-"17"	19	21	"Munroe & Koprowski 2011"	2011	"Xerospermophilus_tereticaudus"	"Mammalia"	3	0.935483870967742	"polyandrous"	"Field"	"gMS"	0	0.81	0	0.882889506920565	0.00162076494422045	31
-"18"	21	22	"Moorad et al. 2011"	2011	"Homo_sapiens"	"Mammalia"	17	0.0124	"monogamous"	"Field"	"cMS"	1	0.7726	0	0.0109306498818536	4.57263563877414e-05	21865
-"19"	22	22	"Moorad et al. 2011"	2011	"Homo_sapiens"	"Mammalia"	18	0.0124	"monogamous"	"Field"	"cMS"	1	0.3317	0	0.00765814437098855	0.000148570982034038	6731
-"20"	23	23	"Borgerhoff Mulder 2009"	2009	"Homo_sapiens"	"Mammalia"	11	0.0124	"monogamous"	"Field"	"cMS"	1	0.196	0	0.051883292593815	0.00650080715095372	154
-"21"	24	24	"Croshaw 2010"	2010	"Ambystoma_opacum"	"Amphibia"	56	0.294117647058824	"monogamous"	"Lab"	"gMS"	0	11.3	0	0.158333944190778	0.0432040550444349	23
-"22"	25	24	"Croshaw 2010"	2010	"Ambystoma_opacum"	"Amphibia"	57	0.294117647058824	"monogamous"	"Lab"	"gMS"	0	15.15	0	0.237915475715443	0.044499822000712	21
-"23"	26	27	"Schlicht & Kempenears 2013"	2013	"Cyanistes_caeruleus"	"Aves"	45	0.47	"monogamous"	"Field"	"gMS"	1	-0.01	0	-0.00218618091157158	0.00224213103419033	447
-"24"	27	28	"Rodriguez-Munoz et al. 2010"	2010	"Gryllus_campestris"	"Arthropoda"	118	0.808695652173913	"polyandrous"	"Field"	"cMS"	1	0.84	0	0.13263455353011	0.017872696782177	55
-"25"	28	29	"Fritzsche & Arnqvist 2013"	2013	"Megabruchidius_tonkineus"	"Arthropoda"	101	0.977272727272727	"polyandrous"	"Lab"	"cMS"	1	0.87248243521638	1	0.754792586172203	0.00377852844144172	50
-"26"	29	29	"Fritzsche & Arnqvist 2013"	2013	"Megabruchidius_dorsalis"	"Arthropoda"	102	1	"polyandrous"	"Lab"	"cMS"	1	0.61676281852083	1	0.609999721031019	0.00804609872248365	50
-"27"	30	29	"Fritzsche & Arnqvist 2013"	2013	"Callosobruchus_maculatus"	"Arthropoda"	103	1	"polyandrous"	"Lab"	"cMS"	1	0.17117999582497	1	0.230087059815584	0.0183045416172297	50
-"28"	31	29	"Fritzsche & Arnqvist 2013"	2013	"Callosobruchus_chinensis"	"Arthropoda"	104	0.68	"polyandrous"	"Lab"	"cMS"	1	0.09555464553758	1	0.194647160209261	0.0188910291834217	50
-"29"	32	31	"Anthes et al. 2010"	2010	"Biomphalaria_glabrata"	"Gastropoda"	136	0.653846153846154	"polyandrous"	"Lab"	"cMS"	1	0.22640578664608	1	0.364479188469866	0.025929574390118	30
-"30"	34	32	"Ketterson et al. 1997"	1997	"Junco_hyemalis"	"Aves"	34	0.439	"monogamous"	"Field"	"gMS"	1	2.92	0	0.769137792633957	0.00379119681876326	45
-"31"	35	36	"Garcia-Navas et al. 2014"	2014	"Cyanistes_caeruleus"	"Aves"	44	0.47	"monogamous"	"Field"	"gMS"	0	1.1168	0	0.345262704333351	0.0121218356296536	65
-"32"	36	38	"Gagnon et. al. 2012"	2012	"Gerris_gillettei"	"Arthropoda"	113	0.776119402985075	"polyandrous"	"Field"	"gMS"	1	1.05	1	0.365439973762687	0.00782022797160793	97
-"33"	37	39	"Walker et al. 2014"	2014	"Notiomystis_cincta"	"Aves"	46	0.836	"polyandrous"	"Field"	"gMS"	1	0.599527614452988	1	0.42983696536989	0.00738462840340649	91
-"34"	39	1001	"Bergeron et al.  2012"	2012	"Tamias_striatus"	"Mammalia"	5	0.65	"polyandrous"	"Field"	"gMS"	1	1	1	0.94126245835291	9.02895631193381e-05	145
-"35"	41	1002	"Courtiol et al. 2012"	2012	"Homo_sapiens"	"Mammalia"	13	0.0124	"monogamous"	"Field"	"cMS"	1	0.564907307481126	1	0.368586530641705	0.000447688728957669	1669
-"36"	43	1004	"Andrade & Kasumovic 2005"	2005	"Latrodectus_hasseltii"	"Arthropoda"	123	0.666666666666667	"polyandrous"	"Lab"	"cMS"	1	0.4749	1	0.393737070671928	0.00605064569700073	119
-"37"	46	1005	"Balenger et al. 2009"	2009	"Sialia_currucoides"	"Aves"	42	0.3415	"monogamous"	"Field"	"gMS"	0	0.0343	1	0.0665649005831273	0.0170889286339891	59
-"38"	47	1006	"Barreto & Avise 2010"	2010	"Pycnogonum_stearnsi"	"Arthropoda"	122	0.685714285714286	"polyandrous"	"Field"	"gMS"	1	0.99	1	0.877068344864559	0.000872886535405175	62
-"39"	48	1007	"Becher & Magurran 2004"	2004	"Poecilia_reticulata"	"Actinopterygii"	72	0.710280373831776	"polyandrous"	"Lab"	"gMS"	1	0.807071302298174	1	0.704341623318423	0.00259100112362456	99
-"40"	50	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_lummei"	"Arthropoda"	109	0.753	"polyandrous"	"Lab"	"cMS"	0	0.5875	1	0.482449986300518	0.00700786075013769	85
-"41"	51	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_melanogaster"	"Arthropoda"	111	0.758620689655172	"polyandrous"	"Lab"	"cMS"	0	0.0423	1	0.0787201951069304	0.00710535728742097	140
-"42"	52	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_bifurca"	"Arthropoda"	110	0.326	"monogamous"	"Lab"	"cMS"	0	0.23657	1	0.201313923669069	0.00814679530959202	114
-"43"	53	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_virilis"	"Arthropoda"	108	0.753	"polyandrous"	"Lab"	"cMS"	0	-0.1588	1	-0.220647374012352	0.022073164087327	42
-"44"	54	1009	"Collet et al.  2012"	2012	"Gallus_gallus"	"Aves"	51	0.95	"polyandrous"	"Lab"	"cMS"	1	0.29	0	0.608147107726331	0.0330914970698097	13
-"45"	55	1010	"Fitze & Le Galliard 2011"	2011	"Zootoca_vivipara"	"Reptilia"	24	0.632524590163934	"polyandrous"	"Field"	"gMS"	1	1.48166666666667	0	0.950262716616577	0.00188182985316754	6
-"46"	56	1010	"Fitze & Le Galliard 2011"	2011	"Zootoca_vivipara"	"Reptilia"	25	0.632524590163934	"polyandrous"	"Field"	"gMS"	1	0.946666666666667	0	0.889989192990931	0.00864608176965114	6
-"47"	59	1011	"Jokela et al. 2010"	2010	"Homo_sapiens"	"Mammalia"	15	0.0124	"monogamous"	"Field"	"cMS"	1	0.1204054	1	0.0887488521265644	0.000245524898857484	4010
-"48"	60	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	89	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	0.956182	1	0.977180512188084	4.15440035968041e-05	50
-"49"	61	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	90	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	0.986514	1	0.895074632787995	0.000399372758037413	100
-"50"	62	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	91	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	0.85492	1	0.729254417356292	0.00221414139841739	100
-"51"	63	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	92	0.527777777777778	"polyandrous"	"Lab"	"gMS"	1	1.03958	1	0.662337377500425	0.00642995951367601	50
-"52"	64	1014	"Rose et al. 2013"	2013	"Syngnathus_scovelli"	"Actinopterygii"	85	0.615384615384615	"polyandrous"	"Lab"	"gMS"	1	0.914509037616024	1	0.892868109139528	0.000747679648655248	56
-"53"	66	1017	"Ursprung et al. 2011"	2011	"Allobates_femoralis"	"Amphibia"	63	0.571428571428571	"polyandrous"	"Field"	"gMS"	0	0.77	1	0.541536923447609	0.0121823966384681	42
-"54"	68	2001	"Pélissié et al. 2012"	2012	"Physa_acuta"	"Gastropoda"	133	0.789473684210526	"polyandrous"	"Lab"	"cMS"	1	0.3363819838	1	0.259670446228572	0.00730831221660351	120
-"55"	71	2002	"Pongratz & Michiels 2003"	2003	"Schmidtea_polychroa"	"Turbellaria"	138	0.918367346938776	"polyandrous"	"Lab"	"gMS"	1	0.9652569	1	0.778513159364162	0.00292775109952631	54
-"56"	73	2003	"Poesel et al. 2011"	2011	"Zonotrichia_leucophrys"	"Aves"	32	0.346153846153846	"monogamous"	"Field"	"gMS"	0	0.1514	1	0.196391239524007	0.0181244817621449	52
-"57"	74	2004	"Prosser et al. 2002"	2002	"Nerodia_sipedon"	"Reptilia"	28	0.555555555555556	"polyandrous"	"Field"	"gMS"	0	1.789	0	0.38102648199219	0.0166071639786706	45
-"58"	76	2005	"Rios-Cardenas 2005"	2005	"Lepomis_gibbosus"	"Actinopterygii"	79	0.24390243902439	"monogamous"	"Field"	"gMS"	0	64.17	0	0.0311531505274539	0.0081808188879602	123
-"59"	77	2006	"Schulte-Hostedde et al. 2004"	2004	"Tamias_amoenus"	"Mammalia"	7	0.594594594594595	"polyandrous"	"Field"	"gMS"	1	0.857	0	0.87	0.00164160027777778	37
-"60"	79	2008	"Tatarenkov et al. 2008"	2008	"Xiphophorus_helleri"	"Actinopterygii"	66	0.63768115942029	"polyandrous"	"Field"	"gMS"	0	0.4066740827	0	0.231306834507565	0.0218501671160764	42
-"61"	81	2008	"Tatarenkov et al. 2008"	2008	"Xiphophorus_helleri"	"Actinopterygii"	68	0.63768115942029	"polyandrous"	"Field"	"gMS"	0	0.2335642584	0	0.152052456558674	0.0367036397298436	27
-"62"	83	2009	"Whittingham & Dunn 2005"	2005	"Geothlypis_trichas"	"Aves"	36	0.653846153846154	"polyandrous"	"Field"	"gMS"	0	0.7572	0	0.322674318169317	0.0445890708737435	19
-"63"	84	2010	"Williams & DeWoody 2009"	2009	"Ambystoma_tigrinum"	"Amphibia"	53	0.466666666666667	"monogamous"	"Field"	"gMS"	1	1.0357	1	0.751420071055918	0.00430784518549563	45
-"64"	85	2011	"Woolfenden et al. 2002"	2002	"Molothrus_ater"	"Aves"	40	0.454545454545455	"monogamous"	"Field"	"gMS"	1	1.91	0	0.699714329088374	0.00184757457239666	142
-"65"	86	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	95	0.679775280898876	"polyandrous"	"Field"	"gMS"	1	1.026499324	1	0.970225830508294	2.99235757893352e-05	116
-"66"	88	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	97	0.679775280898876	"polyandrous"	"Field"	"gMS"	1	0.967484356	1	0.717551720118737	0.00196117464477644	121
-"67"	89	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	98	0.679775280898876	"polyandrous"	"Field"	"gMS"	1	1.117316215	1	0.576304859338199	0.00420805618457377	107
-"68"	90	2015	"Whittingham & Lifjeld 1995"	1995	"Delichon_urbica"	"Aves"	48	0.235294117647059	"monogamous"	"Field"	"gMS"	0	-0.0566037735849057	0	-0.0924500327042049	0.0756137718662374	14
-"69"	91	2016	"Broquet et al. 2009"	2009	"Hyla_arborea"	"Amphibia"	64	0.157894736842105	"monogamous"	"Field"	"gMS"	0	0.4383857833	1	0.159269658564117	0.0527727681938136	19
-"70"	93	2020	"Byers et al. 2004"	2004	"Dendroica_pensylvanica"	"Aves"	37	0.606060606060606	"polyandrous"	"Field"	"gMS"	1	0.686	0	0.522943784087283	0.0146623763437917	37
-"71"	94	3001	"Buerkli & Jokela 2017"	2017	"Radix_balthica"	"Gastropoda"	125	0.5	"polyandrous"	"Field"	"gMS"	0	-0.01	0	-0.173288666574515	0.0159465053327159	60
-"72"	96	3003	"Cattelan et al. 2020"	2020	"Poecilia_reticulata"	"Actinopterygii"	74	0.710280373831776	"polyandrous"	"Lab"	"cMS"	1	0.174821895972405	1	0.121167883050725	0.0164551226992115	60
-"73"	98	3003	"Cattelan et al. 2020"	2020	"Poecilia_reticulata"	"Actinopterygii"	76	0.710280373831776	"polyandrous"	"Lab"	"cMS"	1	0.197514405591258	1	0.135328005334618	0.0185328471618763	53
-"74"	100	3004	"Grunst et al. 2019"	2019	"Zonotrichia_albicollis"	"Aves"	33	0.63768115942029	"polyandrous"	"Field"	"gMS"	1	0.193	1	0.180266088502523	0.00423558486770262	222
-"75"	101	3005	"Hoffer et al. 2017"	2017	"Lymnaea_stagnalis"	"Gastropoda"	126	0.588235294117647	"polyandrous"	"Lab"	"cMS"	0	-0.082875	0	-0.0822200100734691	0.0469774018688294	22
-"76"	102	3006	"Johannesson et al. 2016"	2016	"Littorina_saxatilis"	"Gastropoda"	137.5	0.68	"polyandrous"	"Lab"	"gMS"	0	0.0550450114970067	1	0.0707354051425774	0.0412507516627613	25
-"77"	105	3007	"Devost & Turgeon 2016"	2016	"Gerris_buenoi"	"Arthropoda"	116	1	"polyandrous"	"Lab"	"cMS"	0	-0.415737353043016	1	-0.203095902067187	0.027035455944993	35
-"78"	106	3008	"Scheepers & Gouws 2019"	2019	"Clinus_cottoides"	"Actinopterygii"	78	0.826086956521739	"polyandrous"	"Field"	"gMS"	0	0.44	1	0.264915811690649	0.0392983869178119	23
-"79"	107	3009	"Wang et al. 2020"	2020	"Acanthopagrus_schlegelii"	"Actinopterygii"	84	0.92	"polyandrous"	"Lab"	"gMS"	0	1.7465	0	0.932563437615837	0.000707696623399074	25
-"80"	108	3010	"Louder et al. 2019"	2019	"Molothrus_ater"	"Aves"	38	0.454545454545455	"monogamous"	"Field"	"gMS"	1	0.480400163331973	0	0.177486126261431	0.00947464326714284	100
-"81"	110	3011	"Janicke et al. 2015"	2015	"Physa_acuta"	"Gastropoda"	128	0.789473684210526	"polyandrous"	"Lab"	"cMS"	1	0.543172738384078	1	0.533516750663676	0.013466835612629	39
-"82"	112	3011	"Janicke et al. 2015"	2015	"Physa_acuta"	"Gastropoda"	130	0.789473684210526	"polyandrous"	"Lab"	"cMS"	1	0.00679237080910736	1	0.00499247681362823	0.026314477657152	39
-"83"	114	3012	"Levine et al. 2015"	2015	"Agkistrodon_contortrix"	"Reptilia"	30	0.52	"polyandrous"	"Field"	"gMS"	0	0.07	0	0.0316227766016838	0.0554445	19
-"84"	115	3013	"Borgerhoff Mulder & Ross 2019"	2019	"Homo_sapiens"	"Mammalia"	12	0.0124	"monogamous"	"Field"	"cMS"	1	0.1	0	0.162891861163755	0.00541506584839896	176
-"85"	116	3014	"Bolopo et al. 2016"	2016	"Clamator_glandarius"	"Aves"	49	0.696969696969697	"polyandrous"	"Field"	"gMS"	0	1.08029809145881	1	0.72653353277771	0.00348319847681625	65
-"86"	117	3015	"Glaudas et al. 2020"	2020	"Bitis_arietans"	"Reptilia"	31	0.653846153846154	"polyandrous"	"Field"	"gMS"	0	2.48	0	0.386487144777614	0.0452229663598545	17
-"87"	118	3016	"Saunders & Shuster 2019"	2019	"Paracerceis_sculpta"	"Arthropoda"	119	0.788819875776398	"polyandrous"	"Lab"	"cMS"	0	1.78	0	0.194852881160595	0.18510125029924	6
-"88"	119	3017	"Paczolt et al. 2015"	2015	"Xiphophorus_birchmanni"	"Actinopterygii"	70	0.838709677419355	"polyandrous"	"Field"	"gMS"	0	0.701682873106264	1	0.61273673564632	0.013002243839233	31
-"89"	120	3017	"Paczolt et al. 2015"	2015	"Xiphophorus_birchmanni"	"Actinopterygii"	71	0.838709677419355	"polyandrous"	"Field"	"gMS"	0	0.986638624273166	1	0.551292068528037	0.0440475697041259	12
-"90"	121	3018	"Mangold et al. 2015"	2015	"Hyalinobatrachium_valerioi"	"Amphibia"	61	0.736111111111111	"polyandrous"	"Field"	"gMS"	1	0.940348887629328	1	0.894566819795162	0.000525001899555388	77
-"91"	123	3019	"Marie-Orleach et al. 2016"	2016	"Macrostomum_lignano"	"Turbellaria"	140	1	"polyandrous"	"Lab"	"cMS"	1	0.29	1	0.0971858379328448	0.0192391967741335	52
-"92"	124	3020	"Kretzschmar et al. 2019"	2019	"Ceratotherium_simum"	"Mammalia"	23	0.696969696969697	"polyandrous"	"Field"	"gMS"	0	1.05943973076741	1	0.83048644770782	0.0030087902101147	33
-"93"	125	3021	"Morimoto et al. 2016"	2016	"Drosophila_melanogaster"	"Arthropoda"	112	0.758620689655172	"polyandrous"	"Lab"	"cMS"	0	0.0196061789169922	1	0.0104070339523259	0.0175400596319105	58
-"94"	126	3022	"Turnell and Shaw 2015"	2015	"Laupala_cerasina"	"Arthropoda"	117	1	"polyandrous"	"Lab"	"cMS"	0	0.196646698040273	1	0.292324959075567	0.0418197301250141	21
-"95"	127	3023	"Fuxjäger et al. 2019"	2019	"Gasterosteus_aculeatus"	"Actinopterygii"	80	0.95	"polyandrous"	"Lab"	"gMS"	1	0.95403179467535	1	0.791349852328943	0.00399144521781937	36
-"96"	128	3023	"Fuxjäger et al. 2019"	2019	"Gasterosteus_aculeatus"	"Actinopterygii"	81	0.95	"polyandrous"	"Lab"	"gMS"	1	0.922032377207848	1	0.686264801573415	0.00799668513870284	36
-"97"	131	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	105	0.788819875776398	"polyandrous"	"Lab"	"gMS"	0	0.9939068	1	0.772056869931425	0.00332975474177185	50
-"98"	132	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	106	0.788819875776398	"polyandrous"	"Lab"	"gMS"	0	0.6926554	1	0.635927082037808	0.00403108504818101	89
-"99"	133	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	107	0.788819875776398	"polyandrous"	"Lab"	"gMS"	0	1.30141	1	0.7799833885676	0.00730337410336248	22
-"100"	134	3025	"Wells et al. 2017"	2017	"Callospermophilus_lateralis"	"Mammalia"	2	0.63	"polyandrous"	"Field"	"gMS"	0	0.46	0	0.223606797749979	0.0376041666666667	25
-"101"	137	3028	"Skjærvø & Røskaft 2015"	2015	"Homo_sapiens"	"Mammalia"	19	0.0124	"monogamous"	"Field"	"cMS"	0	0.16	1	0.144431628934824	0.00127488586355895	753
-"102"	138	3028	"Skjærvø & Røskaft 2015"	2015	"Homo_sapiens"	"Mammalia"	20	0.0124	"monogamous"	"Field"	"cMS"	0	0.1	1	0.0594186399842153	0.00224649618869482	443
-"103"	139	3028	"Skjærvø & Røskaft 2015"	2015	"Homo_sapiens"	"Mammalia"	21	0.0124	"monogamous"	"Field"	"cMS"	0	0.02	1	0.0168120659784772	0.00253663651970453	395
-"104"	140	3028	"Skjærvø & Røskaft 2015"	2015	"Homo_sapiens"	"Mammalia"	22	0.0124	"monogamous"	"Field"	"cMS"	0	-0.02	1	-0.0116969065188078	0.00490061952683746	205
-"105"	141	3029	"Levine et al. 2020"	2020	"Crotalus_atrox"	"Reptilia"	30.5	0.4	"monogamous"	"Field"	"gMS"	0	0.1509	1	0.0989195657077547	0.0576779756964926	18
-"106"	142	3030	"Fromonteil et al. 2021"	2021	"Acanthoscelides_obtectus"	"Arthropoda"	102.5	0.551020408163265	"polyandrous"	"Lab"	"cMS"	1	0.48884788	1	0.389648288217163	0.0146816223068515	50
-"107"	144	3030	"Fromonteil et al. 2021"	2021	"Acanthoscelides_obtectus"	"Arthropoda"	102.5	0.551020408163265	"polyandrous"	"Lab"	"cMS"	1	0.91015042	1	0.525362711698655	0.0106972927075624	50
-"108"	146	3030	"Fromonteil et al. 2021"	2021	"Acanthoscelides_obtectus"	"Arthropoda"	102.5	0.551020408163265	"polyandrous"	"Lab"	"cMS"	0	0.68813743	1	0.30849554999815	0.0151614486263788	55
-"109"	147	3030	"Fromonteil et al. 2021"	2021	"Acanthoscelides_obtectus"	"Arthropoda"	102.5	0.551020408163265	"polyandrous"	"Lab"	"cMS"	1	0.02536064	1	0.0200807959258555	0.0185035867753916	55
-"110"	149	3031	"LaBrecque et al. 2014"	2014	"Hyperprosopon_anale"	"Actinopterygii"	78.2	1	"polyandrous"	"Field"	"gMS"	0	NA	0	0.478089949695661	0.0258740976043478	24
-"111"	150	3031	"LaBrecque et al. 2014"	2014	"Cymatogaster_aggregata"	"Actinopterygii"	78.1	0.8	"polyandrous"	"Field"	"gMS"	0	NA	0	0.514305356767747	0.0110397049	50
+"1"	1	2	"Gerlach et al. 2012"	2012	"Junco_hyemalis"	"Aves"	36	0.439	"low polyandry"	"Field"	"gMS"	0	0.246	0	0.303293040688427	0.00189537519569469	436
+"2"	2	3	"Gopurenko et al 2007"	2007	"Ambystoma_texanum"	"Amphibia"	55	0.857142857142857	"high polyandry"	"Field"	"gMS"	1	18.342137974	0	0.817332234148515	0.00306118793481267	37
+"3"	4	4	"Gopurenko et al. 2006"	2006	"Ambystoma_tigrinum"	"Amphibia"	53	0.466666666666667	"low polyandry"	"Field"	"gMS"	0	0.0782843804	1	0.0652902151991017	0.0708208962261692	15
+"4"	5	9	"Jones et al. 2002"	2002	"Taricha_granulosa"	"Amphibia"	59	0.547619047619048	"high polyandry"	"Field"	"gMS"	0	22.2	0	0.268509250695224	0.029689778392536	30
+"5"	6	10	"Jones et al. 2004"	2004	"Taricha_granulosa"	"Amphibia"	60	0.547619047619048	"high polyandry"	"Lab"	"gMS"	1	21.7	0	0.455591889481971	0.125590972403951	6
+"6"	7	10	"Jones et al. 2004"	2004	"Taricha_granulosa"	"Amphibia"	61	0.547619047619048	"high polyandry"	"Lab"	"gMS"	1	-18.7	0	-0.206066017028133	0.183375343378618	6
+"7"	8	11	"Jones et al. 2000"	2000	"Syngnathus_typhle"	"Actinopterygii"	97	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	24.1	0	0.833724622168254	0.00152403269734194	62
+"8"	9	11	"Jones et al. 2000"	2000	"Syngnathus_typhle"	"Actinopterygii"	98	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	14.5	0	0.588198744680699	0.0388859169246715	12
+"9"	10	14	"Krakauer 2008"	2008	"Meleagris_gallopavo"	"Aves"	51	0.45	"low polyandry"	"Field"	"gMS"	0	2.299	0	0.336297808159935	0.0280927972312807	29
+"10"	11	16	"Jones et al. 2012"	2012	"Spermophilus_columbianus"	"Mammalia"	1	0.343434343434343	"low polyandry"	"Field"	"gMS"	0	0.28	0	0.224595218974792	0.00920059666046876	99
+"11"	12	17	"Levitan 2008"	2008	"Strongylocentrotus_franciscanus"	"Echinoidea"	106	0.99	"high polyandry"	"Field"	"gMS"	1	0.0066	0	0.0249918758053033	0.00564266216047994	178
+"12"	13	17	"Levitan 2008"	2008	"Strongylocentrotus_purpuratus"	"Echinoidea"	105	0.99	"high polyandry"	"Field"	"gMS"	1	-0.04	0	-0.114707866935281	0.0198746396065351	50
+"13"	14	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	8	0.353	"low polyandry"	"Field"	"gMS"	1	0.2	0	0.175204220674735	0.0854135671264262	12
+"14"	15	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	9	0.353	"low polyandry"	"Field"	"gMS"	1	-0.25	0	-0.179840020211069	0.133765881032126	8
+"15"	16	19	"Mills et al. 2007"	2007	"Myodes_glareolus"	"Mammalia"	10	0.353	"low polyandry"	"Field"	"gMS"	1	1e-04	0	0.01	0.199960002	6
+"16"	17	20	"Mobley & Jones 2013"	2013	"Syngnathus_floridae"	"Actinopterygii"	91	0.633333333333333	"high polyandry"	"Field"	"gMS"	1	0.93	1	0.896528908376985	0.000785888467403322	50
+"17"	19	21	"Munroe & Koprowski 2011"	2011	"Xerospermophilus_tereticaudus"	"Mammalia"	3	0.935483870967742	"high polyandry"	"Field"	"gMS"	0	0.81	0	0.882889506920565	0.00162076494422045	31
+"18"	21	22	"Moorad et al. 2011"	2011	"Homo_sapiens"	"Mammalia"	17	0.0124	"low polyandry"	"Field"	"cMS"	1	0.7726	0	0.0109306498818536	4.57263563877414e-05	21865
+"19"	22	22	"Moorad et al. 2011"	2011	"Homo_sapiens"	"Mammalia"	18	0.0124	"low polyandry"	"Field"	"cMS"	1	0.3317	0	0.00765814437098855	0.000148570982034038	6731
+"20"	23	23	"Borgerhoff Mulder 2009"	2009	"Homo_sapiens"	"Mammalia"	11	0.0124	"low polyandry"	"Field"	"cMS"	1	0.196	0	0.051883292593815	0.00650080715095372	154
+"21"	24	24	"Croshaw 2010"	2010	"Ambystoma_opacum"	"Amphibia"	57	0.294117647058824	"low polyandry"	"Lab"	"gMS"	0	11.3	0	0.158333944190778	0.0432040550444349	23
+"22"	25	24	"Croshaw 2010"	2010	"Ambystoma_opacum"	"Amphibia"	58	0.294117647058824	"low polyandry"	"Lab"	"gMS"	0	15.15	0	0.237915475715443	0.044499822000712	21
+"23"	26	27	"Schlicht & Kempenears 2013"	2013	"Cyanistes_caeruleus"	"Aves"	46	0.47	"low polyandry"	"Field"	"gMS"	1	-0.01	0	-0.00218618091157158	0.00224213103419033	447
+"24"	27	28	"Rodriguez-Munoz et al. 2010"	2010	"Gryllus_campestris"	"Arthropoda"	143	0.808695652173913	"high polyandry"	"Field"	"cMS"	1	0.84	0	0.13263455353011	0.017872696782177	55
+"25"	28	29	"Fritzsche & Arnqvist 2013"	2013	"Megabruchidius_tonkineus"	"Arthropoda"	116	0.977272727272727	"high polyandry"	"Lab"	"cMS"	1	0.87248243521638	1	0.754792586172203	0.00377852844144172	50
+"26"	29	29	"Fritzsche & Arnqvist 2013"	2013	"Megabruchidius_dorsalis"	"Arthropoda"	117	1	"high polyandry"	"Lab"	"cMS"	1	0.61676281852083	1	0.609999721031019	0.00804609872248365	50
+"27"	30	29	"Fritzsche & Arnqvist 2013"	2013	"Callosobruchus_maculatus"	"Arthropoda"	107	1	"high polyandry"	"Lab"	"cMS"	1	0.17117999582497	1	0.230087059815584	0.0183045416172297	50
+"28"	31	29	"Fritzsche & Arnqvist 2013"	2013	"Callosobruchus_chinensis"	"Arthropoda"	108	0.68	"high polyandry"	"Lab"	"cMS"	1	0.09555464553758	1	0.194647160209261	0.0188910291834217	50
+"29"	32	31	"Anthes et al. 2010"	2010	"Biomphalaria_glabrata"	"Gastropoda"	160	0.653846153846154	"high polyandry"	"Lab"	"cMS"	1	0.22640578664608	1	0.364479188469866	0.025929574390118	30
+"30"	34	32	"Ketterson et al. 1997"	1997	"Junco_hyemalis"	"Aves"	35	0.439	"low polyandry"	"Field"	"gMS"	1	2.92	0	0.769137792633957	0.00379119681876326	45
+"31"	35	36	"Garcia-Navas et al. 2014"	2014	"Cyanistes_caeruleus"	"Aves"	45	0.47	"low polyandry"	"Field"	"gMS"	0	1.1168	0	0.345262704333351	0.0121218356296536	65
+"32"	36	38	"Gagnon et. al. 2012"	2012	"Gerris_gillettei"	"Arthropoda"	136	0.776119402985075	"high polyandry"	"Field"	"gMS"	1	1.05	1	0.365439973762687	0.00782022797160793	97
+"33"	37	39	"Walker et al. 2014"	2014	"Notiomystis_cincta"	"Aves"	47	0.836	"high polyandry"	"Field"	"gMS"	1	0.599527614452988	1	0.42983696536989	0.00738462840340649	91
+"34"	39	1001	"Bergeron et al.  2012"	2012	"Tamias_striatus"	"Mammalia"	5	0.65	"high polyandry"	"Field"	"gMS"	1	1	1	0.94126245835291	9.02895631193381e-05	145
+"35"	41	1002	"Courtiol et al. 2012"	2012	"Homo_sapiens"	"Mammalia"	13	0.0124	"low polyandry"	"Field"	"cMS"	1	0.564907307481126	1	0.368586530641705	0.000447688728957669	1669
+"36"	43	1004	"Andrade & Kasumovic 2005"	2005	"Latrodectus_hasseltii"	"Arthropoda"	148	0.666666666666667	"high polyandry"	"Lab"	"cMS"	1	0.4749	1	0.393737070671928	0.00605064569700073	119
+"37"	46	1005	"Balenger et al. 2009"	2009	"Sialia_currucoides"	"Aves"	43	0.3415	"low polyandry"	"Field"	"gMS"	0	0.0343	1	0.0665649005831273	0.0170889286339891	59
+"38"	47	1006	"Barreto & Avise 2010"	2010	"Pycnogonum_stearnsi"	"Arthropoda"	147	0.685714285714286	"high polyandry"	"Field"	"gMS"	1	0.99	1	0.877068344864559	0.000872886535405175	62
+"39"	48	1007	"Becher & Magurran 2004"	2004	"Poecilia_reticulata"	"Actinopterygii"	74	0.710280373831776	"high polyandry"	"Lab"	"gMS"	1	0.807071302298174	1	0.704341623318423	0.00259100112362456	99
+"40"	50	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_lummei"	"Arthropoda"	130	0.753	"high polyandry"	"Lab"	"cMS"	0	0.5875	1	0.482449986300518	0.00700786075013769	85
+"41"	51	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_melanogaster"	"Arthropoda"	132	0.758620689655172	"high polyandry"	"Lab"	"cMS"	0	0.0423	1	0.0787201951069304	0.00710535728742097	140
+"42"	52	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_bifurca"	"Arthropoda"	131	0.326	"low polyandry"	"Lab"	"cMS"	0	0.23657	1	0.201313923669069	0.00814679530959202	114
+"43"	53	1008	"Bjork & Pitnick 2006"	2006	"Drosophila_virilis"	"Arthropoda"	129	0.753	"high polyandry"	"Lab"	"cMS"	0	-0.1588	1	-0.220647374012352	0.022073164087327	42
+"44"	54	1009	"Collet et al.  2012"	2012	"Gallus_gallus"	"Aves"	52	0.95	"high polyandry"	"Lab"	"cMS"	1	0.29	0	0.608147107726331	0.0330914970698097	13
+"45"	55	1010	"Fitze & Le Galliard 2011"	2011	"Zootoca_vivipara"	"Reptilia"	29	0.632524590163934	"high polyandry"	"Field"	"gMS"	1	1.48166666666667	0	0.950262716616577	0.00188182985316754	6
+"46"	56	1010	"Fitze & Le Galliard 2011"	2011	"Zootoca_vivipara"	"Reptilia"	30	0.632524590163934	"high polyandry"	"Field"	"gMS"	1	0.946666666666667	0	0.889989192990931	0.00864608176965114	6
+"47"	59	1011	"Jokela et al. 2010"	2010	"Homo_sapiens"	"Mammalia"	15	0.0124	"low polyandry"	"Field"	"cMS"	1	0.1204054	1	0.0887488521265644	0.000245524898857484	4010
+"48"	60	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	93	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	0.956182	1	0.977180512188084	4.15440035968041e-05	50
+"49"	61	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	94	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	0.986514	1	0.895074632787995	0.000399372758037413	100
+"50"	62	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	95	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	0.85492	1	0.729254417356292	0.00221414139841739	100
+"51"	63	1013	"Aronsen et al.  2013"	2013	"Syngnathus_typhle"	"Actinopterygii"	96	0.527777777777778	"high polyandry"	"Lab"	"gMS"	1	1.03958	1	0.662337377500425	0.00642995951367601	50
+"52"	64	1014	"Rose et al. 2013"	2013	"Syngnathus_scovelli"	"Actinopterygii"	89	0.615384615384615	"high polyandry"	"Lab"	"gMS"	1	0.914509037616024	1	0.892868109139528	0.000747679648655248	56
+"53"	66	1017	"Ursprung et al. 2011"	2011	"Allobates_femoralis"	"Amphibia"	64	0.571428571428571	"high polyandry"	"Field"	"gMS"	0	0.77	1	0.541536923447609	0.0121823966384681	42
+"54"	68	2001	"PÃ©lissiÃ© et al. 2012"	2012	"Physa_acuta"	"Gastropoda"	157	0.789473684210526	"high polyandry"	"Lab"	"cMS"	1	0.3363819838	1	0.259670446228572	0.00730831221660351	120
+"55"	71	2002	"Pongratz & Michiels 2003"	2003	"Schmidtea_polychroa"	"Plathelminthes"	163	0.918367346938776	"high polyandry"	"Lab"	"gMS"	1	0.9652569	1	0.778513159364162	0.00292775109952631	54
+"56"	73	2003	"Poesel et al. 2011"	2011	"Zonotrichia_leucophrys"	"Aves"	33	0.346153846153846	"low polyandry"	"Field"	"gMS"	0	0.1514	1	0.196391239524007	0.0181244817621449	52
+"57"	74	2004	"Prosser et al. 2002"	2002	"Nerodia_sipedon"	"Reptilia"	27	0.555555555555556	"high polyandry"	"Field"	"gMS"	0	1.789	0	0.38102648199219	0.0166071639786706	45
+"58"	76	2005	"Rios-Cardenas 2005"	2005	"Lepomis_gibbosus"	"Actinopterygii"	83	0.24390243902439	"low polyandry"	"Field"	"gMS"	0	64.17	0	0.0311531505274539	0.0081808188879602	123
+"59"	77	2006	"Schulte-Hostedde et al. 2004"	2004	"Tamias_amoenus"	"Mammalia"	7	0.594594594594595	"high polyandry"	"Field"	"gMS"	1	0.857	0	0.87	0.00164160027777778	37
+"60"	79	2008	"Tatarenkov et al. 2008"	2008	"Xiphophorus_helleri"	"Actinopterygii"	67	0.63768115942029	"high polyandry"	"Field"	"gMS"	0	0.4066740827	0	0.231306834507565	0.0218501671160764	42
+"61"	81	2008	"Tatarenkov et al. 2008"	2008	"Xiphophorus_helleri"	"Actinopterygii"	69	0.63768115942029	"high polyandry"	"Field"	"gMS"	0	0.2335642584	0	0.152052456558674	0.0367036397298436	27
+"62"	83	2009	"Whittingham & Dunn 2005"	2005	"Geothlypis_trichas"	"Aves"	37	0.653846153846154	"high polyandry"	"Field"	"gMS"	0	0.7572	0	0.322674318169317	0.0445890708737435	19
+"63"	84	2010	"Williams & DeWoody 2009"	2009	"Ambystoma_tigrinum"	"Amphibia"	54	0.466666666666667	"low polyandry"	"Field"	"gMS"	1	1.0357	1	0.751420071055918	0.00430784518549563	45
+"64"	85	2011	"Woolfenden et al. 2002"	2002	"Molothrus_ater"	"Aves"	41	0.454545454545455	"low polyandry"	"Field"	"gMS"	1	1.91	0	0.699714329088374	0.00184757457239666	142
+"65"	86	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	100	0.679775280898876	"high polyandry"	"Field"	"gMS"	1	1.026499324	1	0.970225830508294	2.99235757893352e-05	116
+"66"	88	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	102	0.679775280898876	"high polyandry"	"Field"	"gMS"	1	0.967484356	1	0.717551720118737	0.00196117464477644	121
+"67"	89	2014	"Serbezov et al. 2010"	2010	"Salmo_trutta"	"Actinopterygii"	103	0.679775280898876	"high polyandry"	"Field"	"gMS"	1	1.117316215	1	0.576304859338199	0.00420805618457377	107
+"68"	90	2015	"Whittingham & Lifjeld 1995"	1995	"Delichon_urbica"	"Aves"	49	0.235294117647059	"low polyandry"	"Field"	"gMS"	0	-0.0566037735849057	0	-0.0924500327042049	0.0756137718662374	14
+"69"	91	2016	"Broquet et al. 2009"	2009	"Hyla_arborea"	"Amphibia"	65	0.157894736842105	"low polyandry"	"Field"	"gMS"	0	0.4383857833	1	0.159269658564117	0.0527727681938136	19
+"70"	93	2020	"Byers et al. 2004"	2004	"Dendroica_pensylvanica"	"Aves"	38	0.606060606060606	"high polyandry"	"Field"	"gMS"	1	0.686	0	0.522943784087283	0.0146623763437917	37
+"71"	94	3001	"Buerkli & Jokela 2017"	2017	"Radix_balthica"	"Gastropoda"	150	0.5	"high polyandry"	"Field"	"gMS"	0	-0.01	0	-0.173288666574515	0.0159465053327159	60
+"72"	96	3003	"Cattelan et al. 2020"	2020	"Poecilia_reticulata"	"Actinopterygii"	76	0.710280373831776	"high polyandry"	"Lab"	"cMS"	1	0.174821895972405	1	0.121167883050725	0.0164551226992115	60
+"73"	98	3003	"Cattelan et al. 2020"	2020	"Poecilia_reticulata"	"Actinopterygii"	78	0.710280373831776	"high polyandry"	"Lab"	"cMS"	1	0.197514405591258	1	0.135328005334618	0.0185328471618763	53
+"74"	100	3004	"Grunst et al. 2019"	2019	"Zonotrichia_albicollis"	"Aves"	34	0.63768115942029	"high polyandry"	"Field"	"gMS"	1	0.193	1	0.180266088502523	0.00423558486770262	222
+"75"	101	3005	"Hoffer et al. 2017"	2017	"Lymnaea_stagnalis"	"Gastropoda"	151	0.588235294117647	"high polyandry"	"Lab"	"cMS"	1	-0.082875	0	-0.0822200100734691	0.0469774018688294	22
+"76"	102	3006	"Johannesson et al. 2016"	2016	"Littorina_saxatilis"	"Gastropoda"	162	0.68	"high polyandry"	"Lab"	"gMS"	0	0.0550450114970067	1	0.0707354051425774	0.0412507516627613	25
+"77"	105	3007	"Devost & Turgeon 2016"	2016	"Gerris_buenoi"	"Arthropoda"	139	1	"high polyandry"	"Lab"	"cMS"	0	-0.415737353043016	1	-0.203095902067187	0.027035455944993	35
+"78"	106	3008	"Scheepers & Gouws 2019"	2019	"Clinus_cottoides"	"Actinopterygii"	80	0.826086956521739	"high polyandry"	"Field"	"gMS"	0	0.44	1	0.264915811690649	0.0392983869178119	23
+"79"	107	3009	"Wang et al. 2020"	2020	"Acanthopagrus_schlegelii"	"Actinopterygii"	88	0.92	"high polyandry"	"Lab"	"gMS"	0	1.7465	0	0.932563437615837	0.000707696623399074	25
+"80"	108	3010	"Louder et al. 2019"	2019	"Molothrus_ater"	"Aves"	39	0.454545454545455	"low polyandry"	"Field"	"gMS"	1	0.480400163331973	0	0.177486126261431	0.00947464326714284	100
+"81"	110	3011	"Janicke et al. 2015"	2015	"Physa_acuta"	"Gastropoda"	152	0.789473684210526	"high polyandry"	"Lab"	"cMS"	1	0.543172738384078	1	0.533516750663676	0.013466835612629	39
+"82"	112	3011	"Janicke et al. 2015"	2015	"Physa_acuta"	"Gastropoda"	154	0.789473684210526	"high polyandry"	"Lab"	"cMS"	1	0.00679237080910736	1	0.00499247681362823	0.026314477657152	39
+"83"	114	3012	"Levine et al. 2015"	2015	"Agkistrodon_contortrix"	"Reptilia"	25	0.52	"high polyandry"	"Field"	"gMS"	0	0.07	0	0.0316227766016838	0.0554445	19
+"84"	115	3013	"Borgerhoff Mulder & Ross 2019"	2019	"Homo_sapiens"	"Mammalia"	12	0.0124	"low polyandry"	"Field"	"cMS"	1	0.1	0	0.162891861163755	0.00541506584839896	176
+"85"	116	3014	"Bolopo et al. 2016"	2016	"Clamator_glandarius"	"Aves"	50	0.696969696969697	"high polyandry"	"Field"	"gMS"	0	1.08029809145881	1	0.72653353277771	0.00348319847681625	65
+"86"	117	3015	"Glaudas et al. 2020"	2020	"Bitis_arietans"	"Reptilia"	26	0.653846153846154	"high polyandry"	"Field"	"gMS"	0	2.48	0	0.386487144777614	0.0452229663598545	17
+"87"	118	3016	"Saunders & Shuster 2019"	2019	"Paracerceis_sculpta"	"Arthropoda"	144	0.788819875776398	"high polyandry"	"Lab"	"cMS"	0	1.78	0	0.194852881160595	0.18510125029924	6
+"88"	119	3017	"Paczolt et al. 2015"	2015	"Xiphophorus_birchmanni"	"Actinopterygii"	71	0.838709677419355	"high polyandry"	"Field"	"gMS"	0	0.701682873106264	1	0.61273673564632	0.013002243839233	31
+"89"	120	3017	"Paczolt et al. 2015"	2015	"Xiphophorus_birchmanni"	"Actinopterygii"	72	0.838709677419355	"high polyandry"	"Field"	"gMS"	0	0.986638624273166	1	0.551292068528037	0.0440475697041259	12
+"90"	121	3018	"Mangold et al. 2015"	2015	"Hyalinobatrachium_valerioi"	"Amphibia"	62	0.736111111111111	"high polyandry"	"Field"	"gMS"	1	0.940348887629328	1	0.894566819795162	0.000525001899555388	77
+"91"	123	3019	"Marie-Orleach et al. 2016"	2016	"Macrostomum_lignano"	"Plathelminthes"	165	1	"high polyandry"	"Lab"	"cMS"	1	0.29	1	0.0971858379328448	0.0192391967741335	52
+"92"	124	3020	"Kretzschmar et al. 2019"	2019	"Ceratotherium_simum"	"Mammalia"	23	0.696969696969697	"high polyandry"	"Field"	"gMS"	0	1.05943973076741	1	0.83048644770782	0.0030087902101147	33
+"93"	125	3021	"Morimoto et al. 2016"	2016	"Drosophila_melanogaster"	"Arthropoda"	133	0.758620689655172	"high polyandry"	"Lab"	"cMS"	0	0.0196061789169922	1	0.0104070339523259	0.0175400596319105	58
+"94"	126	3022	"Turnell and Shaw 2015"	2015	"Laupala_cerasina"	"Arthropoda"	142	1	"high polyandry"	"Lab"	"cMS"	0	0.196646698040273	1	0.292324959075567	0.0418197301250141	21
+"95"	127	3023	"FuxjÃ¤ger et al. 2019"	2019	"Gasterosteus_aculeatus"	"Actinopterygii"	84	0.95	"high polyandry"	"Lab"	"gMS"	1	0.95403179467535	1	0.791349852328943	0.00399144521781937	36
+"96"	128	3023	"FuxjÃ¤ger et al. 2019"	2019	"Gasterosteus_aculeatus"	"Actinopterygii"	85	0.95	"high polyandry"	"Lab"	"gMS"	1	0.922032377207848	1	0.686264801573415	0.00799668513870284	36
+"97"	131	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	126	0.788819875776398	"high polyandry"	"Lab"	"gMS"	0	0.9939068	1	0.772056869931425	0.00332975474177185	50
+"98"	132	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	127	0.788819875776398	"high polyandry"	"Lab"	"gMS"	0	0.6926554	1	0.635927082037808	0.00403108504818101	89
+"99"	133	3024	"McCullough et al. 2018"	2018	"Onthophagus_taurus"	"Arthropoda"	128	0.788819875776398	"high polyandry"	"Lab"	"gMS"	0	1.30141	1	0.7799833885676	0.00730337410336248	22
+"100"	134	3025	"Wells et al. 2017"	2017	"Callospermophilus_lateralis"	"Mammalia"	2	0.63	"high polyandry"	"Field"	"gMS"	0	0.46	0	0.223606797749979	0.0376041666666667	25
+"101"	137	3028	"SkjÃ¦rvÃ¸ & RÃ¸skaft 2015"	2015	"Homo_sapiens"	"Mammalia"	19	0.0124	"low polyandry"	"Field"	"cMS"	0	0.16	1	0.144431628934824	0.00127488586355895	753
+"102"	138	3028	"SkjÃ¦rvÃ¸ & RÃ¸skaft 2015"	2015	"Homo_sapiens"	"Mammalia"	20	0.0124	"low polyandry"	"Field"	"cMS"	0	0.1	1	0.0594186399842153	0.00224649618869482	443
+"103"	139	3028	"SkjÃ¦rvÃ¸ & RÃ¸skaft 2015"	2015	"Homo_sapiens"	"Mammalia"	21	0.0124	"low polyandry"	"Field"	"cMS"	0	0.02	1	0.0168120659784772	0.00253663651970453	395
+"104"	140	3028	"SkjÃ¦rvÃ¸ & RÃ¸skaft 2015"	2015	"Homo_sapiens"	"Mammalia"	22	0.0124	"low polyandry"	"Field"	"cMS"	0	-0.02	1	-0.0116969065188078	0.00490061952683746	205
+"105"	141	3029	"Levine et al. 2020"	2020	"Crotalus_atrox"	"Reptilia"	24	0.4	"low polyandry"	"Field"	"gMS"	0	0.1509	1	0.0989195657077547	0.0576779756964926	18
+"106"	142	3030	"Fromonteil et al. 2022"	2022	"Acanthoscelides_obtectus"	"Arthropoda"	109	0.551020408163265	"high polyandry"	"Lab"	"cMS"	1	0.48884788	1	0.389648288217163	0.0146816223068515	50
+"107"	144	3030	"Fromonteil et al. 2022"	2022	"Acanthoscelides_obtectus"	"Arthropoda"	111	0.551020408163265	"high polyandry"	"Lab"	"cMS"	1	0.91015042	1	0.525362711698655	0.0106972927075624	50
+"108"	146	3030	"Fromonteil et al. 2022"	2022	"Acanthoscelides_obtectus"	"Arthropoda"	113	0.551020408163265	"high polyandry"	"Lab"	"cMS"	0	0.68813743	1	0.30849554999815	0.0151614486263788	55
+"109"	147	3030	"Fromonteil et al. 2022"	2022	"Acanthoscelides_obtectus"	"Arthropoda"	114	0.551020408163265	"high polyandry"	"Lab"	"cMS"	1	0.02536064	1	0.0200807959258555	0.0185035867753916	55
+"110"	149	3031	"LaBrecque et al. 2014"	2014	"Hyperprosopon_anale"	"Actinopterygii"	82	1	"high polyandry"	"Field"	"gMS"	0	0.330357142857143	1	0.511787085034552	0.0236849217108926	24
+"111"	150	3031	"LaBrecque et al. 2014"	2014	"Cymatogaster_aggregata"	"Actinopterygii"	81	0.869565217	"high polyandry"	"Field"	"gMS"	0	0.468264930281505	1	0.485446224876531	0.0265553925466045	23
+"112"	151	3032	"Dekker et al. 2020"	2020	"Poecilia_gillii"	"Actinopterygii"	73	0.709677419354839	"high polyandry"	"Field"	"gMS"	0	0.77037037037037	1	0.628536864250885	0.0121984703289576	31
+"113"	152	3033	"Gauthey et al. 2017"	2017	"Salmo_trutta"	"Actinopterygii"	104	0.545454545454545	"high polyandry"	"Field"	"gMS"	1	1.02735613010842	1	0.606260919840917	0.0129029061139922	32
+"114"	153	3034	"Gao et al. 2020"	2020	"Heliothis_virescens"	"Arthropoda"	134	0.654761904761905	"high polyandry"	"Lab"	"cMS"	1	0.734930896446077	1	0.539382198701723	0.00448906954346681	113
+"115"	155	3035	"Greenway et al. 2021"	2021	"Anasa_tristis"	"Arthropoda"	140	0.95	"high polyandry"	"Lab"	"cMS"	1	0.499851078027679	1	0.361796795563124	0.0095612678663421	80
+"116"	157	3036	"Winkler et al.  2022"	2022	"Tribolium_castaneum"	"Arthropoda"	118	0.66161965	"high polyandry"	"Lab"	"cMS"	0	0.8736	1	0.667203661440201	0.00654992808832493	48
+"117"	158	3036	"Winkler et al.  2022"	2022	"Tribolium_castaneum"	"Arthropoda"	119	0.66161965	"high polyandry"	"Lab"	"cMS"	0	0.6859	1	0.339147977043791	0.0135032277649416	59
+"118"	159	3036	"Winkler et al.  2022"	2022	"Tribolium_castaneum"	"Arthropoda"	120	0.66161965	"high polyandry"	"Lab"	"cMS"	0	0.92502	1	0.540840082482359	0.00910081704353252	56
+"119"	160	3036	"Winkler et al.  2022"	2022	"Tribolium_castaneum"	"Arthropoda"	121	0.66161965	"high polyandry"	"Lab"	"cMS"	0	0.7183	1	0.487266318203048	0.0116303069242633	51
+"120"	165	3037	"Hargrove et al. 2020"	2020	"Oncorhynchus_clarkii"	"Actinopterygii"	99	0.551652892561983	"high polyandry"	"Field"	"gMS"	1	NA	0	0.28	0.00109593104516129	776
