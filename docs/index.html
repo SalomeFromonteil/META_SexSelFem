@@ -362,9 +362,7 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="META_SexSelFem.html">Analysis</a>
-</li>
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -413,7 +411,7 @@ class="email">tim.janicke@cefe.cnrs.fr</a></h4>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -424,8 +422,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -438,9 +436,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>META_SexSelFem/</code> <span
@@ -463,21 +461,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -568,15 +563,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSalomeFromonteilMETASexSelFemtree81d37fc496329acf67c3341cd653f573a07760fatargetblank81d37fca">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSalomeFromonteilMETASexSelFemtree81dc631610f75390b87d4d564dbdfe0e6d60a220targetblank81dc631a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/SalomeFromonteil/META_SexSelFem/tree/81d37fc496329acf67c3341cd653f573a07760fa" target="_blank">81d37fc</a>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/tree/81dc631610f75390b87d4d564dbdfe0e6d60a220" target="_blank">81dc631</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomSalomeFromonteilMETASexSelFemtree81d37fc496329acf67c3341cd653f573a07760fatargetblank81d37fca"
+id="strongRepositoryversionstrongahrefhttpsgithubcomSalomeFromonteilMETASexSelFemtree81dc631610f75390b87d4d564dbdfe0e6d60a220targetblank81dc631a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -586,7 +581,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/SalomeFromonteil/META_SexSelFem/tree/81d37fc496329acf67c3341cd653f573a07760fa" target="_blank">81d37fc</a>.
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/tree/81dc631610f75390b87d4d564dbdfe0e6d60a220" target="_blank">81dc631</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -605,14 +600,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
     Ignored:    analysis/.DS_Store
+    Ignored:    analysis/figure/
     Ignored:    data/.DS_Store
-
-Unstaged changes:
-    Modified:   META_SexSelFem.Rproj
-    Deleted:    analysis/META_SexSelFem.Rmd
-    Modified:   analysis/index.Rmd
-    Modified:   data/Fromonteil_et_al_DATA.txt
-    Modified:   data/Fromonteil_et_al_TREE.txt
 
 </code></pre>
 <p>
@@ -657,6 +646,74 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/81dc631610f75390b87d4d564dbdfe0e6d60a220/analysis/index.Rmd" target="_blank">81dc631</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+<td>
+workflowr::wflow_publish(files = "analysis/index.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/analysis/index.Rmd" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+<td>
+Update for review
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SalomeFromonteil/META_SexSelFem/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/index.html" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+<td>
+Update for review
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SalomeFromonteil/META_SexSelFem/be3338c0b5c9f95db362d6d08a469189d4ae4dbb/docs/index.html" target="_blank">be3338c</a>
+</td>
+<td>
+GitHub
+</td>
+<td>
+2021-10-23
+</td>
+<td>
+Update index.html
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1040,6 +1097,7 @@ library(ggtext)
 library(kableExtra)
 library(htmlTable)
 library(knitr)
+library(ggtext)
 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) # Suppress warnings in the HTML output
 knitr::opts_chunk$set(dev = c(&quot;png&quot;, &quot;pdf&quot;)) # saves figures as png and pdf but prints png</code></pre>
@@ -1083,8 +1141,8 @@ theme_density &lt;- function(...) {          # basic theme + theme specific to d
 
 theme_jitter &lt;- function(...) {           # density theme + theme specific to jitter plots
   theme_density(legend.position = &quot;none&quot;,
-               axis.ticks = element_line(colour = &quot;transparent&quot;),
-               axis.text.y = element_text(colour = &quot;transparent&quot;)) +
+                axis.ticks = element_line(colour = &quot;transparent&quot;),
+                axis.text.y = element_text(colour = &quot;transparent&quot;)) +
     theme(...)
 }
 
@@ -6493,7 +6551,7 @@ Scatter_r_versus_betaSS &lt;- ggplot(data = Data_stand,
   scale_x_continuous(limits = c(-0.3, 1.0), breaks = c(0, 0.5, 1.0)) + 
   geom_smooth(method = lm, se = TRUE, linetype = &quot;longdash&quot;, color = &quot;#008080&quot;, fill = &quot;#B2D8D8&quot;, size = 0.8) +
     geom_point(shape = 21, size = 5, fill = &quot;grey&quot;, alpha = .6) +
-  theme_paper(axis.title.x = element_markdown()) +
+  theme_paper(axis.title.x = ggtext::element_markdown()) +
   annotate(&quot;text&quot;, x = 0.8, y = -0.3, label = paste0(&quot;R^2 == &quot;, round(summary(LM_beta_f_r)$r.squared, 2)), parse = TRUE, size = 7)
 Scatter_r_versus_betaSS</code></pre>
 <p><img src="figure/index.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -6521,6 +6579,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/unnamed-chunk-1-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/e9f28a6b991a585121852ef2e688faa407f6a01a/docs/figure/index.Rmd/unnamed-chunk-1-1.png" target="_blank">e9f28a6</a>
 </td>
 <td>
@@ -6534,7 +6603,7 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure S7A.</strong> Relationship between effect size
+<p><strong>Figure S5A.</strong> Relationship between effect size
 <em>r</em> (correlation coefficient) and the actual Bateman gradient
 (<span class="math inline">\(\beta\)</span><sub>ss</sub>). Graph shows a
 subset of data for which standardized Bateman gradients were available
@@ -6652,6 +6721,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Phylogeny-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/e9f28a6b991a585121852ef2e688faa407f6a01a/docs/figure/index.Rmd/Phylogeny-1.png" target="_blank">e9f28a6</a>
 </td>
 <td>
@@ -6665,7 +6745,7 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure S4.</strong> Phylogenetic tree of all sampled species.
+<p><strong>Figure S4. Phylogenetic tree of all sampled species.</strong>
 Doughnut charts show the relative fraction of the sampled effect sizes
 (i.e., number of Bateman gradients) and the number of species.</p>
 </div>
@@ -6729,6 +6809,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Forest_Plot-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/e9f28a6b991a585121852ef2e688faa407f6a01a/docs/figure/index.Rmd/Forest_Plot-1.png" target="_blank">e9f28a6</a>
 </td>
 <td>
@@ -6742,7 +6833,7 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure 2.</strong> Forest plot. Graphs shows all sampled
+<p><strong>Figure 2. Forest plot.</strong> Graphs shows all sampled
 effect sizes (Pearson correlation coefficient of Bateman gradients) with
 95% confidence limits in phylogenetic order. <br></br></p>
 <hr />
@@ -6777,6 +6868,10 @@ class="section level2">
 <p>First, we quantified global effect sizes both without (i.e.,
 ‘non-phylogenetic’ GLMMs) and with adding the phylogenetic correlation
 matrix as an additional random term (‘phylogenetic’ GLMMs).</p>
+<p>Note that all plots and tables presented below might very slightly
+vary from the ones presented in the manuscript, as the Bayesian approach
+yields different outputs every time the models are run. However, this do
+not lead to a qualitative change of results.</p>
 <pre class="r"><code>names(Data)[names(Data) == &quot;Species_Phylo&quot;] &lt;- &quot;animal&quot; # MCMCglmmm requires the species names to be in a column named &#39;animal&#39;
 
 # models ####
@@ -6799,6 +6894,7 @@ Model_ALL_phylo       &lt;- MCMCglmm(r_f~1,
 Data_trad  &lt;- as.data.frame(Model_ALL_traditional$Sol[,&quot;(Intercept)&quot;])
 Data_trad$Approach &lt;- as.factor(rep(&quot;Non-phylogenetic&quot;, nrow(Data_trad)))
 colnames(Data_trad) &lt;- c(&quot;ES&quot;, &quot;Approach&quot;)
+
 
 Data_phylo  &lt;- as.data.frame(Model_ALL_phylo$Sol[,&quot;(Intercept)&quot;])
 Data_phylo$Approach &lt;- as.factor(rep(&quot;Phylogenetic&quot;, nrow(Data_phylo)))
@@ -6905,6 +7001,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Overall-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/78ed0b4f283b227c471489ad17be568d2b98c920/docs/figure/index.Rmd/Overall-1.png" target="_blank">78ed0b4</a>
 </td>
 <td>
@@ -6940,11 +7047,14 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure 1A.</strong> Meta-analytic evidence for sexual
-selection in females and its relation to the mating system. Global
-effect size of the Bateman gradient obtained from Generalized Linear
-Mixed Models (GLMMs) with or without accounting for phylogenetic
-non-independence (phylogenetic or non-phylogenetic, respectively).</p>
+<p><strong>Figure 1A. Meta-analytic evidence for sexual selection in
+females and its relation to the mating system.</strong> Global effect
+size of the Bateman gradient obtained from Generalized Linear Mixed
+Models (GLMMs) with or without accounting for phylogenetic
+non-independence (phylogenetic or non-phylogenetic, respectively).
+Raincloud charts show posterior distributions, global effect size with
+95% Highest Posterior Density intervals (diamonds and error bars) and
+raw effect sizes (filled circles) of female Bateman gradient.</p>
 </div>
 <div id="moderator-variables" class="section level2">
 <h2>Moderator variables</h2>
@@ -7406,6 +7516,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Plots-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/78ed0b4f283b227c471489ad17be568d2b98c920/docs/figure/index.Rmd/Plots-1.png" target="_blank">78ed0b4</a>
 </td>
 <td>
@@ -7441,8 +7562,8 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure S2.</strong> Methodological predictors of female
-Bateman gradients. Raincloud charts showing effects of mating success
+<p><strong>Figure S2. Methodological predictors of female Bateman
+gradients.</strong> Raincloud charts showing effects of mating success
 method (<em>cMS</em>: copulatory mating success, <em>gMS</em>: genetic
 mating success), mating success range (with or without zero mating
 success (MS) category) and study type (field versus laboratory studies)
@@ -7615,6 +7736,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/MatingSystem-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/f76a4deb2f1f097facb12b329a72d5d679c50a29/docs/figure/index.Rmd/MatingSystem-1.png" target="_blank">f76a4de</a>
 </td>
 <td>
@@ -7661,8 +7793,8 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure 1B.</strong> Meta-analytic evidence for sexual
-selection in females and its relation to the mating system. Contrast in
+<p><strong>Figure 1B. Meta-analytic evidence for sexual selection in
+females and its relation to the mating system.</strong> Contrast in
 sexual selection in females between low-polyandry and high-polyandry
 species. Raincloud charts show posterior distributions, global effect
 size with 95% Highest Posterior Density intervals (diamonds and error
@@ -7751,6 +7883,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Polyandry-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/78ed0b4f283b227c471489ad17be568d2b98c920/docs/figure/index.Rmd/Polyandry-1.png" target="_blank">78ed0b4</a>
@@ -8899,17 +9042,16 @@ Model_REML_Year &lt;- rma.mv(r_f ~ Year,
                           R = list(Species_Phylo = forcedC_ALL), method = &quot;REML&quot;)</code></pre>
 <div id="models-summary-1" class="section level2">
 <h2>Models summary</h2>
-<p><strong>Table S1.</strong> Global tests of sexual selection in
-females using the restricted maximum likelihood (REML) approach. Results
-of intercept-only phylogenetically controlled General Linear-Mixed
-Effects Models are shown for the entire dataset (global model) and
-subsets with respect to mating success method (copulatory versus
-genetic), mating success range (including versus excluding zero mating
-success category), study type (laboratory versus field studies) and
-mating system (low-polyandry versus high-polyandry species). Table shows
-number of effect sizes (<em>k</em>), number of species (<em>N</em>) and
-estimates of <em>r</em> together with 95% confidence intervals (in
-brackets).</p>
+<p><strong>Table S1. Global tests of sexual selection in females using
+the restricted maximum likelihood (REML) approach.</strong> Results of
+intercept-only phylogenetically controlled General Linear-Mixed Effects
+Models are shown for the entire dataset (global model) and subsets with
+respect to mating success method (copulatory versus genetic), mating
+success range (including versus excluding zero mating success category),
+study type (laboratory versus field studies) and mating system
+(low-polyandry versus high-polyandry species). Table shows number of
+effect sizes (<em>k</em>), number of species (<em>N</em>) and estimates
+of <em>r</em> together with 95% confidence intervals (in brackets).</p>
 <pre class="r"><code>REMLNullModel_summary1 &lt;- function(which_data) {
   k &lt;- length(which_data$r_f)  # sample size
   N_sp &lt;- length((aggregate(r_f ~ Species_Phylo, data = which_data, FUN = sum))$Species_Phylo)  # number of species
@@ -9254,19 +9396,18 @@ High-polyandry species
 </tr>
 </tbody>
 </table>
-<p><br></br> <strong>Table S3.</strong> Predictors of inter-specific
-variation in female Bateman gradients using restricted maximum
-likelihood (REML) approach. Methodological moderators include mating
-success method (copulatory versus genetic mating success), mating
-success range (including versus excluding mating success category),
-study type (field versus lab) and year of publication (continuous
-variable). Effect of mating system contrasts low-polyandry and
-high-polyandry species. Effect of polyandry (continuous variable)
-estimates the relationship between the female Bateman gradient and the
-proportion of polyandrous females in the population. Phylogenetically
-controlled multilevel meta-analytic single predictor models are shown
-with Omnibus tests (Wald-type chi-square test) and McFadden’s
-<em>R²</em>.</p>
+<p><br></br> <strong>Table S3. Predictors of inter-specific variation in
+female Bateman gradients using restricted maximum likelihood (REML)
+approach.</strong> Methodological moderators include mating success
+method (copulatory versus genetic mating success), mating success range
+(including versus excluding mating success category), study type (field
+versus lab) and year of publication (continuous variable). Effect of
+mating system contrasts low-polyandry and high-polyandry species. Effect
+of polyandry (continuous variable) estimates the relationship between
+the female Bateman gradient and the proportion of polyandrous females in
+the population. Phylogenetically controlled multilevel meta-analytic
+single predictor models are shown with Omnibus tests (Wald-type
+chi-square test) and McFadden’s <em>R²</em>.</p>
 <pre class="r"><code>REMLPredictorModel_summary &lt;- function(which_model) {
   # REML summary
   as.data.frame(cbind(
@@ -9610,6 +9751,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/540f08c21c9cd3bdd94c37680717721c831bf7ba/docs/figure/index.Rmd/Funnel_plot-1.png" target="_blank">540f08c</a>
+</td>
+<td>
+Salomé Fromonteil
+</td>
+<td>
+2022-07-20
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SalomeFromonteil/META_SexSelFem/blob/78ed0b4f283b227c471489ad17be568d2b98c920/docs/figure/index.Rmd/Funnel_plot-1.png" target="_blank">78ed0b4</a>
 </td>
 <td>
@@ -9645,7 +9797,7 @@ Salomé Fromonteil
 </table>
 </div>
 </div>
-<p><strong>Figure S3.</strong> Funnel plots. Data are shown for (A) raw
+<p><strong>Figure S3. Funnel plots.</strong> Data are shown for (A) raw
 values and (B) for meta-analytic residuals obtained from multivariate
 linear mixed-effects models accounting for all tested moderator
 variables. Dashed lines indicate the estimated global effect size. Dark
