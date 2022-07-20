@@ -1,9 +1,5 @@
-This repository stores the R code as a supplementary material of the manuscript:  
+# META_SexSelFem
 
-## Sexual selection in females and the evolution of polyandry  
-Salomé Fromonteil, Lennart Winkler, Lucas Marie-Orleach, Tim Janicke  
-<br />
-<br />
+A [workflowr][] project.
 
-* Access the code here:
-https://salomefromonteil.github.io/META_SexSelFem/
+[workflowr]: https://github.com/jdblischak/workflowr

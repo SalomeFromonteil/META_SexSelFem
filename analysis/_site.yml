@@ -4,7 +4,7 @@ navbar:
   title: META_SexSelFem
   left:
   - text: Analysis
-    href: index.html
+    href: META_SexSelFem.html
   right:
   - icon: fa-github
     text: Source code
