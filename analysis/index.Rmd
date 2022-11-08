@@ -1,6 +1,6 @@
 ---
 title: "Sexual selection in females and the evolution of polyandry"
-author: "Salomé Fromonteil^1^,  Lennart Winkler^2^, Lucas Marie-Orleach^3,4^, Tim Janicke^1,2^* <br></br> ^1^Centre d'Écologie Fonctionnelle et Évolutive, UMR 5175, CNRS, Université de Montpellier, École Pratique des Hautes Études, Montpellier, France. <br> ^2^Applied Zoology, TU Dresden, Zellescher Weg 20b, 01062 Dresden, Germany. <br> ^3^Natural History Museum, University of Oslo, NO-0318, Oslo, Norway. <br> ^4^CNRS, Université de Rennes 1, ECOBIO (Écosystèmes, biodiversité, évolution) - UMR 6553, F-35000, Rennes, France.<br> *Corresponding author: tim.janicke@cefe.cnrs.fr"
+author: "Salomé Fromonteil^1†^,  Lucas Marie-Orleach^2,3†^, Lennart Winkler^4^, Tim Janicke^1,4^* <br></br> ^1^ CEFE, Univ Montpellier, CNRS, EPHE, IRD, Montpellier 34090, France. <br> ^2^ Natural History Museum, University of Oslo, NO-0318, Oslo, Norway. <br> ^3^ CNRS, Université de Rennes 1, ECOBIO (Écosystèmes, biodiversité, évolution) - UMR 6553, F-35000, Rennes, France. <br> ^4^ Applied Zoology, TU Dresden, Zellescher Weg 20b, 01062 Dresden, Germany. <br> ^†^ Both authors contributed equally to this work. <br> * Corresponding author: tim.janicke@cefe.cnrs.fr"
 subtitle: "Supplementary material reporting R code"
 site: workflowr::wflow_site
 output:
